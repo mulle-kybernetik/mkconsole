@@ -9,8 +9,8 @@
             TextColor = "0.44 0.50 0.53 1";
             BackgroundColor = "0 0 0 0";
             Files = (
-                "/var/log/daily.out",
-                "/var/tmp/console.log"
+                "/private/var/log/daily.out",
+                "/private/var/log/system.log"
             );
         }
     );
