@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  PreferencesController.m created by erik on Sat Feb 01 2003
-//  @(#)$Id: PreferencesController.m,v 1.11 2004-01-23 22:12:01 erik Exp $
+//  @(#)$Id: PreferencesController.m,v 1.12 2004-02-15 18:55:05 erik Exp $
 //
 //  Copyright (c) 2003 by Mulle Kybernetik. All rights reserved.
 //
@@ -135,6 +135,7 @@ static PreferencesController *sharedInstance = nil;
     [textColorWell setColor:[NSColor colorWithCalibratedStringRep:[settings objectForKey:@"TextColor"]]];
     [backgroundColorWell setColor:[NSColor colorWithCalibratedStringRep:[settings objectForKey:@"BackgroundColor"]]];
     [floatCheckBox setState:[[settings objectForKey:@"Float"] isEqualToString:@"Yes"]];
+    [exposeStickCheckBox setState:[[settings objectForKey:@"Sticky"] isEqualToString:@"Yes"]];
 
     filenames = [[settings objectForKey:@"Files"] mutableCopy];
     [fileTableView reloadData];
@@ -161,6 +162,7 @@ static PreferencesController *sharedInstance = nil;
     [settings setObject:[[textColorWell color] stringRep] forKey:@"TextColor"];
     [settings setObject:[[backgroundColorWell color] stringRep] forKey:@"BackgroundColor"];
     [settings setObject:([floatCheckBox state] == NSOnState) ? @"Yes" : @"No" forKey:@"Float"];
+    [settings setObject:([exposeStickCheckBox state] == NSOnState) ? @"Yes" : @"No" forKey:@"Sticky"];
     [settings setObject:filenames forKey:@"Files"];
     font = [[NSFontManager sharedFontManager] fontWithFamily:[fontFamilyPopup titleOfSelectedItem] traits:0 weight:5 size:[[fontSizePopup titleOfSelectedItem] floatValue]];
     if([boldCheckBox state] == NSOnState)

@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindowController.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindowController.m,v 1.8 2004-01-23 22:12:01 erik Exp $
+//  @(#)$Id: MKConsoleWindowController.m,v 1.9 2004-02-15 18:55:05 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -53,7 +53,8 @@
         [window setLevel:CGWindowLevelForKey(kCGDesktopIconWindowLevelKey) + 1];
     else
         [window setLevel:CGWindowLevelForKey(kCGDesktopWindowLevelKey)];
-
+    [window setSticky:[[settings objectForKey:@"Sticky"] isEqualToString:@"Yes"]];
+        
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_screenParametersChanged:) name:NSApplicationDidChangeScreenParametersNotification object:nil];
 
     return self;

@@ -12,6 +12,7 @@
                 "/private/var/log/daily.out",
                 "/private/var/log/system.log"
             );
+            Sticky = True;
         }
     );
 }

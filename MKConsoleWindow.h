@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindow.h created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindow.h,v 1.3 2003-11-17 23:18:43 erik Exp $
+//  @(#)$Id: MKConsoleWindow.h,v 1.4 2004-02-15 18:55:05 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -32,6 +32,7 @@
 }
 
 - (void)setClickThrough:(BOOL)clickThrough;
+- (void)setSticky:(BOOL)flag;
 - (void)setShowsDecorations:(BOOL)flag;
 
 @end

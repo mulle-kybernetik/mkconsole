@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindow.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindow.m,v 1.6 2003-11-18 23:34:42 erik Exp $
+//  @(#)$Id: MKConsoleWindow.m,v 1.7 2004-02-15 18:55:05 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -23,6 +23,19 @@
 #import "MKConsoleWindow.h"
 #import "MKConsoleWindowDragBar.h"
 #import "MKConsoleWindowResizeIcon.h"
+
+//---------------------------------------------------------------------------------------
+// Internal CoreGraphics declarations
+//---------------------------------------------------------------------------------------
+
+typedef int CGSConnection;
+typedef int	CGSWindow;
+typedef int	CGSValue;
+
+extern CGSConnection _CGSDefaultConnection(void);
+extern OSStatus CGSGetWindowTags(const CGSConnection cid, const CGSWindow wid,  int *tags, int thirtyTwo);
+extern OSStatus CGSSetWindowTags(const CGSConnection cid, const CGSWindow wid,int *tags, int thirtyTwo);
+extern OSStatus CGSClearWindowTags(const CGSConnection cid, const CGSWindow wid, int *tags, int thirtyTwo);
 
 
 //---------------------------------------------------------------------------------------
@@ -78,6 +91,26 @@
 }
 
 
+- (void)setSticky:(BOOL)flag
+{
+    CGSConnection cid;
+    CGSWindow wid;
+    int tags[2];
+    
+    wid = [self windowNumber];
+    cid = _CGSDefaultConnection();
+    if(CGSGetWindowTags(cid, wid, tags, 32) == 0) 
+        {
+        tags[0] = 0x0800;
+        tags[1] = 0;
+        if(flag)
+            CGSSetWindowTags(cid, wid, tags, 32) ;
+        else
+            CGSClearWindowTags(cid, wid, tags, 32);
+        }
+}
+
+
 - (void)setShowsDecorations:(BOOL)flag
 {
     if(flag)
@@ -109,6 +142,7 @@
         [self setClickThrough:YES];
         }
 }
+
 
 
 //---------------------------------------------------------------------------------------
