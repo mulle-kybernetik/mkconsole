@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindow.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindow.m,v 1.3 2003-11-15 17:37:29 erik Exp $
+//  @(#)$Id: MKConsoleWindow.m,v 1.4 2003-11-16 18:33:29 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -47,9 +47,7 @@
     [self setHasShadow:NO];
     [self setCanHide:NO];
     [self setAlphaValue:1.0];
-    // the following only works on 10.2+ and with defer=NO
-    if([self respondsToSelector:@selector(setIgnoresMouseEvents:)])
-        [self setIgnoresMouseEvents:YES];
+    [self setIgnoresMouseEvents:YES];
     [self setLevel:CGWindowLevelForKey(kCGDesktopIconWindowLevelKey)];
     
     clipView = (NSClipView *)[outputArea superview];
@@ -89,8 +87,7 @@
         resizeIcon = [[[MKConsoleWindowResizeIcon allocWithZone:[self zone]] initWithFrame:decFrame] autorelease];
         [resizeIcon setAutoresizingMask:NSViewMinXMargin|NSViewMaxYMargin];
         [[self contentView] addSubview:resizeIcon];
-        if([self respondsToSelector:@selector(setIgnoresMouseEvents:)])
-            [self setIgnoresMouseEvents:NO];
+        [self setIgnoresMouseEvents:NO];
         }
     else
         {
@@ -100,8 +97,7 @@
         dragBar = nil;
         [resizeIcon removeFromSuperview];
         resizeIcon = nil;
-        if([self respondsToSelector:@selector(setIgnoresMouseEvents:)])
-            [self setIgnoresMouseEvents:YES];
+        [self setIgnoresMouseEvents:YES];
         }
 }
 
