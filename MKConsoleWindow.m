@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindow.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindow.m,v 1.4 2003-11-16 18:33:29 erik Exp $
+//  @(#)$Id: MKConsoleWindow.m,v 1.5 2003-11-17 23:18:43 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -47,8 +47,8 @@
     [self setHasShadow:NO];
     [self setCanHide:NO];
     [self setAlphaValue:1.0];
-    [self setIgnoresMouseEvents:YES];
-    [self setLevel:CGWindowLevelForKey(kCGDesktopIconWindowLevelKey)];
+    [self setLevel:CGWindowLevelForKey(kCGDesktopWindowLevelKey)];
+    [self setClickThrough:YES];
     
     clipView = (NSClipView *)[outputArea superview];
     [clipView setDrawsBackground:NO];
@@ -66,6 +66,16 @@
     [super setBackgroundColor:color];
     [dragBar setNeedsDisplay:YES];
     [resizeIcon setNeedsDisplay:YES];
+}
+
+
+- (void)setClickThrough:(BOOL)clickThrough
+{
+	if(clickThrough)
+		ChangeWindowAttributes([self windowRef], kWindowIgnoreClicksAttribute,  kWindowNoAttributes);
+	else
+		ChangeWindowAttributes([self windowRef], kWindowNoAttributes, kWindowIgnoreClicksAttribute);
+	[self setIgnoresMouseEvents:clickThrough];
 }
 
 
@@ -87,7 +97,7 @@
         resizeIcon = [[[MKConsoleWindowResizeIcon allocWithZone:[self zone]] initWithFrame:decFrame] autorelease];
         [resizeIcon setAutoresizingMask:NSViewMinXMargin|NSViewMaxYMargin];
         [[self contentView] addSubview:resizeIcon];
-        [self setIgnoresMouseEvents:NO];
+        [self setClickThrough:NO];
         }
     else
         {
@@ -97,7 +107,7 @@
         dragBar = nil;
         [resizeIcon removeFromSuperview];
         resizeIcon = nil;
-        [self setIgnoresMouseEvents:YES];
+        [self setClickThrough:YES];
         }
 }
 
