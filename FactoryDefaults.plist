@@ -8,7 +8,7 @@
             FontSize = "9";
             TextColor = "0.44 0.50 0.53 1";
             Files = (
-                "/var/log/system.log"
+                "/var/log/system.log",
                 "/var/log/daily.out"
             );
         }

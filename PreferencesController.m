@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  PreferencesController.m created by erik on Sat Feb 01 2003
-//  @(#)$Id: PreferencesController.m,v 1.1 2003-02-02 20:59:37 erik Exp $
+//  @(#)$Id: PreferencesController.m,v 1.2 2003-02-19 20:45:09 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -19,7 +19,6 @@
 //---------------------------------------------------------------------------------------
 
 #import <Cocoa/Cocoa.h>
-#import <EDCommon/EDCommon.h>
 #import "NSColor+Extensions.h"
 #import "AppController.h"
 #import "PreferencesController.h"
@@ -73,7 +72,7 @@ static PreferencesController *sharedInstance = nil;
         NSAssert(panel != nil, @"Problem with MKConsoleWindow.nib");
         [fileTableView registerForDraggedTypes:[NSArray arrayWithObject:NSFilenamesPboardType]];
         [self retain];
-        [self showSettings:[[DEFAULTS objectForKey:@"Windows"] firstObject]];
+        [self showSettings:[[[NSNotificationCenter defaultCenter] objectForKey:@"Windows"] objectAtIndex:0]];
         }
     [panel makeKeyAndOrderFront:self];
 }
@@ -221,7 +220,7 @@ static PreferencesController *sharedInstance = nil;
     int	row;
     
     if((row = [fileTableView selectedRow]) == -1)
-        ED_BEEPRETURN;
+        return NSBeep();
     [[NSWorkspace sharedWorkspace] selectFile:[filenames objectAtIndex:row] inFileViewerRootedAtPath:@"/"];
 }
 
@@ -231,7 +230,7 @@ static PreferencesController *sharedInstance = nil;
     int	row;
 
     if((row = [fileTableView selectedRow]) == -1)
-        ED_BEEPRETURN;
+        return NSBeep();
     [filenames removeObjectAtIndex:row];
     [fileTableView reloadData];
 }
@@ -242,11 +241,11 @@ static PreferencesController *sharedInstance = nil;
     NSMutableArray		*windowListDefault;
     NSMutableDictionary	*windowSettings;
 
-    windowListDefault = [[DEFAULTS objectForKey:@"Windows"] mutableCopy];
+    windowListDefault = [[[NSNotificationCenter defaultCenter] objectForKey:@"Windows"] mutableCopy];
     windowSettings = [[windowListDefault objectAtIndex:0] mutableCopy];
     [windowSettings addEntriesFromDictionary:[self getSettings]];
     [windowListDefault replaceObjectAtIndex:0 withObject:windowSettings];
-    [DEFAULTS setObject:windowListDefault forKey:@"Windows"];
+    [[NSUserDefaults standardUserDefaults] setObject:windowListDefault forKey:@"Windows"];
     [[[NSApplication sharedApplication] delegate] rebuildWindowControllers];
 }
 

@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  AppController.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: AppController.m,v 1.2 2003-02-02 20:59:37 erik Exp $
+//  @(#)$Id: AppController.m,v 1.3 2003-02-19 20:45:09 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -19,7 +19,6 @@
 //---------------------------------------------------------------------------------------
 
 #import <Cocoa/Cocoa.h>
-#import <EDCommon/EDCommon.h>
 #import "MKConsoleWindowController.h"
 #import "PreferencesController.h"
 #import "AppController.h"
@@ -46,7 +45,7 @@
     [windowControllerList makeObjectsPerformSelector:@selector(stop)];
     [windowControllerList removeAllObjects];
 
-    windowSettingsEnum = [[DEFAULTS objectForKey:@"Windows"] objectEnumerator];
+    windowSettingsEnum = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Windows"] objectEnumerator];
     while((windowSettings = [windowSettingsEnum nextObject]) != nil)
         {
         windowController = [[[MKConsoleWindowController alloc] initWithSettings:windowSettings] autorelease];

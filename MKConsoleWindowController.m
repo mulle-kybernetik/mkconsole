@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindowController.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindowController.m,v 1.2 2003-02-02 20:59:37 erik Exp $
+//  @(#)$Id: MKConsoleWindowController.m,v 1.3 2003-02-19 20:45:09 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -19,7 +19,6 @@
 //---------------------------------------------------------------------------------------
 
 #import <Cocoa/Cocoa.h>
-#import <EDCommon/EDCommon.h>
 #import "NSColor+Extensions.h"
 #import "MKLogfileReader.h"
 #import "MKConsoleWindow.h"
@@ -49,7 +48,7 @@
     
     [NSBundle loadNibNamed:@"MKConsoleWindow" owner:self];
     NSAssert(window != nil, @"Problem with MKConsoleWindow.nib");
-    [DNC addObserver:self selector:@selector(_screenParametersChanged:) name:NSApplicationDidChangeScreenParametersNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_screenParametersChanged:) name:NSApplicationDidChangeScreenParametersNotification object:nil];
 
     return self;
 }
@@ -59,7 +58,7 @@
 {
     if(timer != nil)
         [self stop];
-    [DNC removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [filenames release];
     [textAttributes release];
     [window release];
@@ -109,7 +108,7 @@
         }
 
     [self _tryRead:nil];
-    timer = [NSTimer scheduledTimerWithTimeInterval:[DEFAULTS integerForKey:@"PollInterval"] target:self selector:@selector(_tryRead:) userInfo:nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:[[NSUserDefaults standardUserDefaults] integerForKey:@"PollInterval"] target:self selector:@selector(_tryRead:) userInfo:nil repeats:YES];
 }
 
 
@@ -149,7 +148,11 @@
     while((reader = [readerEnum nextObject]) != nil)
         {
         while((message = [reader nextMessage]) != nil)
-            [textStorage appendString:message withAttributes:textAttributes];
+            {
+            unsigned int location = [textStorage length];
+            [textStorage replaceCharactersInRange:NSMakeRange(location, 0) withString:message];
+            [textStorage setAttributes:textAttributes range:NSMakeRange(location, [textStorage length] - location)];
+            }
         }
     if([textStorage length] > 50*1024)
         [textStorage deleteCharactersInRange:NSMakeRange(0, [textStorage length] - 50*1024)];
