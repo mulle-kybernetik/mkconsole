@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  PreferencesController.m created by erik on Sat Feb 01 2003
-//  @(#)$Id: PreferencesController.m,v 1.8 2003-03-08 21:59:27 erik Exp $
+//  @(#)$Id: PreferencesController.m,v 1.9 2003-03-09 22:06:05 erik Exp $
 //
 //  Copyright (c) 2003 by Mulle Kybernetik. All rights reserved.
 //
@@ -46,19 +46,8 @@ static PreferencesController *sharedInstance = nil;
 + (id)sharedInstance
 {
     if(sharedInstance == nil)
-        sharedInstance = [[[PreferencesController alloc] init] autorelease];
+        sharedInstance = [[PreferencesController alloc] init];
     return sharedInstance;
-}
-
-
-//---------------------------------------------------------------------------------------
-//	DEALLOC
-//---------------------------------------------------------------------------------------
-
-- (void)dealloc
-{
-    [super dealloc];
-    sharedInstance = nil;
 }
 
 
@@ -72,7 +61,6 @@ static PreferencesController *sharedInstance = nil;
         {
         [NSBundle loadNibNamed:@"Preferences" owner:self];
         NSAssert(panel != nil, @"Problem with Preferences.nib");
-        [self retain];
         [self showSettings:[[[NSUserDefaults standardUserDefaults] objectForKey:@"Windows"] objectAtIndex:0]];
         [[[[[NSApplication sharedApplication] delegate] windowControllerList] objectAtIndex:0] enterSetUpModeWithListener:self];
         }
@@ -82,9 +70,8 @@ static PreferencesController *sharedInstance = nil;
 
 - (void)windowWillClose:(NSNotification *)notification
 {
-    panel = nil;
-    [self autorelease];
     [[[[[NSApplication sharedApplication] delegate] windowControllerList] objectAtIndex:0] leaveSetUpMode];
+    panel = nil;
 }
 
 
@@ -271,6 +258,7 @@ static PreferencesController *sharedInstance = nil;
 {
     if([notification object] == panel)
         return;
+    [frameYField setFloatValue:[[notification object] frame].origin.y];
     [frameWField setFloatValue:[[notification object] frame].size.width];
     [frameHField setFloatValue:[[notification object] frame].size.height];
 }
