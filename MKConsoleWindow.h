@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindow.h created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindow.h,v 1.1.1.1 2002-12-02 23:57:12 erik Exp $
+//  @(#)$Id: MKConsoleWindow.h,v 1.2 2003-03-08 21:59:27 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -20,10 +20,17 @@
 
 #import <AppKit/AppKit.h>
 
+@class MKConsoleWindowDragBar;
+@class MKConsoleWindowResizeIcon;
+
 
 @interface MKConsoleWindow : NSWindow
 {
-    IBOutlet NSTextView	*outputArea;
+    MKConsoleWindowDragBar		*dragBar;
+    MKConsoleWindowResizeIcon	*resizeIcon;
+    IBOutlet NSTextView			*outputArea;
 }
+
+- (void)setShowsDecorations:(BOOL)flag;
 
 @end

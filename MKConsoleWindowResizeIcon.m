@@ -1,8 +1,11 @@
-//---------------------------------------------------------------------------------------
-//  AppController.h created by erik on Sat Jun 29 2002
-//  @(#)$Id: AppController.h,v 1.3 2003-03-08 21:59:27 erik Exp $
 //
-//  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
+//  MKConsoleWindowResizeIcon.m
+//  MkConsole
+//
+//  Created by znek on Mon Mar 03 2003.
+//  $Id: MKConsoleWindowResizeIcon.m,v 1.1 2003-03-08 21:59:27 erik Exp $
+//
+//  Copyright (c) 2003 by Mulle Kybernetik. All rights reserved.
 //
 //  Permission to use, copy, modify and distribute this software and its documentation
 //  is hereby granted, provided that both the copyright notice and this permission
@@ -18,18 +21,30 @@
 //  OR OF ANY DERIVATIVE WORK.
 //---------------------------------------------------------------------------------------
 
-#import <AppKit/AppKit.h>
+#include "MKConsoleWindowResizeIcon.h"
 
 
-@interface AppController : NSObject
+@implementation MKConsoleWindowResizeIcon
+
+- (void)drawRect:(NSRect)aRect
 {
-    NSMutableArray			*windowControllerList;
+    NSColor *backgroundColor;
+
+    backgroundColor = [[self window] backgroundColor];
+    backgroundColor = [backgroundColor shadowWithLevel:0.3];
+    [backgroundColor set];
+    NSRectFill(aRect);
 }
 
-- (NSArray *)windowControllerList;
+- (void)mouseDragged:(NSEvent *)theEvent
+{
+    NSPoint origin;
+    NSSize size;
 
-- (void)rebuildWindowControllers;
+    origin = [[self window] frame].origin;
+    size = [[self window] frame].size;
 
-- (void)openPreferences:(id)sender;
+    [[self window] setFrame:NSMakeRect(origin.x, origin.y - [theEvent deltaY] , size.width + [theEvent deltaX], size.height + [theEvent deltaY]) display:YES];
+}
 
 @end

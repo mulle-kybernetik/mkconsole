@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  AppController.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: AppController.m,v 1.3 2003-02-19 20:45:09 erik Exp $
+//  @(#)$Id: AppController.m,v 1.4 2003-03-08 21:59:27 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -31,8 +31,15 @@
 - (id)init
 {
     [super init];
+    [NSColor setIgnoresAlpha:NO];
     windowControllerList = [[NSMutableArray alloc] init];
     return self;
+}
+
+
+- (NSArray *)windowControllerList
+{
+    return windowControllerList;
 }
 
 

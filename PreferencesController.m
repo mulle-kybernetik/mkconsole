@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  PreferencesController.m created by erik on Sat Feb 01 2003
-//  @(#)$Id: PreferencesController.m,v 1.7 2003-02-24 23:07:17 erik Exp $
+//  @(#)$Id: PreferencesController.m,v 1.8 2003-03-08 21:59:27 erik Exp $
 //
 //  Copyright (c) 2003 by Mulle Kybernetik. All rights reserved.
 //
@@ -21,6 +21,7 @@
 #import <Cocoa/Cocoa.h>
 #import "NSColor+Extensions.h"
 #import "AppController.h"
+#import "MKConsoleWindowController.h"
 #import "PreferencesController.h"
 
 
@@ -73,6 +74,7 @@ static PreferencesController *sharedInstance = nil;
         NSAssert(panel != nil, @"Problem with Preferences.nib");
         [self retain];
         [self showSettings:[[[NSUserDefaults standardUserDefaults] objectForKey:@"Windows"] objectAtIndex:0]];
+        [[[[[NSApplication sharedApplication] delegate] windowControllerList] objectAtIndex:0] enterSetUpModeWithListener:self];
         }
     [panel makeKeyAndOrderFront:self];
 }
@@ -82,6 +84,7 @@ static PreferencesController *sharedInstance = nil;
 {
     panel = nil;
     [self autorelease];
+    [[[[[NSApplication sharedApplication] delegate] windowControllerList] objectAtIndex:0] leaveSetUpMode];
 }
 
 
@@ -122,6 +125,8 @@ static PreferencesController *sharedInstance = nil;
     [frameWField setFloatValue:frame.size.width];
     [frameHField setFloatValue:frame.size.height];
     [textColorWell setColor:[NSColor colorWithCalibratedStringRep:[settings objectForKey:@"TextColor"]]];
+    [backgroundColorWell setColor:[NSColor colorWithCalibratedStringRep:[settings objectForKey:@"BackgroundColor"]]];
+
     filenames = [[settings objectForKey:@"Files"] mutableCopy];
     [fileTableView reloadData];
     fontname = [settings objectForKey:@"FontName"];
@@ -136,7 +141,6 @@ static PreferencesController *sharedInstance = nil;
 {
     NSMutableDictionary *settings;
     NSRect				frame;
-    NSColor				*color;
     NSFont				*font;
 
     settings = [NSMutableDictionary dictionary];
@@ -145,14 +149,8 @@ static PreferencesController *sharedInstance = nil;
     frame.size.width = [frameWField floatValue];
     frame.size.height = [frameHField floatValue];
     [settings setObject:NSStringFromRect(frame) forKey:@"Frame"];
-    color = [textColorWell color];
-    if([color colorSpaceName] != NSCalibratedRGBColorSpace)
-        {
-        NSLog(@"%s must convert color from %@", __PRETTY_FUNCTION__, [color colorSpaceName]);
-        if((color = [color colorUsingColorSpaceName:NSCalibratedRGBColorSpace]) == nil)
-            [NSException raise:NSInvalidArgumentException format:@"Cannot convert colour to RGB colour space."];
-        }
-    [settings setObject:[color stringRep] forKey:@"TextColor"];
+    [settings setObject:[[textColorWell color] stringRep] forKey:@"TextColor"];
+    [settings setObject:[[backgroundColorWell color] stringRep] forKey:@"BackgroundColor"];
     [settings setObject:filenames forKey:@"Files"];
     font = [[NSFontManager sharedFontManager] fontWithFamily:[fontFamilyPopup titleOfSelectedItem] traits:0 weight:5 size:[[fontSizePopup titleOfSelectedItem] floatValue]];
     if([boldCheckBox state] == NSOnState)
@@ -257,6 +255,28 @@ static PreferencesController *sharedInstance = nil;
 
 
 //---------------------------------------------------------------------------------------
+//	WINDOW NOTIFICATIONS
+//---------------------------------------------------------------------------------------
+
+- (void)windowDidMove:(NSNotification *)notification
+{
+    if([notification object] == panel)
+        return;
+    [frameXField setFloatValue:[[notification object] frame].origin.x];
+    [frameYField setFloatValue:[[notification object] frame].origin.y];
+}
+
+
+- (void)windowDidResize:(NSNotification *)notification
+{
+    if([notification object] == panel)
+        return;
+    [frameWField setFloatValue:[[notification object] frame].size.width];
+    [frameHField setFloatValue:[[notification object] frame].size.height];
+}
+
+
+//---------------------------------------------------------------------------------------
 //	ACTIONS
 //---------------------------------------------------------------------------------------
 
@@ -292,12 +312,14 @@ static PreferencesController *sharedInstance = nil;
     [windowListDefault replaceObjectAtIndex:0 withObject:windowSettings];
     [[NSUserDefaults standardUserDefaults] setObject:windowListDefault forKey:@"Windows"];
     [[[NSApplication sharedApplication] delegate] rebuildWindowControllers];
+    [[[[[NSApplication sharedApplication] delegate] windowControllerList] objectAtIndex:0] enterSetUpModeWithListener:self];
     [self showSettings:windowSettings];
 }
 
 
 - (IBAction)discardChanges:(id)sender
 {
+    [[[NSApplication sharedApplication] delegate] rebuildWindowControllers];
     [panel close];
 }
 

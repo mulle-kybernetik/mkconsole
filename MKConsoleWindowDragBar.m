@@ -1,6 +1,9 @@
-//---------------------------------------------------------------------------------------
-//  AppController.h created by erik on Sat Jun 29 2002
-//  @(#)$Id: AppController.h,v 1.3 2003-03-08 21:59:27 erik Exp $
+//
+//  MKConsoleWindowDragBar.m
+//  MkConsole
+//
+//  Created by znek on Mon Mar 03 2003.
+//  $Id: MKConsoleWindowDragBar.m,v 1.1 2003-03-08 21:59:27 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -18,18 +21,29 @@
 //  OR OF ANY DERIVATIVE WORK.
 //---------------------------------------------------------------------------------------
 
-#import <AppKit/AppKit.h>
+#import "MKConsoleWindowDragBar.h"
 
 
-@interface AppController : NSObject
+@implementation MKConsoleWindowDragBar
+
+- (void)drawRect:(NSRect)aRect
 {
-    NSMutableArray			*windowControllerList;
+    NSColor *backgroundColor;
+
+    backgroundColor = [[self window] backgroundColor];
+    backgroundColor = [backgroundColor shadowWithLevel:0.3];
+    [backgroundColor set];
+    NSRectFill(aRect);
 }
 
-- (NSArray *)windowControllerList;
+- (void)mouseDragged:(NSEvent *)theEvent
+{
+    NSPoint oldOrigin, newOrigin;
 
-- (void)rebuildWindowControllers;
+    oldOrigin = [[self window] frame].origin;
+    newOrigin = NSMakePoint(oldOrigin.x + [theEvent deltaX], oldOrigin.y - [theEvent deltaY]);
 
-- (void)openPreferences:(id)sender;
+    [[self window] setFrameOrigin:newOrigin];
+}
 
 @end

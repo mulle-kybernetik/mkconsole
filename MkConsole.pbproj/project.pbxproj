@@ -5,6 +5,54 @@
 	};
 	objectVersion = 38;
 	objects = {
+		0304A2960416952C00A8C007 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = MKConsoleWindowDragBar.h;
+			refType = 4;
+		};
+		0304A2970416952C00A8C007 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = MKConsoleWindowDragBar.m;
+			refType = 4;
+		};
+		0304A2980416952C00A8C007 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = MKConsoleWindowResizeIcon.h;
+			refType = 4;
+		};
+		0304A2990416952C00A8C007 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = MKConsoleWindowResizeIcon.m;
+			refType = 4;
+		};
+		0304A29A0416952C00A8C007 = {
+			fileRef = 0304A2960416952C00A8C007;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		0304A29B0416952C00A8C007 = {
+			fileRef = 0304A2970416952C00A8C007;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		0304A29C0416952C00A8C007 = {
+			fileRef = 0304A2980416952C00A8C007;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		0304A29D0416952C00A8C007 = {
+			fileRef = 0304A2990416952C00A8C007;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		03509F8803EC1A9F00A8C007 = {
 			children = (
 				67576FCA02CE59C200A8C007,
@@ -24,6 +72,10 @@
 				67576FBC02CE44CB00A8C007,
 				67576FAA02CE3E5400A8C007,
 				67576FA902CE3E5400A8C007,
+				0304A2960416952C00A8C007,
+				0304A2970416952C00A8C007,
+				0304A2980416952C00A8C007,
+				0304A2990416952C00A8C007,
 			);
 			isa = PBXGroup;
 			name = LogWindow;
@@ -385,11 +437,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.3</string>
+	<string>1.4 RC1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>7</string>
+	<string>8</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
@@ -409,6 +461,8 @@
 				03509F8C03EC22B600A8C007,
 				03D4A94203EDB46A00A8C007,
 				03FC72850404198700A8C007,
+				0304A29A0416952C00A8C007,
+				0304A29C0416952C00A8C007,
 			);
 			isa = PBXHeadersBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +493,8 @@
 				03509F8D03EC22B600A8C007,
 				03D4A94303EDB46A00A8C007,
 				03FC72860404198700A8C007,
+				0304A29B0416952C00A8C007,
+				0304A29D0416952C00A8C007,
 			);
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,8 +1,11 @@
-//---------------------------------------------------------------------------------------
-//  AppController.h created by erik on Sat Jun 29 2002
-//  @(#)$Id: AppController.h,v 1.3 2003-03-08 21:59:27 erik Exp $
 //
-//  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
+//  MKConsoleWindowDragBar.h
+//  MkConsole
+//
+//  Created by znek on Mon Mar 03 2003.
+//  $Id: MKConsoleWindowDragBar.h,v 1.1 2003-03-08 21:59:27 erik Exp $
+//
+//  Copyright (c) 2003 by Mulle Kybernetik. All rights reserved.
 //
 //  Permission to use, copy, modify and distribute this software and its documentation
 //  is hereby granted, provided that both the copyright notice and this permission
@@ -21,15 +24,9 @@
 #import <AppKit/AppKit.h>
 
 
-@interface AppController : NSObject
+@interface MKConsoleWindowDragBar : NSView
 {
-    NSMutableArray			*windowControllerList;
 }
 
-- (NSArray *)windowControllerList;
-
-- (void)rebuildWindowControllers;
-
-- (void)openPreferences:(id)sender;
-
 @end
+

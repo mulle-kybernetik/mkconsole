@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  NSColor+Extensions.m created by erik on Mon Jul 01 2002
-//  @(#)$Id: NSColor+Extensions.m,v 1.1.1.1 2002-12-02 23:57:12 erik Exp $
+//  @(#)$Id: NSColor+Extensions.m,v 1.2 2003-03-08 21:59:27 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -43,7 +43,15 @@
 
 - (NSString *)stringRep
 {
-    return [NSString stringWithFormat:@"%g %g %g %g", [self redComponent], [self greenComponent], [self blueComponent], [self alphaComponent]];
+    NSColor	*color = self;
+    
+    if([color colorSpaceName] != NSCalibratedRGBColorSpace)
+        {
+        NSLog(@"%s must convert colour from %@", __PRETTY_FUNCTION__, [color colorSpaceName]);
+        if((color = [color colorUsingColorSpaceName:NSCalibratedRGBColorSpace]) == nil)
+            [NSException raise:NSInvalidArgumentException format:@"Cannot convert colour to RGB colour space."];
+        }
+    return [NSString stringWithFormat:@"%g %g %g %g", [color redComponent], [color greenComponent], [color blueComponent], [color alphaComponent]];
 }
 
 

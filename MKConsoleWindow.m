@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindow.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindow.m,v 1.1.1.1 2002-12-02 23:57:12 erik Exp $
+//  @(#)$Id: MKConsoleWindow.m,v 1.2 2003-03-08 21:59:27 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -20,6 +20,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import "MKConsoleWindow.h"
+#import "MKConsoleWindowDragBar.h"
+#import "MKConsoleWindowResizeIcon.h"
 
 
 //---------------------------------------------------------------------------------------
@@ -53,6 +55,45 @@
     [scrollView setBorderType:NSNoBorder];
     [scrollView setHasVerticalScroller:NO];
     [outputArea setDrawsBackground:NO];
+}
+
+
+- (void)setBackgroundColor:(NSColor *)color
+{
+    [super setBackgroundColor:color];
+    [dragBar setNeedsDisplay:YES];
+    [resizeIcon setNeedsDisplay:YES];
+}
+
+
+- (void)setShowsDecorations:(BOOL)flag
+{
+    if(flag)
+        {
+        NSRect	cvFrame, decFrame;
+
+        if(dragBar != nil)
+            return;
+        [[self contentView] setAutoresizesSubviews:YES];
+        cvFrame = [[self contentView] frame];
+        decFrame = NSMakeRect(0, NSMaxY(cvFrame) - 12, NSWidth(cvFrame), 12);
+        dragBar = [[[MKConsoleWindowDragBar allocWithZone:[self zone]] initWithFrame:decFrame] autorelease];
+        [dragBar setAutoresizingMask:NSViewWidthSizable|NSViewMinYMargin];
+        [[self contentView] addSubview:dragBar];
+        decFrame = NSMakeRect(NSMaxX(cvFrame) - 12, 0, 12, 12);
+        resizeIcon = [[[MKConsoleWindowResizeIcon allocWithZone:[self zone]] initWithFrame:decFrame] autorelease];
+        [resizeIcon setAutoresizingMask:NSViewMinXMargin|NSViewMaxYMargin];
+        [[self contentView] addSubview:resizeIcon];
+        }
+    else
+        {
+        if(dragBar == nil)
+            return;
+        [dragBar removeFromSuperview];
+        dragBar = nil;
+        [resizeIcon removeFromSuperview];
+        resizeIcon = nil;
+        }
 }
 
 

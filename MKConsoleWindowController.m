@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindowController.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindowController.m,v 1.3 2003-02-19 20:45:09 erik Exp $
+//  @(#)$Id: MKConsoleWindowController.m,v 1.4 2003-03-08 21:59:27 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -48,6 +48,7 @@
     
     [NSBundle loadNibNamed:@"MKConsoleWindow" owner:self];
     NSAssert(window != nil, @"Problem with MKConsoleWindow.nib");
+    [window setBackgroundColor:[NSColor colorWithCalibratedStringRep:[settings objectForKey:@"BackgroundColor"]]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_screenParametersChanged:) name:NSApplicationDidChangeScreenParametersNotification object:nil];
 
     return self;
@@ -103,8 +104,10 @@
     while((filename = [filenameEnum nextObject]) != nil)
         {
         reader = [[[MKLogfileReader allocWithZone:[self zone]] initWithFilename:filename] autorelease];
-        [reader open];
-        [readerList addObject:reader];
+        if([reader open])
+            [readerList addObject:reader];
+        else
+            NSRunAlertPanel(nil, @"Failed to open logfile at: %@", @"Cancel", nil, nil, filename);
         }
 
     [self _tryRead:nil];
@@ -137,10 +140,10 @@
 
 - (void)_tryRead:(NSTimer *)sender
 {
-    NSTextStorage		*textStorage;
-    NSEnumerator		*readerEnum;
-    MKLogfileReader		*reader;
-    NSString			*message;
+    NSTextStorage 	 *textStorage;
+    NSEnumerator	 *readerEnum;
+    MKLogfileReader	 *reader;
+    NSString		 *message;
 
     textStorage = [outputArea textStorage];
     [textStorage beginEditing];
@@ -158,6 +161,57 @@
         [textStorage deleteCharactersInRange:NSMakeRange(0, [textStorage length] - 50*1024)];
     [textStorage endEditing];
     [outputArea scrollRangeToVisible:NSMakeRange([textStorage length], 1)];
+}
+
+
+//---------------------------------------------------------------------------------------
+//	read
+//---------------------------------------------------------------------------------------
+
+- (void)_appendText:(NSString *)aString
+{
+    NSTextStorage *textStorage = [outputArea textStorage];
+    unsigned int location = [textStorage length];
+    [textStorage replaceCharactersInRange:NSMakeRange(location, 0) withString:aString];
+    [textStorage setAttributes:textAttributes range:NSMakeRange(location, [textStorage length] - location)];
+}
+
+
+//---------------------------------------------------------------------------------------
+//	interactive setup
+//---------------------------------------------------------------------------------------
+
+- (void)enterSetUpModeWithListener:(id)anObject
+{
+    [window setShowsDecorations:YES];
+    setupListener = anObject;
+    [[NSNotificationCenter defaultCenter] addObserver:setupListener selector:@selector(windowDidMove:) name:NSWindowDidMoveNotification object:window];
+    [[NSNotificationCenter defaultCenter] addObserver:setupListener selector:@selector(windowDidResize:) name:NSWindowDidResizeNotification object:window];
+}
+
+
+- (void)leaveSetUpMode
+{
+    [window setShowsDecorations:NO];
+    [[NSNotificationCenter defaultCenter] removeObserver:setupListener name:NSWindowDidMoveNotification object:window];
+    [[NSNotificationCenter defaultCenter] removeObserver:setupListener name:NSWindowDidResizeNotification object:window];
+    setupListener = NO;
+}
+
+
+//---------------------------------------------------------------------------------------
+//	clear
+//---------------------------------------------------------------------------------------
+
+- (IBAction)clear:(id)sender
+{
+    NSTextStorage *textStorage;
+
+    textStorage = [outputArea textStorage];
+    [textStorage beginEditing];
+    [textStorage deleteCharactersInRange:NSMakeRange(0, [textStorage length])];
+    [textStorage endEditing];
+    [outputArea scrollRangeToVisible:NSMakeRange(0, 1)];
 }
 
 
