@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  PreferencesController.m created by erik on Sat Feb 01 2003
-//  @(#)$Id: PreferencesController.m,v 1.4 2003-02-20 18:19:46 erik Exp $
+//  @(#)$Id: PreferencesController.m,v 1.5 2003-02-22 20:43:21 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -25,6 +25,7 @@
 
 
 @interface PreferencesController(PrivateAPI)
+- (void)rebuildFamilyPopup;
 - (void)showSettings:(NSDictionary *)settings;
 - (NSDictionary *)getSettings;
 @end
@@ -69,9 +70,10 @@ static PreferencesController *sharedInstance = nil;
     if(panel == nil)
         {
         [NSBundle loadNibNamed:@"Preferences" owner:self];
-        NSAssert(panel != nil, @"Problem with MKConsoleWindow.nib");
-        [fileTableView registerForDraggedTypes:[NSArray arrayWithObject:NSFilenamesPboardType]];
+        NSAssert(panel != nil, @"Problem with Preferences.nib");
         [self retain];
+        [fileTableView registerForDraggedTypes:[NSArray arrayWithObject:NSFilenamesPboardType]];
+        [self rebuildFamilyPopup];
         [self showSettings:[[[NSUserDefaults standardUserDefaults] objectForKey:@"Windows"] objectAtIndex:0]];
         }
     [panel makeKeyAndOrderFront:self];
@@ -92,6 +94,7 @@ static PreferencesController *sharedInstance = nil;
 - (void)showSettings:(NSDictionary *)settings
 {
     NSRect	frame;
+    NSFont	*font;
 
     frame = NSRectFromString([settings objectForKey:@"Frame"]);
     [frameXField setFloatValue:frame.origin.x];
@@ -101,6 +104,11 @@ static PreferencesController *sharedInstance = nil;
     [textColorWell setColor:[NSColor colorWithCalibratedStringRep:[settings objectForKey:@"TextColor"]]];
     filenames = [[settings objectForKey:@"Files"] mutableCopy];
     [fileTableView reloadData];
+    font = [NSFont fontWithName:[settings objectForKey:@"FontName"] size:[[settings objectForKey:@"FontSize"] floatValue]];
+    [familyPopup selectItemWithTitle:[font familyName]];
+    [fontSizePopup selectItemWithTitle:[settings objectForKey:@"FontSize"]];
+    [self rebuildFontPopup:self];
+    [fontPopup selectItemAtIndex:[fontPopup indexOfItemWithRepresentedObject:font]];
 }
 
 
@@ -108,6 +116,7 @@ static PreferencesController *sharedInstance = nil;
 {
     NSMutableDictionary *settings;
     NSRect				frame;
+    NSFont				*font;
 
     settings = [NSMutableDictionary dictionary];
     frame.origin.x = [frameXField floatValue];
@@ -117,6 +126,10 @@ static PreferencesController *sharedInstance = nil;
     [settings setObject:NSStringFromRect(frame) forKey:@"Frame"];
     [settings setObject:[[textColorWell color] stringRep] forKey:@"TextColor"];
     [settings setObject:filenames forKey:@"Files"];
+    font = [[fontPopup selectedItem] representedObject];
+    NSLog(@"%s font = %@", __PRETTY_FUNCTION__, font);
+    [settings setObject:[font fontName] forKey:@"FontName"];
+    [settings setObject:[[NSNumber numberWithFloat:[font pointSize]] stringValue] forKey:@"FontSize"] ;
 
     return settings;
 }
@@ -192,6 +205,51 @@ static PreferencesController *sharedInstance = nil;
        return NO;
     [self removeSelectedFiles:self];
     return YES;
+}
+
+
+//---------------------------------------------------------------------------------------
+//	FONT POPUPS
+//---------------------------------------------------------------------------------------
+
+- (void)rebuildFamilyPopup
+{
+    NSArray			*familyList;
+    NSEnumerator	*familyEnum;
+    NSString		*family;
+
+    [familyPopup removeAllItems];
+    familyList = [[[NSFontManager sharedFontManager] availableFontFamilies] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    familyEnum = [familyList objectEnumerator];
+    while((family = [familyEnum nextObject]) != nil)
+        {
+        if([family hasPrefix:@"."] == NO)
+            [familyPopup addItemWithTitle:family];
+        }
+    [self rebuildFontPopup:self];
+}
+
+
+- (IBAction)rebuildFontPopup:(id)sender
+{
+    NSString		*previousFace;
+    NSArray			*fontList, *fontspec;
+    NSEnumerator	*fontEnum;
+    NSFont			*font;
+    unsigned int	index;
+
+    previousFace = [fontPopup titleOfSelectedItem];
+    [fontPopup removeAllItems];
+    fontList = [[NSFontManager sharedFontManager] availableMembersOfFontFamily:[familyPopup titleOfSelectedItem]];
+    fontEnum = [fontList objectEnumerator];
+    while((fontspec = [fontEnum nextObject]) != nil)
+        {
+        [fontPopup addItemWithTitle:[fontspec objectAtIndex:1]];
+        font = [[NSFontManager sharedFontManager] fontWithFamily:[familyPopup titleOfSelectedItem] traits:[[fontspec objectAtIndex:3] intValue] weight:[[fontspec objectAtIndex:2] intValue] size:[[fontSizePopup titleOfSelectedItem] floatValue]];
+        [[fontPopup lastItem] setRepresentedObject:font];
+        }
+    if((previousFace != nil) && ((index = [fontPopup indexOfItemWithTitle:previousFace]) != -1))
+        [fontPopup selectItemAtIndex:index];
 }
 
 

@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  PreferencesController.h created by erik on Sat Feb 01 2003
-//  @(#)$Id: PreferencesController.h,v 1.1 2003-02-02 20:59:37 erik Exp $
+//  @(#)$Id: PreferencesController.h,v 1.2 2003-02-22 20:43:21 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -30,6 +30,9 @@
     IBOutlet NSFormCell		*frameWField;
     IBOutlet NSFormCell		*frameHField;
     IBOutlet NSColorWell	*textColorWell;
+    IBOutlet NSPopUpButton	*familyPopup;
+    IBOutlet NSPopUpButton	*fontPopup;
+    IBOutlet NSPopUpButton	*fontSizePopup;
     IBOutlet NSTableView	*fileTableView;
 }
 
@@ -39,6 +42,8 @@
 
 - (IBAction)revealSelectedFilesInFinder:(id)sender;
 - (IBAction)removeSelectedFiles:(id)sender;
+
+- (IBAction)rebuildFontPopup:(id)sender;
 
 - (IBAction)applyChanges:(id)sender;
 - (IBAction)discardChanges:(id)sender;
