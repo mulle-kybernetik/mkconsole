@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKLogfile.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKLogfileReader.m,v 1.2 2003-02-02 20:59:37 erik Exp $
+//  @(#)$Id: MKLogfileReader.m,v 1.3 2003-03-16 20:18:50 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -22,6 +22,11 @@
 #import "MKLogfileReader.h"
 
 
+@interface MKLogfileReader(Private)
+- (BOOL)_fillBuffer;
+@end
+
+
 //---------------------------------------------------------------------------------------
     @implementation MKLogfileReader
 //---------------------------------------------------------------------------------------
@@ -34,7 +39,6 @@
 {
     [super init];
     filename = [aFilename copyWithZone:[self zone]];
-    lastPosition = UINT_MAX;
     return self;
 }
 
@@ -89,15 +93,36 @@
 }
 
 
+- (BOOL)reopen
+{
+    unsigned int lastPosition, newLength;
+    
+    NSAssert(fileHandle != nil, @"Failed to reopen file. Was not open.");
+
+    [self _fillBuffer]; // make sure we don't miss anything
+    lastPosition = [fileHandle offsetInFile];
+    [fileHandle closeFile];
+    [fileHandle release];
+    
+    if((fileHandle = [NSFileHandle fileHandleForReadingAtPath:filename]) == nil)
+        return NO;
+    [fileHandle retain];
+    newLength = [fileHandle seekToEndOfFile];
+    if(newLength < lastPosition) // uh, new file? start at "beginning"
+        [fileHandle seekToFileOffset:MAX(0, (int)newLength - 2*1024)];
+    else if(newLength > lastPosition) // busy, busy. go back to where we were
+        [fileHandle seekToFileOffset:lastPosition];
+    return YES;
+}
+
 
 //---------------------------------------------------------------------------------------
-//	read a line
+//	get next line
 //---------------------------------------------------------------------------------------
 
 - (NSString *)nextMessage
 {
     static NSCharacterSet *nlSet = nil;
-    NSData		*data;
     NSString	*string;
     NSRange		r;
 
@@ -107,24 +132,7 @@
     r = [buffer rangeOfCharacterFromSet:nlSet];
     if(r.length == 0)
         {
-        if(fileHandle == nil)
-            return nil;
-        NS_DURING
-            data = [fileHandle readDataToEndOfFile];
-        NS_HANDLER
-            // Retry if we got a Stale NFS file handle exception
-            if(([[localException name] isEqualToString:NSFileHandleOperationException] ==  NO) ||
-               ([[localException reason] rangeOfString:@"Stale"].length == 0))
-                [localException raise];
-            [self close];
-            [self open];
-            data = [fileHandle readDataToEndOfFile];
-        NS_ENDHANDLER
-        if([data length] == 0)
-            return nil;
-        string = [[NSString allocWithZone:[self zone]] initWithData:data encoding:NSISOLatin1StringEncoding];
-        [buffer appendString:string];
-        [string release];
+        [self _fillBuffer];
         r = [buffer rangeOfCharacterFromSet:nlSet];
         if(r.length == 0)
             return nil;
@@ -132,6 +140,37 @@
     string = [buffer substringToIndex:NSMaxRange(r)];
     [buffer deleteCharactersInRange:NSMakeRange(0, NSMaxRange(r))];
     return string;
+}
+
+
+//---------------------------------------------------------------------------------------
+//	read data
+//---------------------------------------------------------------------------------------
+
+- (BOOL)_fillBuffer
+{
+    NSData   *newData;
+    NSString *newString;
+    
+    if(fileHandle == nil)
+        return NO;
+    NS_DURING
+        newData = [fileHandle readDataToEndOfFile];
+    NS_HANDLER
+        // Retry if we got a Stale NFS file handle exception
+        if(([[localException name] isEqualToString:NSFileHandleOperationException] ==  NO) ||
+           ([[localException reason] rangeOfString:@"Stale"].length == 0))
+            [localException raise];
+        [self close];
+        [self open];
+        newData = [fileHandle readDataToEndOfFile];
+    NS_ENDHANDLER
+    if([newData length] == 0)
+        return NO;
+    newString = [[NSString allocWithZone:[self zone]] initWithData:newData encoding:NSISOLatin1StringEncoding];
+    [buffer appendString:newString];
+    [newString release];
+    return YES;
 }
 
 

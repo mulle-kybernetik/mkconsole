@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKLogfileReader.h created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKLogfileReader.h,v 1.2 2003-02-02 20:59:37 erik Exp $
+//  @(#)$Id: MKLogfileReader.h,v 1.3 2003-03-16 20:18:50 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -26,7 +26,6 @@
     NSString		*filename;
     NSFileHandle	*fileHandle;
     NSMutableString	*buffer;
-    unsigned int	lastPosition;
 }
 
 - (id)initWithFilename:(NSString *)aFilename;
@@ -35,6 +34,8 @@
 
 - (BOOL)open;
 - (void)close;
+- (BOOL)reopen;
+
 - (NSString *)nextMessage;
 
 @end

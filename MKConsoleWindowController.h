@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindowController.h created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindowController.h,v 1.3 2003-03-08 21:59:27 erik Exp $
+//  @(#)$Id: MKConsoleWindowController.h,v 1.4 2003-03-16 20:18:50 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -25,6 +25,7 @@
 
 @interface MKConsoleWindowController : NSObject
 {
+    int							cycle;
     NSRect						windowFrame;
     NSArray						*filenames;
     NSDictionary				*textAttributes;

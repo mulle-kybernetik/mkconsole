@@ -1,6 +1,6 @@
 {
     PollInterval = 2;
-    ReopenFactor = 10;
+    ReopenFactor = 15;
     Windows = (
         { 
             Frame = "{{0, 40}, {1200, 384}}";

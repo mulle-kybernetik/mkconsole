@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindowController.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindowController.m,v 1.4 2003-03-08 21:59:27 erik Exp $
+//  @(#)$Id: MKConsoleWindowController.m,v 1.5 2003-03-16 20:18:50 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -99,6 +99,7 @@
     if(timer != nil)
         [NSException raise:NSInternalInconsistencyException format:@"%s already started", __PRETTY_FUNCTION__];
 
+    cycle = 0;
     readerList = [[NSMutableArray allocWithZone:[self zone]] init];
     filenameEnum = [filenames objectEnumerator];
     while((filename = [filenameEnum nextObject]) != nil)
@@ -145,6 +146,14 @@
     MKLogfileReader	 *reader;
     NSString		 *message;
 
+    cycle = (cycle + 1) % [[[NSUserDefaults standardUserDefaults] objectForKey:@"ReopenFactor"] intValue];
+    if(cycle == 0)
+        {
+        readerEnum = [readerList objectEnumerator];
+        while((reader = [readerEnum nextObject]) != nil)
+            [reader reopen];
+        }
+    
     textStorage = [outputArea textStorage];
     [textStorage beginEditing];
     readerEnum = [readerList objectEnumerator];
@@ -161,19 +170,6 @@
         [textStorage deleteCharactersInRange:NSMakeRange(0, [textStorage length] - 50*1024)];
     [textStorage endEditing];
     [outputArea scrollRangeToVisible:NSMakeRange([textStorage length], 1)];
-}
-
-
-//---------------------------------------------------------------------------------------
-//	read
-//---------------------------------------------------------------------------------------
-
-- (void)_appendText:(NSString *)aString
-{
-    NSTextStorage *textStorage = [outputArea textStorage];
-    unsigned int location = [textStorage length];
-    [textStorage replaceCharactersInRange:NSMakeRange(location, 0) withString:aString];
-    [textStorage setAttributes:textAttributes range:NSMakeRange(location, [textStorage length] - location)];
 }
 
 
