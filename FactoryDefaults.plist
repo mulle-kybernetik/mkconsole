@@ -1,0 +1,16 @@
+{
+    PollInterval = 2;
+    Windows = (
+        { 
+            Frame = "{{0, 40}, {1200, 384}}";
+            FontName = "Lucida Grande";
+            FontSize = "9";
+            TextColor = "0.44 0.50 0.53 1";
+            Files = (
+                "/Network/Servers/wintermute/var/log/xferlog",
+                "/Network/Servers/wintermute/var/log/nap.log",
+                "/Network/Servers/wintermute/var/log/messages"
+            );
+        }
+    );
+}
