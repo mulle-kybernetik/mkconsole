@@ -3,7 +3,7 @@
 //  MkConsole
 //
 //  Created by znek on Mon Mar 03 2003.
-//  $Id: MKConsoleWindowDragBar.m,v 1.1 2003-03-08 21:59:27 erik Exp $
+//  $Id: MKConsoleWindowDragBar.m,v 1.2 2003-03-09 22:04:58 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -33,7 +33,7 @@
     backgroundColor = [[self window] backgroundColor];
     backgroundColor = [backgroundColor shadowWithLevel:0.3];
     [backgroundColor set];
-    NSRectFill(aRect);
+    NSRectFillUsingOperation(aRect, NSCompositeSourceOver);
 }
 
 - (void)mouseDragged:(NSEvent *)theEvent
