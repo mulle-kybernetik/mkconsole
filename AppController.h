@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  AppController.h created by erik on Sat Jun 29 2002
-//  @(#)$Id: AppController.h,v 1.3 2003-03-08 21:59:27 erik Exp $
+//  @(#)$Id: AppController.h,v 1.4 2003-11-15 17:37:29 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -30,6 +30,8 @@
 
 - (void)rebuildWindowControllers;
 
-- (void)openPreferences:(id)sender;
+- (IBAction)openPreferences:(id)sender;
+
+- (IBAction)gotoHomepage:(id)sender;
 
 @end

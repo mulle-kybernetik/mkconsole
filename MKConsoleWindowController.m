@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindowController.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindowController.m,v 1.5 2003-03-16 20:18:50 erik Exp $
+//  @(#)$Id: MKConsoleWindowController.m,v 1.6 2003-11-15 17:37:29 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -96,6 +96,7 @@
     NSString		*filename;
     MKLogfileReader	*reader;
 
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     if(timer != nil)
         [NSException raise:NSInternalInconsistencyException format:@"%s already started", __PRETTY_FUNCTION__];
 
@@ -113,6 +114,7 @@
 
     [self _tryRead:nil];
     timer = [NSTimer scheduledTimerWithTimeInterval:[[NSUserDefaults standardUserDefaults] integerForKey:@"PollInterval"] target:self selector:@selector(_tryRead:) userInfo:nil repeats:YES];
+    NSLog(@"%s ok", __PRETTY_FUNCTION__);
 }
 
 
@@ -121,6 +123,7 @@
     NSEnumerator	*readerEnum;
     MKLogfileReader	*reader;
 
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     if(timer == nil)
         [NSException raise:NSInternalInconsistencyException format:@"%s not started", __PRETTY_FUNCTION__];
     
@@ -132,6 +135,7 @@
         [reader close];
     [readerList release];
     readerList = nil;
+    NSLog(@"%s ok", __PRETTY_FUNCTION__);
 }
 
 

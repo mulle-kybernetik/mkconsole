@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKLogfileReader.h created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKLogfileReader.h,v 1.3 2003-03-16 20:18:50 erik Exp $
+//  @(#)$Id: MKLogfileReader.h,v 1.4 2003-11-15 17:37:29 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -25,6 +25,7 @@
 {
     NSString		*filename;
     NSFileHandle	*fileHandle;
+    NSCalendarDate  *fileCreationDate;
     NSMutableString	*buffer;
 }
 

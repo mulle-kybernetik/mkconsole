@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  AppController.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: AppController.m,v 1.4 2003-03-08 21:59:27 erik Exp $
+//  @(#)$Id: AppController.m,v 1.5 2003-11-15 17:37:29 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -79,6 +79,11 @@
     [[PreferencesController sharedInstance] showWindow:sender];
 }
 
+
+- (void)gotoHomepage:(id)sender
+{
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.mulle-kybernetik.com/software/MkConsole/"]];
+}
 
 
 //---------------------------------------------------------------------------------------

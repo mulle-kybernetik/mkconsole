@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKLogfile.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKLogfileReader.m,v 1.3 2003-03-16 20:18:50 erik Exp $
+//  @(#)$Id: MKLogfileReader.m,v 1.4 2003-11-15 17:37:29 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -62,6 +62,15 @@
 }
 
 
+- (void)setFileCreationDateFromFilesystem
+{
+    NSDictionary *attrs;
+
+    attrs = [[NSFileManager defaultManager] fileAttributesAtPath:filename traverseLink:YES];
+    [fileCreationDate autorelease];
+    fileCreationDate = [[attrs fileCreationDate] retain];
+}
+
 
 //---------------------------------------------------------------------------------------
 //	open/close
@@ -76,6 +85,7 @@
     [fileHandle retain];
     [fileHandle seekToEndOfFile];
     [fileHandle seekToFileOffset:MAX(0, (int)[fileHandle offsetInFile] - 2*1024)];
+    [self setFileCreationDateFromFilesystem];
     buffer = [[NSMutableString allocWithZone:[self zone]] init];
     [self nextMessage];
     return YES;
@@ -90,28 +100,48 @@
     fileHandle = nil;
     [buffer release];
     buffer = nil;
+    [fileCreationDate release];
+    fileCreationDate = nil;
 }
 
 
 - (BOOL)reopen
 {
-    unsigned int lastPosition, newLength;
-    
-    NSAssert(fileHandle != nil, @"Failed to reopen file. Was not open.");
+    NSCalendarDate  *lastCreationDate;
+    unsigned int    lastPosition, newLength;
 
-    [self _fillBuffer]; // make sure we don't miss anything
-    lastPosition = [fileHandle offsetInFile];
-    [fileHandle closeFile];
-    [fileHandle release];
-    
+    if(fileHandle != nil)
+        {
+        [self _fillBuffer]; // make sure we don't miss anything
+        lastPosition = [fileHandle offsetInFile];
+        [fileHandle closeFile];
+        [fileHandle release];
+        fileHandle = nil;
+        }
+
     if((fileHandle = [NSFileHandle fileHandleForReadingAtPath:filename]) == nil)
+        {
+        NSLog(@"## problem with file %@: failed to reopen.", filename);
         return NO;
+        }
     [fileHandle retain];
-    newLength = [fileHandle seekToEndOfFile];
-    if(newLength < lastPosition) // uh, new file? start at "beginning"
-        [fileHandle seekToFileOffset:MAX(0, (int)newLength - 2*1024)];
-    else if(newLength > lastPosition) // busy, busy. go back to where we were
-        [fileHandle seekToFileOffset:lastPosition];
+
+    lastCreationDate = [[fileCreationDate retain] autorelease];
+    [self setFileCreationDateFromFilesystem];
+    if([fileCreationDate compare:lastCreationDate] == NSOrderedSame)
+        {
+        newLength = [fileHandle seekToEndOfFile];
+        if(newLength < lastPosition) // uh, same creation date but shorter now? start at "beginning"
+            [fileHandle seekToFileOffset:MAX(0, (int)newLength - 2*1024)];
+        else if(newLength > lastPosition) // busy, busy. go back to where we were
+            [fileHandle seekToFileOffset:lastPosition];
+        }
+    else
+        {
+#warning ** remove for release
+        NSLog(@"%s new file: %@ %@", __PRETTY_FUNCTION__, lastCreationDate, fileCreationDate);
+        }
+    
     return YES;
 }
 
@@ -144,7 +174,7 @@
 
 
 //---------------------------------------------------------------------------------------
-//	read data
+//	helper methods
 //---------------------------------------------------------------------------------------
 
 - (BOOL)_fillBuffer
@@ -163,6 +193,7 @@
             [localException raise];
         [self close];
         [self open];
+        NSLog(@"## nfs problem, file is now %@.", (fileHandle != nil) ? @"open" : @"closed");
         newData = [fileHandle readDataToEndOfFile];
     NS_ENDHANDLER
     if([newData length] == 0)

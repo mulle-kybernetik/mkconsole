@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindow.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindow.m,v 1.2 2003-03-08 21:59:27 erik Exp $
+//  @(#)$Id: MKConsoleWindow.m,v 1.3 2003-11-15 17:37:29 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -19,6 +19,7 @@
 //---------------------------------------------------------------------------------------
 
 #import <Cocoa/Cocoa.h>
+#import <Carbon/Carbon.h>
 #import "MKConsoleWindow.h"
 #import "MKConsoleWindowDragBar.h"
 #import "MKConsoleWindowResizeIcon.h"
@@ -30,7 +31,7 @@
 
 - (id)initWithContentRect:(NSRect)contentRect styleMask:(unsigned int)styleMask backing:(NSBackingStoreType)backingType defer:(BOOL)flag
 {
-    self = [super initWithContentRect:contentRect styleMask:NSBorderlessWindowMask backing:backingType defer:flag];
+    self = [super initWithContentRect:contentRect styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO];
     NSAssert1(self != nil, @"%s Failed to create window instance", __PRETTY_FUNCTION__);
     return self;
 }
@@ -45,8 +46,12 @@
     [self setOpaque:NO];
     [self setHasShadow:NO];
     [self setCanHide:NO];
+    [self setAlphaValue:1.0];
+    // the following only works on 10.2+ and with defer=NO
+    if([self respondsToSelector:@selector(setIgnoresMouseEvents:)])
+        [self setIgnoresMouseEvents:YES];
     [self setLevel:CGWindowLevelForKey(kCGDesktopIconWindowLevelKey)];
-
+    
     clipView = (NSClipView *)[outputArea superview];
     [clipView setDrawsBackground:NO];
     [clipView setCopiesOnScroll:NO];
@@ -84,6 +89,8 @@
         resizeIcon = [[[MKConsoleWindowResizeIcon allocWithZone:[self zone]] initWithFrame:decFrame] autorelease];
         [resizeIcon setAutoresizingMask:NSViewMinXMargin|NSViewMaxYMargin];
         [[self contentView] addSubview:resizeIcon];
+        if([self respondsToSelector:@selector(setIgnoresMouseEvents:)])
+            [self setIgnoresMouseEvents:NO];
         }
     else
         {
@@ -93,6 +100,8 @@
         dragBar = nil;
         [resizeIcon removeFromSuperview];
         resizeIcon = nil;
+        if([self respondsToSelector:@selector(setIgnoresMouseEvents:)])
+            [self setIgnoresMouseEvents:YES];
         }
 }
 
