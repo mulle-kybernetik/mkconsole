@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  PreferencesController.m created by erik on Sat Feb 01 2003
-//  @(#)$Id: PreferencesController.m,v 1.6 2003-02-22 23:57:30 erik Exp $
+//  @(#)$Id: PreferencesController.m,v 1.7 2003-02-24 23:07:17 erik Exp $
 //
 //  Copyright (c) 2003 by Mulle Kybernetik. All rights reserved.
 //
@@ -136,6 +136,7 @@ static PreferencesController *sharedInstance = nil;
 {
     NSMutableDictionary *settings;
     NSRect				frame;
+    NSColor				*color;
     NSFont				*font;
 
     settings = [NSMutableDictionary dictionary];
@@ -144,7 +145,14 @@ static PreferencesController *sharedInstance = nil;
     frame.size.width = [frameWField floatValue];
     frame.size.height = [frameHField floatValue];
     [settings setObject:NSStringFromRect(frame) forKey:@"Frame"];
-    [settings setObject:[[textColorWell color] stringRep] forKey:@"TextColor"];
+    color = [textColorWell color];
+    if([color colorSpaceName] != NSCalibratedRGBColorSpace)
+        {
+        NSLog(@"%s must convert color from %@", __PRETTY_FUNCTION__, [color colorSpaceName]);
+        if((color = [color colorUsingColorSpaceName:NSCalibratedRGBColorSpace]) == nil)
+            [NSException raise:NSInvalidArgumentException format:@"Cannot convert colour to RGB colour space."];
+        }
+    [settings setObject:[color stringRep] forKey:@"TextColor"];
     [settings setObject:filenames forKey:@"Files"];
     font = [[NSFontManager sharedFontManager] fontWithFamily:[fontFamilyPopup titleOfSelectedItem] traits:0 weight:5 size:[[fontSizePopup titleOfSelectedItem] floatValue]];
     if([boldCheckBox state] == NSOnState)
