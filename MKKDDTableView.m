@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
-//  MKLogfileReader.h created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKLogfileReader.h,v 1.2 2003-02-02 20:59:37 erik Exp $
+//  MKKDDTableView.m created by erik on Sun Feb 02 2003
+//  @(#)$Id: MKKDDTableView.m,v 1.1 2003-02-02 20:59:37 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -18,23 +18,23 @@
 //  OR OF ANY DERIVATIVE WORK.
 //---------------------------------------------------------------------------------------
 
-#import <Foundation/Foundation.h>
+
+#import "MKKDDTableView.h"
 
 
-@interface MKLogfileReader : NSObject
+//---------------------------------------------------------------------------------------
+    @implementation MKKDDTableView
+//---------------------------------------------------------------------------------------
+
+- (void)keyDown:(NSEvent *)theEvent
 {
-    NSString		*filename;
-    NSFileHandle	*fileHandle;
-    NSMutableString	*buffer;
-    unsigned int	lastPosition;
+    if([[self delegate] respondsToSelector:@selector(tableView:handleKeyDownEvent:)])
+        if([[self delegate] tableView:self handleKeyDownEvent:theEvent])
+            return;
+    [super keyDown:theEvent];
 }
 
-- (id)initWithFilename:(NSString *)aFilename;
 
-- (NSString *)filename;
-
-- (BOOL)open;
-- (void)close;
-- (NSString *)nextMessage;
-
-@end
+//---------------------------------------------------------------------------------------
+    @end
+//---------------------------------------------------------------------------------------

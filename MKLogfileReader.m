@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKLogfile.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKLogfileReader.m,v 1.1.1.1 2002-12-02 23:57:12 erik Exp $
+//  @(#)$Id: MKLogfileReader.m,v 1.2 2003-02-02 20:59:37 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -34,6 +34,7 @@
 {
     [super init];
     filename = [aFilename copyWithZone:[self zone]];
+    lastPosition = UINT_MAX;
     return self;
 }
 
@@ -66,7 +67,6 @@
 {
     if(fileHandle != nil)
         return YES;
-    NSLog(@"attributes for %@ = %@", filename, [[NSFileManager defaultManager] fileAttributesAtPath:filename traverseLink:YES]);
     if((fileHandle = [NSFileHandle fileHandleForReadingAtPath:filename]) == nil)
         return NO;
     [fileHandle retain];
@@ -112,6 +112,7 @@
         NS_DURING
             data = [fileHandle readDataToEndOfFile];
         NS_HANDLER
+            // Retry if we got a Stale NFS file handle exception
             if(([[localException name] isEqualToString:NSFileHandleOperationException] ==  NO) ||
                ([[localException reason] rangeOfString:@"Stale"].length == 0))
                 [localException raise];

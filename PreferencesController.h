@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
-//  MKLogfileReader.h created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKLogfileReader.h,v 1.2 2003-02-02 20:59:37 erik Exp $
+//  PreferencesController.h created by erik on Sat Feb 01 2003
+//  @(#)$Id: PreferencesController.h,v 1.1 2003-02-02 20:59:37 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -18,23 +18,30 @@
 //  OR OF ANY DERIVATIVE WORK.
 //---------------------------------------------------------------------------------------
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 
-@interface MKLogfileReader : NSObject
+@interface PreferencesController : NSObject
 {
-    NSString		*filename;
-    NSFileHandle	*fileHandle;
-    NSMutableString	*buffer;
-    unsigned int	lastPosition;
+    NSMutableArray			*filenames;
+    IBOutlet NSPanel		*panel;
+    IBOutlet NSFormCell		*frameXField;
+    IBOutlet NSFormCell		*frameYField;
+    IBOutlet NSFormCell		*frameWField;
+    IBOutlet NSFormCell		*frameHField;
+    IBOutlet NSColorWell	*textColorWell;
+    IBOutlet NSTableView	*fileTableView;
 }
 
-- (id)initWithFilename:(NSString *)aFilename;
++ (id)sharedInstance;
 
-- (NSString *)filename;
+- (IBAction)showWindow:(id)sender;
 
-- (BOOL)open;
-- (void)close;
-- (NSString *)nextMessage;
+- (IBAction)revealSelectedFilesInFinder:(id)sender;
+- (IBAction)removeSelectedFiles:(id)sender;
+
+- (IBAction)applyChanges:(id)sender;
+- (IBAction)discardChanges:(id)sender;
+- (IBAction)acceptChanges:(id)sender;
 
 @end

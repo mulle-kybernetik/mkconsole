@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  AppController.h created by erik on Sat Jun 29 2002
-//  @(#)$Id: AppController.h,v 1.1.1.1 2002-12-02 23:57:12 erik Exp $
+//  @(#)$Id: AppController.h,v 1.2 2003-02-02 20:59:37 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -23,7 +23,11 @@
 
 @interface AppController : NSObject
 {
-    NSMutableArray	*windowControllerList;
+    NSMutableArray			*windowControllerList;
 }
+
+- (void)openPreferences:(id)sender;
+
+- (void)rebuildWindowControllers;
 
 @end

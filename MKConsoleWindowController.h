@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindowController.h created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindowController.h,v 1.1.1.1 2002-12-02 23:57:12 erik Exp $
+//  @(#)$Id: MKConsoleWindowController.h,v 1.2 2003-02-02 20:59:37 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -20,19 +20,21 @@
 
 #import <AppKit/AppKit.h>
 
-@class MKLogbook, MKConsoleWindow;
+@class MKConsoleWindow;
 
 
 @interface MKConsoleWindowController : NSObject
 {
-    MKLogbook					*logbook;
+    NSRect						windowFrame;
+    NSArray						*filenames;
+    NSDictionary				*textAttributes;
     NSTimer						*timer;
     NSMutableArray				*readerList;
     IBOutlet MKConsoleWindow	*window;
     IBOutlet NSTextView			*outputArea;
 }
 
-- (id)initWithLogbook:(MKLogbook *)aLogbook;
+- (id)initWithSettings:(NSDictionary *)settings;
 
 - (void)start;
 - (void)stop;

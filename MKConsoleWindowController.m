@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindowController.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindowController.m,v 1.1.1.1 2002-12-02 23:57:12 erik Exp $
+//  @(#)$Id: MKConsoleWindowController.m,v 1.2 2003-02-02 20:59:37 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -20,8 +20,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import <EDCommon/EDCommon.h>
+#import "NSColor+Extensions.h"
 #import "MKLogfileReader.h"
-#import "MKLogbook.h"
 #import "MKConsoleWindow.h"
 #import "MKConsoleWindowController.h"
 
@@ -39,12 +39,14 @@
 //	init/dealloc
 //---------------------------------------------------------------------------------------
 
-- (id)initWithLogbook:(MKLogbook *)aLogbook
+- (id)initWithSettings:(NSDictionary *)settings;
 {
     [super init];
 
-    logbook = [aLogbook retain];
-
+    filenames = [[settings objectForKey:@"Files"] retain];
+    windowFrame = NSRectFromString([settings objectForKey:@"Frame"]);
+    textAttributes = [[NSDictionary allocWithZone:[self zone]] initWithObjectsAndKeys:[NSFont fontWithName:[settings objectForKey:@"FontName"] size:[[settings objectForKey:@"FontSize"] floatValue]], NSFontAttributeName, [NSColor colorWithCalibratedStringRep:[settings objectForKey:@"TextColor"]], NSForegroundColorAttributeName, nil];
+    
     [NSBundle loadNibNamed:@"MKConsoleWindow" owner:self];
     NSAssert(window != nil, @"Problem with MKConsoleWindow.nib");
     [DNC addObserver:self selector:@selector(_screenParametersChanged:) name:NSApplicationDidChangeScreenParametersNotification object:nil];
@@ -58,7 +60,9 @@
     if(timer != nil)
         [self stop];
     [DNC removeObserver:self];
-    [logbook release];
+    [filenames release];
+    [textAttributes release];
+    [window release];
     [super dealloc];
 }
 
@@ -69,7 +73,7 @@
 
 - (void)awakeFromNib
 {
-    [window setFrame:[logbook windowFrame] display:YES];
+    [window setFrame:windowFrame display:YES];
     [[[outputArea superview] superview] setFrame:[[window contentView] frame]];
     [window orderFront:self];
 }
@@ -77,7 +81,7 @@
 
 - (void)_screenParametersChanged:(NSNotification *)n
 {
-    [window setFrame:[logbook windowFrame] display:YES];
+    [window setFrame:windowFrame display:YES];
     [[[outputArea superview] superview] setFrame:[[window contentView] frame]];
 }
 
@@ -96,7 +100,7 @@
         [NSException raise:NSInternalInconsistencyException format:@"%s already started", __PRETTY_FUNCTION__];
 
     readerList = [[NSMutableArray allocWithZone:[self zone]] init];
-    filenameEnum = [[logbook filenames] objectEnumerator];
+    filenameEnum = [filenames objectEnumerator];
     while((filename = [filenameEnum nextObject]) != nil)
         {
         reader = [[[MKLogfileReader allocWithZone:[self zone]] initWithFilename:filename] autorelease];
@@ -145,7 +149,7 @@
     while((reader = [readerEnum nextObject]) != nil)
         {
         while((message = [reader nextMessage]) != nil)
-            [textStorage appendString:message withAttributes:[logbook textAttributes]];
+            [textStorage appendString:message withAttributes:textAttributes];
         }
     if([textStorage length] > 50*1024)
         [textStorage deleteCharactersInRange:NSMakeRange(0, [textStorage length] - 50*1024)];

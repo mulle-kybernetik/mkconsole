@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  AppController.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: AppController.m,v 1.1.1.1 2002-12-02 23:57:12 erik Exp $
+//  @(#)$Id: AppController.m,v 1.2 2003-02-02 20:59:37 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -20,8 +20,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import <EDCommon/EDCommon.h>
-#import "MKLogbook.h"
 #import "MKConsoleWindowController.h"
+#import "PreferencesController.h"
 #import "AppController.h"
 
 
@@ -29,23 +29,36 @@
     @implementation AppController
 //---------------------------------------------------------------------------------------
 
-- (void)applicationDidFinishLaunching:(NSNotification *)notification
+- (id)init
 {
-    MKLogbook					*logbook;
+    [super init];
+    windowControllerList = [[NSMutableArray alloc] init];
+    return self;
+}
+
+
+- (void)rebuildWindowControllers
+{
     MKConsoleWindowController	*windowController;
     NSEnumerator				*windowSettingsEnum;
     NSDictionary				*windowSettings;
 
-    windowControllerList = [[NSMutableArray alloc] init];
+    [windowControllerList makeObjectsPerformSelector:@selector(stop)];
+    [windowControllerList removeAllObjects];
+
     windowSettingsEnum = [[DEFAULTS objectForKey:@"Windows"] objectEnumerator];
     while((windowSettings = [windowSettingsEnum nextObject]) != nil)
         {
-        logbook = [[[MKLogbook alloc] initWithDictionary:windowSettings] autorelease];
-        windowController = [[[MKConsoleWindowController alloc] initWithLogbook:logbook] autorelease];
+        windowController = [[[MKConsoleWindowController alloc] initWithSettings:windowSettings] autorelease];
         [windowControllerList addObject:windowController];
         }
-
     [windowControllerList makeObjectsPerformSelector:@selector(start)];
+}    
+
+
+- (void)applicationDidFinishLaunching:(NSNotification *)notification
+{
+    [self rebuildWindowControllers];
 }
 
 
@@ -53,6 +66,13 @@
 {
     [windowControllerList makeObjectsPerformSelector:@selector(stop)];
 }
+
+
+- (void)openPreferences:(id)sender
+{
+    [[PreferencesController sharedInstance] showWindow:sender];
+}
+
 
 
 //---------------------------------------------------------------------------------------
