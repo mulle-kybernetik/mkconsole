@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  PreferencesController.m created by erik on Sat Feb 01 2003
-//  @(#)$Id: PreferencesController.m,v 1.3 2003-02-20 11:04:55 erik Exp $
+//  @(#)$Id: PreferencesController.m,v 1.4 2003-02-20 18:19:46 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -241,7 +241,7 @@ static PreferencesController *sharedInstance = nil;
     NSMutableArray		*windowListDefault;
     NSMutableDictionary	*windowSettings;
 
-    windowListDefault = [[[NSNotificationCenter defaultCenter] objectForKey:@"Windows"] mutableCopy];
+    windowListDefault = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Windows"] mutableCopy];
     windowSettings = [[windowListDefault objectAtIndex:0] mutableCopy];
     [windowSettings addEntriesFromDictionary:[self getSettings]];
     [windowListDefault replaceObjectAtIndex:0 withObject:windowSettings];
