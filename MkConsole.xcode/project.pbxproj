@@ -656,6 +656,7 @@
 				0396FC92056EB0EA00CA3307,
 			);
 			buildSettings = {
+				INSTALL_PATH = /Products;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
@@ -668,7 +669,7 @@
 			);
 			isa = PBXApplicationTarget;
 			name = MkConsoleElement;
-			productInstallPath = "$(USER_APPS_DIR)";
+			productInstallPath = /Products;
 			productName = MkConsoleElement;
 			productReference = 039A9459056AE48600C69A80;
 			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
@@ -1172,7 +1173,7 @@
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Applications";
+				INSTALL_PATH = /Products;
 				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.2;
 				OTHER_CFLAGS = "";
