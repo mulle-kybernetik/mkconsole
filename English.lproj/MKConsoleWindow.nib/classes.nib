@@ -1,0 +1,18 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            CLASS = MKConsoleWindow; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {outputArea = NSTextView; }; 
+            SUPERCLASS = NSWindow; 
+        }, 
+        {
+            CLASS = MKConsoleWindowController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {outputArea = NSTextView; window = MKConsoleWindow; }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

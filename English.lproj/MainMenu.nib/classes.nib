@@ -1,0 +1,11 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {gotoHomepage = id; openPreferences = id; }; 
+            CLASS = AppController; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}
