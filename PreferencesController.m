@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  PreferencesController.m created by erik on Sat Feb 01 2003
-//  @(#)$Id: PreferencesController.m,v 1.2 2003-02-19 20:45:09 erik Exp $
+//  @(#)$Id: PreferencesController.m,v 1.3 2003-02-20 11:04:55 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -72,7 +72,7 @@ static PreferencesController *sharedInstance = nil;
         NSAssert(panel != nil, @"Problem with MKConsoleWindow.nib");
         [fileTableView registerForDraggedTypes:[NSArray arrayWithObject:NSFilenamesPboardType]];
         [self retain];
-        [self showSettings:[[[NSNotificationCenter defaultCenter] objectForKey:@"Windows"] objectAtIndex:0]];
+        [self showSettings:[[[NSUserDefaults standardUserDefaults] objectForKey:@"Windows"] objectAtIndex:0]];
         }
     [panel makeKeyAndOrderFront:self];
 }
