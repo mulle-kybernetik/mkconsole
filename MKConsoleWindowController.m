@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindowController.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindowController.m,v 1.9 2004-02-15 18:55:05 erik Exp $
+//  @(#)$Id: MKConsoleWindowController.m,v 1.10 2005-02-20 14:35:36 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -27,6 +27,7 @@
 @interface MKConsoleWindowController(PrivateAPI)
 - (void)_tryRead:(NSTimer *)sender;
 - (void)_screenParametersChanged:(NSNotification *)n;
+- (void)_computerWokeUp:(NSNotification *)n;
 @end
 
 
@@ -56,6 +57,7 @@
     [window setSticky:[[settings objectForKey:@"Sticky"] isEqualToString:@"Yes"]];
         
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_screenParametersChanged:) name:NSApplicationDidChangeScreenParametersNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_computerWokeUp:) name:NSWorkspaceDidWakeNotification object:nil];
 
     return self;
 }
@@ -142,6 +144,17 @@
     [readerList release];
     readerList = nil;
     NSLog(@"%s ok", __PRETTY_FUNCTION__);
+}
+
+
+- (void)_computerWokeUp:(NSNotification *)n
+{
+    NSEnumerator	*readerEnum;
+    MKLogfileReader	*reader;
+	
+	readerEnum = [readerList objectEnumerator];
+    while((reader = [readerEnum nextObject]) != nil)
+	    [reader reopen];
 }
 
 

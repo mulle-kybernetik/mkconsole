@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKLogfile.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKLogfileReader.m,v 1.5 2003-11-16 18:33:03 erik Exp $
+//  @(#)$Id: MKLogfileReader.m,v 1.6 2005-02-20 14:35:36 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -139,11 +139,6 @@
             [fileHandle seekToFileOffset:MAX(0, (int)newLength - 2*1024)];
         else if(newLength > lastPosition) // busy, busy. go back to where we were
             [fileHandle seekToFileOffset:lastPosition];
-        }
-    else
-        {
-#warning ** remove for release
-        NSLog(@"%s new file: %@ %@", __PRETTY_FUNCTION__, lastCreationDate, fileCreationDate);
         }
     
     return YES;
