@@ -8,9 +8,8 @@
             FontSize = "9";
             TextColor = "0.44 0.50 0.53 1";
             Files = (
-                "/Network/Servers/wintermute/var/log/xferlog",
-                "/Network/Servers/wintermute/var/log/nap.log",
-                "/Network/Servers/wintermute/var/log/messages"
+                "/var/log/system.log"
+                "/var/log/daily.out"
             );
         }
     );
