@@ -5,22 +5,115 @@
 	};
 	objectVersion = 38;
 	objects = {
+		03509F8803EC1A9F00A8C007 = {
+			children = (
+				67576FCA02CE59C200A8C007,
+				67576FC902CE59C200A8C007,
+				03509F8A03EC22B600A8C007,
+				03509F8B03EC22B600A8C007,
+			);
+			isa = PBXGroup;
+			name = Application;
+			refType = 4;
+		};
+		03509F8903EC1AB100A8C007 = {
+			children = (
+				67576FB502CE3FEB00A8C007,
+				67576FB402CE3FEB00A8C007,
+				67576FBD02CE44CB00A8C007,
+				67576FBC02CE44CB00A8C007,
+				67576FAA02CE3E5400A8C007,
+				67576FA902CE3E5400A8C007,
+			);
+			isa = PBXGroup;
+			name = LogWindow;
+			path = "";
+			refType = 4;
+		};
+		03509F8A03EC22B600A8C007 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = PreferencesController.h;
+			refType = 4;
+		};
+		03509F8B03EC22B600A8C007 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = PreferencesController.m;
+			refType = 4;
+		};
+		03509F8C03EC22B600A8C007 = {
+			fileRef = 03509F8A03EC22B600A8C007;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		03509F8D03EC22B600A8C007 = {
+			fileRef = 03509F8B03EC22B600A8C007;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		03509F9103EC2C7600A8C007 = {
+			children = (
+				03509F9203EC2C7600A8C007,
+			);
+			isa = PBXVariantGroup;
+			name = Preferences.nib;
+			path = "";
+			refType = 4;
+		};
+		03509F9203EC2C7600A8C007 = {
+			isa = PBXFileReference;
+			name = English;
+			path = English.lproj/Preferences.nib;
+			refType = 4;
+		};
+		03509F9303EC2C7600A8C007 = {
+			fileRef = 03509F9103EC2C7600A8C007;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		03D4A94003EDB46A00A8C007 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = MKKDDTableView.h;
+			refType = 4;
+		};
+		03D4A94103EDB46A00A8C007 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = MKKDDTableView.m;
+			refType = 4;
+		};
+		03D4A94203EDB46A00A8C007 = {
+			fileRef = 03D4A94003EDB46A00A8C007;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		03D4A94303EDB46A00A8C007 = {
+			fileRef = 03D4A94103EDB46A00A8C007;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+//030
+//031
+//032
+//033
+//034
+//080
+//081
+//082
+//083
+//084
 		080E96DCFE201CFB7F000001 = {
 			fileRef = 29B97318FDCFA39411CA2CEA;
 			isa = PBXBuildFile;
 			settings = {
 			};
-		};
-		080E96DDFE201D6D7F000001 = {
-			children = (
-				67576FCA02CE59C200A8C007,
-				67576FC902CE59C200A8C007,
-				67576FB502CE3FEB00A8C007,
-				67576FB402CE3FEB00A8C007,
-			);
-			isa = PBXGroup;
-			name = Controller;
-			refType = 4;
 		};
 		089C165CFE840E0CC02AAC07 = {
 			children = (
@@ -131,6 +224,7 @@
 				4A9504CCFFE6A4B311CA0CBA,
 				4A9504CDFFE6A4B311CA0CBA,
 			);
+			hasScannedForEncodings = 1;
 			isa = PBXProject;
 			mainGroup = 29B97314FDCFA39411CA2CEA;
 			projectDirPath = "";
@@ -140,9 +234,8 @@
 		};
 		29B97314FDCFA39411CA2CEA = {
 			children = (
-				67576FCE02CE59EA00A8C007,
-				67576FCD02CE59E600A8C007,
-				080E96DDFE201D6D7F000001,
+				03509F8803EC1A9F00A8C007,
+				03509F8903EC1AB100A8C007,
 				67576FD002CE5A5900A8C007,
 				29B97315FDCFA39411CA2CEA,
 				29B97317FDCFA39411CA2CEA,
@@ -164,6 +257,7 @@
 			refType = 4;
 		};
 		29B97316FDCFA39411CA2CEA = {
+			fileEncoding = 30;
 			isa = PBXFileReference;
 			path = main.m;
 			refType = 4;
@@ -175,6 +269,7 @@
 				677B5BC602CE99D400A8C007,
 				6737C01702CE9AF300A8C007,
 				29B97318FDCFA39411CA2CEA,
+				03509F9103EC2C7600A8C007,
 				67576FB102CE3F9900A8C007,
 			);
 			isa = PBXGroup;
@@ -255,7 +350,7 @@
 	<key>CFBundleExecutable</key>
 	<string>MkConsole</string>
 	<key>CFBundleGetInfoString</key>
-	<string>MkConsole – World Cup release, Copyright 2002 Mulle kybernetiK.</string>
+	<string>MkConsole – Copyright 2003 Mulle kybernetiK.</string>
 	<key>CFBundleIconFile</key>
 	<string>mkconsole</string>
 	<key>CFBundleIdentifier</key>
@@ -267,11 +362,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.1</string>
+	<string>1.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.1</string>
+	<string>1.1</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
@@ -279,17 +374,17 @@
 </dict>
 </plist>
 ";
-			shouldUseHeadermap = 1;
 		};
 		29B97327FDCFA39411CA2CEA = {
 			buildActionMask = 2147483647;
 			files = (
 				67576FAC02CE3E5400A8C007,
 				67576FB702CE3FEB00A8C007,
-				67576FBB02CE449100A8C007,
 				67576FBF02CE44CB00A8C007,
 				67576FCC02CE59C200A8C007,
 				67FFF34902D0AAD700A8C007,
+				03509F8C03EC22B600A8C007,
+				03D4A94203EDB46A00A8C007,
 			);
 			isa = PBXHeadersBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +398,7 @@
 				678CA77802CE80F100A8C007,
 				677B5BC702CE99D400A8C007,
 				6737C01802CE9AF300A8C007,
+				03509F9303EC2C7600A8C007,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,10 +409,11 @@
 				29B9732CFDCFA39411CA2CEA,
 				67576FAB02CE3E5400A8C007,
 				67576FB602CE3FEB00A8C007,
-				67576FBA02CE449100A8C007,
 				67576FBE02CE44CB00A8C007,
 				67576FCB02CE59C200A8C007,
 				67FFF34802D0AAD700A8C007,
+				03509F8D03EC22B600A8C007,
+				03D4A94303EDB46A00A8C007,
 			);
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,11 +486,13 @@
 			};
 		};
 		67576FA902CE3E5400A8C007 = {
+			fileEncoding = 30;
 			isa = PBXFileReference;
 			path = MKConsoleWindow.m;
 			refType = 4;
 		};
 		67576FAA02CE3E5400A8C007 = {
+			fileEncoding = 30;
 			isa = PBXFileReference;
 			path = MKConsoleWindow.h;
 			refType = 4;
@@ -432,11 +531,13 @@
 			};
 		};
 		67576FB402CE3FEB00A8C007 = {
+			fileEncoding = 30;
 			isa = PBXFileReference;
 			path = MKConsoleWindowController.m;
 			refType = 4;
 		};
 		67576FB502CE3FEB00A8C007 = {
+			fileEncoding = 30;
 			isa = PBXFileReference;
 			path = MKConsoleWindowController.h;
 			refType = 4;
@@ -453,34 +554,14 @@
 			settings = {
 			};
 		};
-		67576FB802CE449100A8C007 = {
-			isa = PBXFileReference;
-			path = MKLogbook.m;
-			refType = 4;
-		};
-		67576FB902CE449100A8C007 = {
-			isa = PBXFileReference;
-			path = MKLogbook.h;
-			refType = 4;
-		};
-		67576FBA02CE449100A8C007 = {
-			fileRef = 67576FB802CE449100A8C007;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
-		67576FBB02CE449100A8C007 = {
-			fileRef = 67576FB902CE449100A8C007;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
 		67576FBC02CE44CB00A8C007 = {
+			fileEncoding = 30;
 			isa = PBXFileReference;
 			path = MKLogfileReader.m;
 			refType = 4;
 		};
 		67576FBD02CE44CB00A8C007 = {
+			fileEncoding = 30;
 			isa = PBXFileReference;
 			path = MKLogfileReader.h;
 			refType = 4;
@@ -498,11 +579,13 @@
 			};
 		};
 		67576FC902CE59C200A8C007 = {
+			fileEncoding = 30;
 			isa = PBXFileReference;
 			path = AppController.m;
 			refType = 4;
 		};
 		67576FCA02CE59C200A8C007 = {
+			fileEncoding = 30;
 			isa = PBXFileReference;
 			path = AppController.h;
 			refType = 4;
@@ -519,32 +602,12 @@
 			settings = {
 			};
 		};
-		67576FCD02CE59E600A8C007 = {
-			children = (
-				67576FAA02CE3E5400A8C007,
-				67576FA902CE3E5400A8C007,
-			);
-			isa = PBXGroup;
-			name = View;
-			path = "";
-			refType = 4;
-		};
-		67576FCE02CE59EA00A8C007 = {
-			children = (
-				67576FB902CE449100A8C007,
-				67576FB802CE449100A8C007,
-			);
-			isa = PBXGroup;
-			name = Model;
-			path = "";
-			refType = 4;
-		};
 		67576FD002CE5A5900A8C007 = {
 			children = (
-				67576FBD02CE44CB00A8C007,
-				67576FBC02CE44CB00A8C007,
 				67FFF34702D0AAD700A8C007,
 				67FFF34602D0AAD700A8C007,
+				03D4A94003EDB46A00A8C007,
+				03D4A94103EDB46A00A8C007,
 			);
 			isa = PBXGroup;
 			name = Other;
@@ -575,6 +638,7 @@
 			};
 		};
 		678CA77702CE80F100A8C007 = {
+			fileEncoding = 30;
 			isa = PBXFileReference;
 			path = FactoryDefaults.plist;
 			refType = 4;
@@ -586,11 +650,13 @@
 			};
 		};
 		67FFF34602D0AAD700A8C007 = {
+			fileEncoding = 30;
 			isa = PBXFileReference;
 			path = "NSColor+Extensions.m";
 			refType = 4;
 		};
 		67FFF34702D0AAD700A8C007 = {
+			fileEncoding = 30;
 			isa = PBXFileReference;
 			path = "NSColor+Extensions.h";
 			refType = 4;
