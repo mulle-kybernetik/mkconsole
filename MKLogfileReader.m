@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKLogfile.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKLogfileReader.m,v 1.4 2003-11-15 17:37:29 erik Exp $
+//  @(#)$Id: MKLogfileReader.m,v 1.5 2003-11-16 18:33:03 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -117,6 +117,10 @@
         [fileHandle closeFile];
         [fileHandle release];
         fileHandle = nil;
+        }
+    else
+        {
+        lastPosition = 0;
         }
 
     if((fileHandle = [NSFileHandle fileHandleForReadingAtPath:filename]) == nil)
