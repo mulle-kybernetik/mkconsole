@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  PreferencesController.h created by erik on Sat Feb 01 2003
-//  @(#)$Id: PreferencesController.h,v 1.4 2003-03-08 21:59:27 erik Exp $
+//  @(#)$Id: PreferencesController.h,v 1.5 2003-11-18 23:34:42 erik Exp $
 //
 //  Copyright (c) 2003 by Mulle Kybernetik. All rights reserved.
 //
@@ -31,6 +31,7 @@
     IBOutlet NSFormCell		*frameHField;
     IBOutlet NSColorWell	*textColorWell;
     IBOutlet NSColorWell	*backgroundColorWell;
+    IBOutlet NSButton       *floatCheckBox;
     IBOutlet NSPopUpButton	*fontFamilyPopup;
     IBOutlet NSPopUpButton	*fontSizePopup;
     IBOutlet NSButton		*boldCheckBox;

@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindow.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindow.m,v 1.5 2003-11-17 23:18:43 erik Exp $
+//  @(#)$Id: MKConsoleWindow.m,v 1.6 2003-11-18 23:34:42 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -47,7 +47,6 @@
     [self setHasShadow:NO];
     [self setCanHide:NO];
     [self setAlphaValue:1.0];
-    [self setLevel:CGWindowLevelForKey(kCGDesktopWindowLevelKey)];
     [self setClickThrough:YES];
     
     clipView = (NSClipView *)[outputArea superview];

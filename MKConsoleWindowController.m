@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindowController.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindowController.m,v 1.6 2003-11-15 17:37:29 erik Exp $
+//  @(#)$Id: MKConsoleWindowController.m,v 1.7 2003-11-18 23:34:42 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -49,6 +49,11 @@
     [NSBundle loadNibNamed:@"MKConsoleWindow" owner:self];
     NSAssert(window != nil, @"Problem with MKConsoleWindow.nib");
     [window setBackgroundColor:[NSColor colorWithCalibratedStringRep:[settings objectForKey:@"BackgroundColor"]]];
+    if([[settings objectForKey:@"Float"] isEqualToString:@"Yes"])
+        [window setLevel:CGWindowLevelForKey(kCGDesktopIconWindowLevelKey) + 1];
+    else
+        [window setLevel:CGWindowLevelForKey(kCGDesktopWindowLevelKey)];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_screenParametersChanged:) name:NSApplicationDidChangeScreenParametersNotification object:nil];
 
     return self;

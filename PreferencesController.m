@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  PreferencesController.m created by erik on Sat Feb 01 2003
-//  @(#)$Id: PreferencesController.m,v 1.9 2003-03-09 22:06:05 erik Exp $
+//  @(#)$Id: PreferencesController.m,v 1.10 2003-11-18 23:34:42 erik Exp $
 //
 //  Copyright (c) 2003 by Mulle Kybernetik. All rights reserved.
 //
@@ -113,6 +113,7 @@ static PreferencesController *sharedInstance = nil;
     [frameHField setFloatValue:frame.size.height];
     [textColorWell setColor:[NSColor colorWithCalibratedStringRep:[settings objectForKey:@"TextColor"]]];
     [backgroundColorWell setColor:[NSColor colorWithCalibratedStringRep:[settings objectForKey:@"BackgroundColor"]]];
+    [floatCheckBox setState:[[settings objectForKey:@"Float"] isEqualToString:@"Yes"]];
 
     filenames = [[settings objectForKey:@"Files"] mutableCopy];
     [fileTableView reloadData];
@@ -138,6 +139,7 @@ static PreferencesController *sharedInstance = nil;
     [settings setObject:NSStringFromRect(frame) forKey:@"Frame"];
     [settings setObject:[[textColorWell color] stringRep] forKey:@"TextColor"];
     [settings setObject:[[backgroundColorWell color] stringRep] forKey:@"BackgroundColor"];
+    [settings setObject:([floatCheckBox state] == NSOnState) ? @"Yes" : @"No" forKey:@"Float"];
     [settings setObject:filenames forKey:@"Files"];
     font = [[NSFontManager sharedFontManager] fontWithFamily:[fontFamilyPopup titleOfSelectedItem] traits:0 weight:5 size:[[fontSizePopup titleOfSelectedItem] floatValue]];
     if([boldCheckBox state] == NSOnState)
