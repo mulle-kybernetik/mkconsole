@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  PreferencesController.m created by erik on Sat Feb 01 2003
-//  @(#)$Id: PreferencesController.m,v 1.10 2003-11-18 23:34:42 erik Exp $
+//  @(#)$Id: PreferencesController.m,v 1.11 2004-01-23 22:12:01 erik Exp $
 //
 //  Copyright (c) 2003 by Mulle Kybernetik. All rights reserved.
 //
@@ -21,14 +21,16 @@
 #import <Cocoa/Cocoa.h>
 #import "NSColor+Extensions.h"
 #import "AppController.h"
+#import "WindowManager.h"
 #import "MKConsoleWindowController.h"
 #import "PreferencesController.h"
 
 
 @interface PreferencesController(PrivateAPI)
-- (void)rebuildFontPopup;
-- (void)showSettings:(NSDictionary *)settings;
-- (NSDictionary *)getSettings;
+- (WindowManager *)_getWindowManager;
+- (MKConsoleWindowController *)_getFirstConsoleWindowController;
+- (void)_showSettings:(NSDictionary *)settings;
+- (NSDictionary *)_getSettings;
 @end
 
 
@@ -61,8 +63,8 @@ static PreferencesController *sharedInstance = nil;
         {
         [NSBundle loadNibNamed:@"Preferences" owner:self];
         NSAssert(panel != nil, @"Problem with Preferences.nib");
-        [self showSettings:[[[NSUserDefaults standardUserDefaults] objectForKey:@"Windows"] objectAtIndex:0]];
-        [[[[[NSApplication sharedApplication] delegate] windowControllerList] objectAtIndex:0] enterSetUpModeWithListener:self];
+        [self _showSettings:[[[NSUserDefaults standardUserDefaults] objectForKey:@"Windows"] objectAtIndex:0]];
+        [[self _getFirstConsoleWindowController] enterSetUpModeWithListener:self];
         }
     [panel makeKeyAndOrderFront:self];
 }
@@ -70,7 +72,7 @@ static PreferencesController *sharedInstance = nil;
 
 - (void)windowWillClose:(NSNotification *)notification
 {
-    [[[[[NSApplication sharedApplication] delegate] windowControllerList] objectAtIndex:0] leaveSetUpMode];
+    [[self _getFirstConsoleWindowController] leaveSetUpMode];
     panel = nil;
 }
 
@@ -98,10 +100,29 @@ static PreferencesController *sharedInstance = nil;
 
 
 //---------------------------------------------------------------------------------------
+//	ACCESSING THE LOG WINDOW
+//---------------------------------------------------------------------------------------
+
+- (WindowManager *)_getWindowManager
+{
+    return [[[NSApplication sharedApplication] delegate] windowManager];
+}
+
+
+- (MKConsoleWindowController *)_getFirstConsoleWindowController
+{
+    NSArray *windowControllerList;
+    
+    windowControllerList = [[self _getWindowManager] windowControllerList];
+    return [windowControllerList count] > 0 ? [windowControllerList objectAtIndex:0] : nil;
+}
+
+
+//---------------------------------------------------------------------------------------
 //	READING/WRITING DEFAULTS
 //---------------------------------------------------------------------------------------
 
-- (void)showSettings:(NSDictionary *)settings
+- (void)_showSettings:(NSDictionary *)settings
 {
     NSRect		frame;
     NSString	*fontname;
@@ -125,7 +146,7 @@ static PreferencesController *sharedInstance = nil;
 }
 
 
-- (NSDictionary *)getSettings
+- (NSDictionary *)_getSettings
 {
     NSMutableDictionary *settings;
     NSRect				frame;
@@ -298,18 +319,19 @@ static PreferencesController *sharedInstance = nil;
 
     windowListDefault = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Windows"] mutableCopy];
     windowSettings = [[windowListDefault objectAtIndex:0] mutableCopy];
-    [windowSettings addEntriesFromDictionary:[self getSettings]];
+    [windowSettings addEntriesFromDictionary:[self _getSettings]];
     [windowListDefault replaceObjectAtIndex:0 withObject:windowSettings];
     [[NSUserDefaults standardUserDefaults] setObject:windowListDefault forKey:@"Windows"];
-    [[[NSApplication sharedApplication] delegate] rebuildWindowControllers];
-    [[[[[NSApplication sharedApplication] delegate] windowControllerList] objectAtIndex:0] enterSetUpModeWithListener:self];
-    [self showSettings:windowSettings];
+    [[NSUserDefaults standardUserDefaults] synchronize]; // in case wm is out-of proc
+    [[self _getWindowManager] rebuildWindowControllers];
+    [[self _getFirstConsoleWindowController] enterSetUpModeWithListener:self];
+    [self _showSettings:windowSettings];
 }
 
 
 - (IBAction)discardChanges:(id)sender
 {
-    [[[NSApplication sharedApplication] delegate] rebuildWindowControllers];
+    [[self _getWindowManager] rebuildWindowControllers];
     [panel close];
 }
 

@@ -391,6 +391,10 @@
 			children = (
 				0308033D055D9207004DC663,
 				0308033E055D9207004DC663,
+				0393F9A6056FA86D0053EB79,
+				0393F9A7056FA86D0053EB79,
+				0393FA42056FB8460053EB79,
+				0393FA43056FB8460053EB79,
 				033E2090055D92700062E680,
 				033E2091055D92700062E680,
 			);
@@ -434,7 +438,7 @@
 		};
 		038794F305698E1F000C8D5D = {
 			isa = PBXFileReference;
-			lastKnownFileType = wrapper.framework.static;
+			lastKnownFileType = wrapper.framework;
 			name = Carbon.framework;
 			path = /System/Library/Frameworks/Carbon.framework;
 			refType = 0;
@@ -445,6 +449,428 @@
 			isa = PBXBuildFile;
 			settings = {
 			};
+		};
+		0393F9A6056FA86D0053EB79 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = ElementController.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		0393F9A7056FA86D0053EB79 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = ElementController.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		0393F9A8056FA86D0053EB79 = {
+			fileRef = 0393F9A6056FA86D0053EB79;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		0393F9A9056FA86D0053EB79 = {
+			fileRef = 0393F9A7056FA86D0053EB79;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		0393F9CD056FADEA0053EB79 = {
+			children = (
+				0393F9CE056FADEA0053EB79,
+			);
+			isa = PBXVariantGroup;
+			name = ElementMain.nib;
+			path = "";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		0393F9CE056FADEA0053EB79 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.nib;
+			name = English;
+			path = English.lproj/ElementMain.nib;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		0393F9CF056FADEA0053EB79 = {
+			fileRef = 0393F9CD056FADEA0053EB79;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		0393FA42056FB8460053EB79 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = WindowManager.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		0393FA43056FB8460053EB79 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = WindowManager.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		0393FA44056FB8460053EB79 = {
+			fileRef = 0393FA42056FB8460053EB79;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		0393FA45056FB8460053EB79 = {
+			fileRef = 0393FA43056FB8460053EB79;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		0393FA46056FB8460053EB79 = {
+			fileRef = 0393FA42056FB8460053EB79;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		0393FA47056FB8460053EB79 = {
+			fileRef = 0393FA43056FB8460053EB79;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		0396FC92056EB0EA00CA3307 = {
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				0396FC9D056EB1DA00CA3307,
+				0396FC9F056EB6C100CA3307,
+			);
+			isa = PBXCopyFilesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0396FC9B056EB19C00CA3307 = {
+			children = (
+				0396FC9C056EB1D600CA3307,
+				0396FC9E056EB6BB00CA3307,
+			);
+			isa = PBXGroup;
+			name = "Miscellanous Products";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		0396FC9C056EB1D600CA3307 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.application;
+			path = "Stop MkConsoleElement.app";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		0396FC9D056EB1DA00CA3307 = {
+			fileRef = 0396FC9C056EB1D600CA3307;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		0396FC9E056EB6BB00CA3307 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.html;
+			path = ReadMe.html;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		0396FC9F056EB6C100CA3307 = {
+			fileRef = 0396FC9E056EB6BB00CA3307;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A9453056AE48600C69A80 = {
+			buildActionMask = 2147483647;
+			files = (
+				039A945F056AE53A00C69A80,
+				039A9461056AE53C00C69A80,
+				039A9463056AE53E00C69A80,
+				039A9465056AE53F00C69A80,
+				039A9467056AE54100C69A80,
+				039A9469056AE54500C69A80,
+				039A946B056AE54A00C69A80,
+				0393F9A8056FA86D0053EB79,
+				0393FA44056FB8460053EB79,
+			);
+			isa = PBXHeadersBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		039A9454056AE48600C69A80 = {
+			buildActionMask = 2147483647;
+			files = (
+				039A946E056AE55800C69A80,
+				039A9470056AE55D00C69A80,
+				039A9471056AE56600C69A80,
+				039A9472056AE56700C69A80,
+				039A9473056AE56D00C69A80,
+				039A9474056AE57B00C69A80,
+				0393F9CF056FADEA0053EB79,
+			);
+			isa = PBXResourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		039A9455056AE48600C69A80 = {
+			buildActionMask = 2147483647;
+			files = (
+				039A9460056AE53B00C69A80,
+				039A9462056AE53D00C69A80,
+				039A9464056AE53E00C69A80,
+				039A9466056AE54000C69A80,
+				039A9468056AE54200C69A80,
+				039A946A056AE54600C69A80,
+				039A946C056AE54B00C69A80,
+				039A946D056AE55000C69A80,
+				0393F9A9056FA86D0053EB79,
+				0393FA45056FB8460053EB79,
+			);
+			isa = PBXSourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		039A9456056AE48600C69A80 = {
+			buildActionMask = 2147483647;
+			files = (
+				039A9479056AE5F300C69A80,
+				039A947D056AE5F600C69A80,
+			);
+			isa = PBXFrameworksBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		039A9458056AE48600C69A80 = {
+			buildPhases = (
+				039A9453056AE48600C69A80,
+				039A9515056AE8E100C69A80,
+				039A9454056AE48600C69A80,
+				039A9455056AE48600C69A80,
+				039A9456056AE48600C69A80,
+				0396FC92056EB0EA00CA3307,
+			);
+			buildSettings = {
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = MkConsoleElement;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "-Wmost -Wno-four-char-constants -Wno-unknown-pragmas";
+				WRAPPER_EXTENSION = app;
+			};
+			dependencies = (
+			);
+			isa = PBXApplicationTarget;
+			name = MkConsoleElement;
+			productInstallPath = "$(USER_APPS_DIR)";
+			productName = MkConsoleElement;
+			productReference = 039A9459056AE48600C69A80;
+			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<plist version=\"1.0\">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>MkConsoleElement</string>
+	<key>CFBundleGetInfoString</key>
+	<string></string>
+	<key>CFBundleIconFile</key>
+	<string>mkconsole</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.mulle-kybernetik.MkConsole</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string></string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string></string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.6</string>
+	<key>NSMainNibFile</key>
+	<string>ElementMain</string>
+	<key>NSPrincipalClass</key>
+	<string>EDApplication</string>
+</dict>
+</plist>
+";
+		};
+		039A9459056AE48600C69A80 = {
+			explicitFileType = wrapper.application;
+			includeInIndex = 0;
+			isa = PBXFileReference;
+			path = MkConsoleElement.app;
+			refType = 3;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		039A945F056AE53A00C69A80 = {
+			fileRef = 033E2082055D92700062E680;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A9460056AE53B00C69A80 = {
+			fileRef = 033E2083055D92700062E680;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A9461056AE53C00C69A80 = {
+			fileRef = 033E2084055D92700062E680;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A9462056AE53D00C69A80 = {
+			fileRef = 033E2085055D92700062E680;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A9463056AE53E00C69A80 = {
+			fileRef = 033E2086055D92700062E680;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A9464056AE53E00C69A80 = {
+			fileRef = 033E2087055D92700062E680;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A9465056AE53F00C69A80 = {
+			fileRef = 033E2088055D92700062E680;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A9466056AE54000C69A80 = {
+			fileRef = 033E2089055D92700062E680;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A9467056AE54100C69A80 = {
+			fileRef = 033E208C055D92700062E680;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A9468056AE54200C69A80 = {
+			fileRef = 033E208D055D92700062E680;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A9469056AE54500C69A80 = {
+			fileRef = 033E2078055D92430062E680;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A946A056AE54600C69A80 = {
+			fileRef = 033E2079055D92430062E680;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A946B056AE54A00C69A80 = {
+			fileRef = 033E208E055D92700062E680;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A946C056AE54B00C69A80 = {
+			fileRef = 033E208F055D92700062E680;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A946D056AE55000C69A80 = {
+			fileRef = 29B97316FDCFA39411CA2CEA;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A946E056AE55800C69A80 = {
+			fileRef = 32CA4F630368D1EE00C91783;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A9470056AE55D00C69A80 = {
+			fileRef = 033E20A2055D92900062E680;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A9471056AE56600C69A80 = {
+			fileRef = 033E207E055D92590062E680;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A9472056AE56700C69A80 = {
+			fileRef = 033E2080055D92630062E680;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A9473056AE56D00C69A80 = {
+			fileRef = 033E207C055D924C0062E680;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A9474056AE57B00C69A80 = {
+			fileRef = 089C165CFE840E0CC02AAC07;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A9479056AE5F300C69A80 = {
+			fileRef = 1058C7A1FEA54F0111CA2CBB;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A947D056AE5F600C69A80 = {
+			fileRef = 038794F305698E1F000C8D5D;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		039A9515056AE8E100C69A80 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			isa = PBXShellScriptBuildPhase;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp InfoElement.plist $BUILD_DIR/MkConsole.build/MkConsoleElement.build/Info.plist\n";
+		};
+		039A9516056AEAF800C69A80 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.xml;
+			path = InfoElement.plist;
+			refType = 4;
+			sourceTree = "<group>";
 		};
 //030
 //031
@@ -526,6 +952,7 @@
 		19C28FACFE9D520D11CA2CBB = {
 			children = (
 				8D1107320486CEB800E47090,
+				039A9459056AE48600C69A80,
 			);
 			isa = PBXGroup;
 			name = Products;
@@ -555,6 +982,7 @@
 			projectDirPath = "";
 			targets = (
 				8D1107260486CEB800E47090,
+				039A9458056AE48600C69A80,
 			);
 		};
 		29B97314FDCFA39411CA2CEA = {
@@ -564,6 +992,7 @@
 				033E20C9055D94520062E680,
 				29B97315FDCFA39411CA2CEA,
 				29B97317FDCFA39411CA2CEA,
+				0396FC9B056EB19C00CA3307,
 				29B97323FDCFA39411CA2CEA,
 				19C28FACFE9D520D11CA2CBB,
 			);
@@ -595,6 +1024,7 @@
 		29B97317FDCFA39411CA2CEA = {
 			children = (
 				033E20AC055D93500062E680,
+				039A9516056AEAF800C69A80,
 				089C165CFE840E0CC02AAC07,
 				033E207C055D924C0062E680,
 				033E2080055D92630062E680,
@@ -602,6 +1032,7 @@
 				033E20A2055D92900062E680,
 				033E20A4055D92900062E680,
 				29B97318FDCFA39411CA2CEA,
+				0393F9CD056FADEA0053EB79,
 			);
 			isa = PBXGroup;
 			name = Resources;
@@ -774,6 +1205,7 @@
 				033E209C055D92700062E680,
 				033E209E055D92700062E680,
 				033E20A0055D92700062E680,
+				0393FA46056FB8460053EB79,
 			);
 			isa = PBXHeadersBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -825,6 +1257,7 @@
 				033E209D055D92700062E680,
 				033E209F055D92700062E680,
 				033E20A1055D92700062E680,
+				0393FA47056FB8460053EB79,
 			);
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;

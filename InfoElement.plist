@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>MkConsole</string>
+	<string>MkConsoleElement</string>
 	<key>CFBundleIconFile</key>
 	<string>mkconsole</string>
 	<key>CFBundleIdentifier</key>
@@ -19,10 +19,10 @@
 	<key>CFBundleVersion</key>
 	<string>1.6</string>
 	<key>NSMainNibFile</key>
-	<string>MainMenu</string>
+	<string>ElementMain</string>
 	<key>NSPrincipalClass</key>
 	<string>EDApplication</string>
-    <key>LSUIElement</key>
-    <string>0</string>
+    <key>LSBackgroundOnly</key>
+    <string>1</string>
 </dict>
 </plist>

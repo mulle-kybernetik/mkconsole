@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------------------
-//  AppController.h created by erik on Sat Jun 29 2002
-//  @(#)$Id: AppController.h,v 1.5 2004-01-23 22:12:01 erik Exp $
+//  ElementController.h created by erik on Mon Nov 17 2003
+//  @(#)$Id: ElementController.h,v 1.1 2004-01-23 22:12:01 erik Exp $
 //
-//  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
+//  Copyright (c) 2003 by Mulle Kybernetik. All rights reserved.
 //
 //  Permission to use, copy, modify and distribute this software and its documentation
 //  is hereby granted, provided that both the copyright notice and this permission
@@ -17,20 +17,18 @@
 //  DAMAGES WHATSOEVER RESULTING DIRECTLY OR INDIRECTLY FROM THE USE OF THIS SOFTWARE
 //  OR OF ANY DERIVATIVE WORK.
 //---------------------------------------------------------------------------------------
-					
+
 #import <AppKit/AppKit.h>
 
 @class WindowManager;
 
 
-@interface AppController : NSObject
+@interface ElementController : NSObject 
 {
-    WindowManager  *windowManager;
+    WindowManager   *windowManager;
+    NSConnection    *listenConnection;
 }
 
 - (WindowManager *)windowManager;
-
-- (IBAction)openPreferences:(id)sender;
-- (IBAction)gotoHomepage:(id)sender;
 
 @end

@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------------------
-//  AppController.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: AppController.m,v 1.6 2004-01-23 22:12:01 erik Exp $
+//  ElementController.m created by erik on Mon Nov 17 2003
+//  @(#)$Id: ElementController.m,v 1.1 2004-01-23 22:12:01 erik Exp $
 //
-//  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
+//  Copyright (c) 2003 by Mulle Kybernetik. All rights reserved.
 //
 //  Permission to use, copy, modify and distribute this software and its documentation
 //  is hereby granted, provided that both the copyright notice and this permission
@@ -20,12 +20,11 @@
 
 #import <Cocoa/Cocoa.h>
 #import "WindowManager.h"
-#import "PreferencesController.h"
-#import "AppController.h"
+#import "ElementController.h"
 
 
 //---------------------------------------------------------------------------------------
-    @implementation AppController
+    @implementation ElementController
 //---------------------------------------------------------------------------------------
 
 - (WindowManager *)windowManager
@@ -42,35 +41,21 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-    // We're cheating. The returned object is not a WindowManager; but it "implements" all its methods...
-    windowManager = [[NSConnection rootProxyForConnectionWithRegisteredName:@"MkConsole" host:nil] retain];
-    if(windowManager != nil)
-        {
-        [self openPreferences:self];
-        }
-    else
-        {
-        windowManager = [[WindowManager alloc] init];
-        [windowManager rebuildWindowControllers];
-        }
+    windowManager = [[WindowManager alloc] init];
+    [windowManager rebuildWindowControllers];
+
+    listenConnection = [[NSConnection defaultConnection] retain];
+    [listenConnection registerName:@"MkConsole"];
+    [listenConnection setRootObject:windowManager];
 }
 
 
 - (void)applicationWillTerminate:(NSNotification *)notification
 {
-    [windowManager release];
-}
+    [listenConnection setRootObject:nil];
+    [listenConnection release];
 
-
-- (void)openPreferences:(id)sender
-{
-    [[PreferencesController sharedInstance] showWindow:sender];
-}
-
-
-- (void)gotoHomepage:(id)sender
-{
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.mulle-kybernetik.com/software/MkConsole/"]];
+    [windowManager destroyWindowControllers];
 }
 
 

@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindowController.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindowController.m,v 1.7 2003-11-18 23:34:42 erik Exp $
+//  @(#)$Id: MKConsoleWindowController.m,v 1.8 2004-01-23 22:12:01 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -189,7 +189,7 @@
 - (void)enterSetUpModeWithListener:(id)anObject
 {
     [window setShowsDecorations:YES];
-    setupListener = anObject;
+    setupListener = [anObject retain];
     [[NSNotificationCenter defaultCenter] addObserver:setupListener selector:@selector(windowDidMove:) name:NSWindowDidMoveNotification object:window];
     [[NSNotificationCenter defaultCenter] addObserver:setupListener selector:@selector(windowDidResize:) name:NSWindowDidResizeNotification object:window];
 }
@@ -200,7 +200,8 @@
     [window setShowsDecorations:NO];
     [[NSNotificationCenter defaultCenter] removeObserver:setupListener name:NSWindowDidMoveNotification object:window];
     [[NSNotificationCenter defaultCenter] removeObserver:setupListener name:NSWindowDidResizeNotification object:window];
-    setupListener = NO;
+    [setupListener release];
+    setupListener = nil;
 }
 
 

@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------------------
-//  AppController.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: AppController.m,v 1.6 2004-01-23 22:12:01 erik Exp $
+//  WindowManager.m created by erik on Mon Nov 17 2003
+//  @(#)$Id: WindowManager.m,v 1.1 2004-01-23 22:12:01 erik Exp $
 //
-//  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
+//  Copyright (c) 2003 by Mulle Kybernetik. All rights reserved.
 //
 //  Permission to use, copy, modify and distribute this software and its documentation
 //  is hereby granted, provided that both the copyright notice and this permission
@@ -18,59 +18,59 @@
 //  OR OF ANY DERIVATIVE WORK.
 //---------------------------------------------------------------------------------------
 
-#import <Cocoa/Cocoa.h>
+#import "MKConsoleWindowController.h"
 #import "WindowManager.h"
-#import "PreferencesController.h"
-#import "AppController.h"
 
 
 //---------------------------------------------------------------------------------------
-    @implementation AppController
+    @implementation WindowManager
 //---------------------------------------------------------------------------------------
 
-- (WindowManager *)windowManager
+- (id)init
 {
-    return windowManager;
+    [super init];
+    windowControllerList = [[NSMutableArray alloc] init];
+    return self;
 }
 
 
-- (void)applicationWillFinishLaunching:(NSNotification *)notification
+- (void)dealloc
 {
-    [NSColor setIgnoresAlpha:NO];
+    [windowControllerList release];
+    [super dealloc];
 }
 
 
-- (void)applicationDidFinishLaunching:(NSNotification *)notification
+- (NSArray *)windowControllerList
 {
-    // We're cheating. The returned object is not a WindowManager; but it "implements" all its methods...
-    windowManager = [[NSConnection rootProxyForConnectionWithRegisteredName:@"MkConsole" host:nil] retain];
-    if(windowManager != nil)
+    return windowControllerList;
+}
+
+
+- (void)rebuildWindowControllers
+{
+    MKConsoleWindowController	*windowController;
+    NSEnumerator				*windowSettingsEnum;
+    NSDictionary				*windowSettings;
+        
+    [self destroyWindowControllers];
+
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
+    windowSettingsEnum = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Windows"] objectEnumerator];
+    while((windowSettings = [windowSettingsEnum nextObject]) != nil)
         {
-        [self openPreferences:self];
+        windowController = [[[MKConsoleWindowController alloc] initWithSettings:windowSettings] autorelease];
+        [windowControllerList addObject:windowController];
         }
-    else
-        {
-        windowManager = [[WindowManager alloc] init];
-        [windowManager rebuildWindowControllers];
-        }
-}
+    [windowControllerList makeObjectsPerformSelector:@selector(start)];
+}    
 
 
-- (void)applicationWillTerminate:(NSNotification *)notification
+- (void)destroyWindowControllers
 {
-    [windowManager release];
-}
-
-
-- (void)openPreferences:(id)sender
-{
-    [[PreferencesController sharedInstance] showWindow:sender];
-}
-
-
-- (void)gotoHomepage:(id)sender
-{
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.mulle-kybernetik.com/software/MkConsole/"]];
+    [windowControllerList makeObjectsPerformSelector:@selector(stop)];
+    [windowControllerList removeAllObjects];
 }
 
 
