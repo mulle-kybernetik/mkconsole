@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------------------
 //  PreferencesController.m created by erik on Sat Feb 01 2003
-//  @(#)$Id: PreferencesController.m,v 1.5 2003-02-22 20:43:21 erik Exp $
+//  @(#)$Id: PreferencesController.m,v 1.6 2003-02-22 23:57:30 erik Exp $
 //
-//  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
+//  Copyright (c) 2003 by Mulle Kybernetik. All rights reserved.
 //
 //  Permission to use, copy, modify and distribute this software and its documentation
 //  is hereby granted, provided that both the copyright notice and this permission
@@ -25,7 +25,7 @@
 
 
 @interface PreferencesController(PrivateAPI)
-- (void)rebuildFamilyPopup;
+- (void)rebuildFontPopup;
 - (void)showSettings:(NSDictionary *)settings;
 - (NSDictionary *)getSettings;
 @end
@@ -72,8 +72,6 @@ static PreferencesController *sharedInstance = nil;
         [NSBundle loadNibNamed:@"Preferences" owner:self];
         NSAssert(panel != nil, @"Problem with Preferences.nib");
         [self retain];
-        [fileTableView registerForDraggedTypes:[NSArray arrayWithObject:NSFilenamesPboardType]];
-        [self rebuildFamilyPopup];
         [self showSettings:[[[NSUserDefaults standardUserDefaults] objectForKey:@"Windows"] objectAtIndex:0]];
         }
     [panel makeKeyAndOrderFront:self];
@@ -87,14 +85,36 @@ static PreferencesController *sharedInstance = nil;
 }
 
 
+- (void)awakeFromNib
+{
+    NSArray			*familyList;
+    NSEnumerator	*familyEnum;
+    NSString		*family;
+
+    if(panel == nil)
+        return;
+    
+    [fontFamilyPopup removeAllItems];
+    familyList = [[[NSFontManager sharedFontManager] availableFontFamilies] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    familyEnum = [familyList objectEnumerator];
+    while((family = [familyEnum nextObject]) != nil)
+        {
+        if(([family hasPrefix:@"."] == NO) && ([family hasPrefix:@"#"] == NO))
+            [fontFamilyPopup addItemWithTitle:family];
+        }
+
+    [fileTableView registerForDraggedTypes:[NSArray arrayWithObject:NSFilenamesPboardType]];
+}
+
+
 //---------------------------------------------------------------------------------------
 //	READING/WRITING DEFAULTS
 //---------------------------------------------------------------------------------------
 
 - (void)showSettings:(NSDictionary *)settings
 {
-    NSRect	frame;
-    NSFont	*font;
+    NSRect		frame;
+    NSString	*fontname;
 
     frame = NSRectFromString([settings objectForKey:@"Frame"]);
     [frameXField setFloatValue:frame.origin.x];
@@ -104,11 +124,11 @@ static PreferencesController *sharedInstance = nil;
     [textColorWell setColor:[NSColor colorWithCalibratedStringRep:[settings objectForKey:@"TextColor"]]];
     filenames = [[settings objectForKey:@"Files"] mutableCopy];
     [fileTableView reloadData];
-    font = [NSFont fontWithName:[settings objectForKey:@"FontName"] size:[[settings objectForKey:@"FontSize"] floatValue]];
-    [familyPopup selectItemWithTitle:[font familyName]];
+    fontname = [settings objectForKey:@"FontName"];
+    [fontFamilyPopup selectItemWithTitle:[[NSFont fontWithName:fontname size:12] familyName]];
     [fontSizePopup selectItemWithTitle:[settings objectForKey:@"FontSize"]];
-    [self rebuildFontPopup:self];
-    [fontPopup selectItemAtIndex:[fontPopup indexOfItemWithRepresentedObject:font]];
+    [boldCheckBox setState:[[NSFontManager sharedFontManager] fontNamed:fontname hasTraits:NSBoldFontMask]];
+    [italicCheckBox setState:[[NSFontManager sharedFontManager] fontNamed:fontname hasTraits:NSItalicFontMask]];
 }
 
 
@@ -126,7 +146,11 @@ static PreferencesController *sharedInstance = nil;
     [settings setObject:NSStringFromRect(frame) forKey:@"Frame"];
     [settings setObject:[[textColorWell color] stringRep] forKey:@"TextColor"];
     [settings setObject:filenames forKey:@"Files"];
-    font = [[fontPopup selectedItem] representedObject];
+    font = [[NSFontManager sharedFontManager] fontWithFamily:[fontFamilyPopup titleOfSelectedItem] traits:0 weight:5 size:[[fontSizePopup titleOfSelectedItem] floatValue]];
+    if([boldCheckBox state] == NSOnState)
+        font = [[NSFontManager sharedFontManager] convertFont:font toHaveTrait:NSBoldFontMask];
+    if([italicCheckBox state] == NSOnState)
+        font = [[NSFontManager sharedFontManager] convertFont:font toHaveTrait:NSItalicFontMask];
     NSLog(@"%s font = %@", __PRETTY_FUNCTION__, font);
     [settings setObject:[font fontName] forKey:@"FontName"];
     [settings setObject:[[NSNumber numberWithFloat:[font pointSize]] stringValue] forKey:@"FontSize"] ;
@@ -209,51 +233,6 @@ static PreferencesController *sharedInstance = nil;
 
 
 //---------------------------------------------------------------------------------------
-//	FONT POPUPS
-//---------------------------------------------------------------------------------------
-
-- (void)rebuildFamilyPopup
-{
-    NSArray			*familyList;
-    NSEnumerator	*familyEnum;
-    NSString		*family;
-
-    [familyPopup removeAllItems];
-    familyList = [[[NSFontManager sharedFontManager] availableFontFamilies] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-    familyEnum = [familyList objectEnumerator];
-    while((family = [familyEnum nextObject]) != nil)
-        {
-        if([family hasPrefix:@"."] == NO)
-            [familyPopup addItemWithTitle:family];
-        }
-    [self rebuildFontPopup:self];
-}
-
-
-- (IBAction)rebuildFontPopup:(id)sender
-{
-    NSString		*previousFace;
-    NSArray			*fontList, *fontspec;
-    NSEnumerator	*fontEnum;
-    NSFont			*font;
-    unsigned int	index;
-
-    previousFace = [fontPopup titleOfSelectedItem];
-    [fontPopup removeAllItems];
-    fontList = [[NSFontManager sharedFontManager] availableMembersOfFontFamily:[familyPopup titleOfSelectedItem]];
-    fontEnum = [fontList objectEnumerator];
-    while((fontspec = [fontEnum nextObject]) != nil)
-        {
-        [fontPopup addItemWithTitle:[fontspec objectAtIndex:1]];
-        font = [[NSFontManager sharedFontManager] fontWithFamily:[familyPopup titleOfSelectedItem] traits:[[fontspec objectAtIndex:3] intValue] weight:[[fontspec objectAtIndex:2] intValue] size:[[fontSizePopup titleOfSelectedItem] floatValue]];
-        [[fontPopup lastItem] setRepresentedObject:font];
-        }
-    if((previousFace != nil) && ((index = [fontPopup indexOfItemWithTitle:previousFace]) != -1))
-        [fontPopup selectItemAtIndex:index];
-}
-
-
-//---------------------------------------------------------------------------------------
 //	MENU VALIDATION
 //---------------------------------------------------------------------------------------
 
@@ -305,6 +284,7 @@ static PreferencesController *sharedInstance = nil;
     [windowListDefault replaceObjectAtIndex:0 withObject:windowSettings];
     [[NSUserDefaults standardUserDefaults] setObject:windowListDefault forKey:@"Windows"];
     [[[NSApplication sharedApplication] delegate] rebuildWindowControllers];
+    [self showSettings:windowSettings];
 }
 
 

@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------------------
 //  PreferencesController.h created by erik on Sat Feb 01 2003
-//  @(#)$Id: PreferencesController.h,v 1.2 2003-02-22 20:43:21 erik Exp $
+//  @(#)$Id: PreferencesController.h,v 1.3 2003-02-22 23:57:30 erik Exp $
 //
-//  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
+//  Copyright (c) 2003 by Mulle Kybernetik. All rights reserved.
 //
 //  Permission to use, copy, modify and distribute this software and its documentation
 //  is hereby granted, provided that both the copyright notice and this permission
@@ -30,9 +30,10 @@
     IBOutlet NSFormCell		*frameWField;
     IBOutlet NSFormCell		*frameHField;
     IBOutlet NSColorWell	*textColorWell;
-    IBOutlet NSPopUpButton	*familyPopup;
-    IBOutlet NSPopUpButton	*fontPopup;
+    IBOutlet NSPopUpButton	*fontFamilyPopup;
     IBOutlet NSPopUpButton	*fontSizePopup;
+    IBOutlet NSButton		*boldCheckBox;
+    IBOutlet NSButton		*italicCheckBox;
     IBOutlet NSTableView	*fileTableView;
 }
 
@@ -42,8 +43,6 @@
 
 - (IBAction)revealSelectedFilesInFinder:(id)sender;
 - (IBAction)removeSelectedFiles:(id)sender;
-
-- (IBAction)rebuildFontPopup:(id)sender;
 
 - (IBAction)applyChanges:(id)sender;
 - (IBAction)discardChanges:(id)sender;
