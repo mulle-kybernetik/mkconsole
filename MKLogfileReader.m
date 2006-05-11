@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKLogfile.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKLogfileReader.m,v 1.6 2005-02-20 14:35:36 erik Exp $
+//  @(#)$Id: MKLogfileReader.m,v 1.7 2006-05-11 22:25:33 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -112,9 +112,13 @@
 
     if(fileHandle != nil)
         {
-        [self _fillBuffer]; // make sure we don't miss anything
-        lastPosition = [fileHandle offsetInFile];
-        [fileHandle closeFile];
+		NS_DURING
+			[self _fillBuffer]; // make sure we don't miss anything
+			lastPosition = [fileHandle offsetInFile];
+			[fileHandle closeFile];
+		NS_HANDLER
+			NSLog(@"## problem with file %@: failed to read rest before reopening (ignoring)", filename);
+		NS_ENDHANDLER
         [fileHandle release];
         fileHandle = nil;
         }

@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindowController.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindowController.m,v 1.10 2005-02-20 14:35:36 erik Exp $
+//  @(#)$Id: MKConsoleWindowController.m,v 1.11 2006-05-11 22:25:37 erik Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -26,6 +26,8 @@
 
 @interface MKConsoleWindowController(PrivateAPI)
 - (void)_tryRead:(NSTimer *)sender;
+- (void)_appendMessages:(NSArray *)messages;
+- (void)_reopenReaders;
 - (void)_screenParametersChanged:(NSNotification *)n;
 - (void)_computerWokeUp:(NSNotification *)n;
 @end
@@ -147,14 +149,24 @@
 }
 
 
-- (void)_computerWokeUp:(NSNotification *)n
+- (void)_reopenReaders
 {
     NSEnumerator	*readerEnum;
     MKLogfileReader	*reader;
 	
 	readerEnum = [readerList objectEnumerator];
     while((reader = [readerEnum nextObject]) != nil)
-	    [reader reopen];
+	{
+	    if([reader reopen] == NO)
+			NSLog(@"%s failed for %@", __PRETTY_FUNCTION__, [reader filename]);
+	}
+}
+
+
+- (void)_computerWokeUp:(NSNotification *)n
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+	[self _reopenReaders];
 }
 
 
@@ -164,31 +176,45 @@
 
 - (void)_tryRead:(NSTimer *)sender
 {
-    NSTextStorage 	 *textStorage;
-    NSEnumerator	 *readerEnum;
-    MKLogfileReader	 *reader;
+	NSMutableArray	 *messageList;
     NSString		 *message;
+    NSEnumerator	*readerEnum;
+    MKLogfileReader	*reader;	
 
     cycle = (cycle + 1) % [[[NSUserDefaults standardUserDefaults] objectForKey:@"ReopenFactor"] intValue];
     if(cycle == 0)
-        {
-        readerEnum = [readerList objectEnumerator];
-        while((reader = [readerEnum nextObject]) != nil)
-            [reader reopen];
-        }
+		[self _reopenReaders];
     
-    textStorage = [outputArea textStorage];
-    [textStorage beginEditing];
+	messageList = [NSMutableArray array];
     readerEnum = [readerList objectEnumerator];
     while((reader = [readerEnum nextObject]) != nil)
         {
         while((message = [reader nextMessage]) != nil)
-            {
-            unsigned int location = [textStorage length];
-            [textStorage replaceCharactersInRange:NSMakeRange(location, 0) withString:message];
-            [textStorage setAttributes:textAttributes range:NSMakeRange(location, [textStorage length] - location)];
-            }
+            [messageList addObject:message];
         }
+	[self _appendMessages:messageList];
+}
+
+
+//---------------------------------------------------------------------------------------
+//	read
+//---------------------------------------------------------------------------------------
+
+- (void)_appendMessages:(NSArray *)messages
+{
+    NSTextStorage 	 *textStorage;
+    NSEnumerator	 *messageEnum;
+    NSString		 *message;
+
+	textStorage = [outputArea textStorage];
+    [textStorage beginEditing];
+    messageEnum = [messages objectEnumerator];
+    while((message = [messageEnum nextObject]) != nil)
+		{
+        unsigned int location = [textStorage length];
+        [textStorage replaceCharactersInRange:NSMakeRange(location, 0) withString:message];
+        [textStorage setAttributes:textAttributes range:NSMakeRange(location, [textStorage length] - location)];
+		}
     if([textStorage length] > 50*1024)
         [textStorage deleteCharactersInRange:NSMakeRange(0, [textStorage length] - 50*1024)];
     [textStorage endEditing];

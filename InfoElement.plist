@@ -17,12 +17,14 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.8</string>
+	<string>1.9</string>
 	<key>NSMainNibFile</key>
 	<string>ElementMain</string>
 	<key>NSPrincipalClass</key>
 	<string>EDApplication</string>
     <key>LSBackgroundOnly</key>
     <string>1</string>
+	<key>NSUIElement</key>
+	<string>1</string>
 </dict>
 </plist>
