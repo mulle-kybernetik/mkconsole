@@ -1,0 +1,814 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0308033F055D9207004DC663 /* AppController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0308033D055D9207004DC663 /* AppController.h */; };
+		03080340055D9207004DC663 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0308033E055D9207004DC663 /* AppController.m */; };
+		033E207A055D92430062E680 /* EDApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2078055D92430062E680 /* EDApplication.h */; };
+		033E207B055D92430062E680 /* EDApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2079055D92430062E680 /* EDApplication.m */; };
+		033E207D055D924C0062E680 /* FactoryDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 033E207C055D924C0062E680 /* FactoryDefaults.plist */; };
+		033E207F055D92590062E680 /* mkconsole.icns in Resources */ = {isa = PBXBuildFile; fileRef = 033E207E055D92590062E680 /* mkconsole.icns */; };
+		033E2081055D92630062E680 /* mkconsole.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 033E2080055D92630062E680 /* mkconsole.tiff */; };
+		033E2092055D92700062E680 /* MKConsoleWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2082055D92700062E680 /* MKConsoleWindow.h */; };
+		033E2093055D92700062E680 /* MKConsoleWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2083055D92700062E680 /* MKConsoleWindow.m */; };
+		033E2094055D92700062E680 /* MKConsoleWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2084055D92700062E680 /* MKConsoleWindowController.h */; };
+		033E2095055D92700062E680 /* MKConsoleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2085055D92700062E680 /* MKConsoleWindowController.m */; };
+		033E2096055D92700062E680 /* MKConsoleWindowDragBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2086055D92700062E680 /* MKConsoleWindowDragBar.h */; };
+		033E2097055D92700062E680 /* MKConsoleWindowDragBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2087055D92700062E680 /* MKConsoleWindowDragBar.m */; };
+		033E2098055D92700062E680 /* MKConsoleWindowResizeIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2088055D92700062E680 /* MKConsoleWindowResizeIcon.h */; };
+		033E2099055D92700062E680 /* MKConsoleWindowResizeIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2089055D92700062E680 /* MKConsoleWindowResizeIcon.m */; };
+		033E209A055D92700062E680 /* MKKDDTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E208A055D92700062E680 /* MKKDDTableView.h */; };
+		033E209B055D92700062E680 /* MKKDDTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E208B055D92700062E680 /* MKKDDTableView.m */; };
+		033E209C055D92700062E680 /* MKLogfileReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E208C055D92700062E680 /* MKLogfileReader.h */; };
+		033E209D055D92700062E680 /* MKLogfileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E208D055D92700062E680 /* MKLogfileReader.m */; };
+		033E209E055D92700062E680 /* NSColor+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E208E055D92700062E680 /* NSColor+Extensions.h */; };
+		033E209F055D92700062E680 /* NSColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E208F055D92700062E680 /* NSColor+Extensions.m */; };
+		033E20A0055D92700062E680 /* PreferencesController.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2090055D92700062E680 /* PreferencesController.h */; };
+		033E20A1055D92700062E680 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2091055D92700062E680 /* PreferencesController.m */; };
+		033E20A6055D92900062E680 /* MKConsoleWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 033E20A2055D92900062E680 /* MKConsoleWindow.nib */; };
+		033E20A7055D92900062E680 /* Preferences.nib in Resources */ = {isa = PBXBuildFile; fileRef = 033E20A4055D92900062E680 /* Preferences.nib */; };
+		033E20AD055D93510062E680 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 033E20AC055D93500062E680 /* Info.plist */; };
+		035E969909FCB83600DDCC7F /* MKConsoleWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2082055D92700062E680 /* MKConsoleWindow.h */; };
+		035E969A09FCB83600DDCC7F /* MKConsoleWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2084055D92700062E680 /* MKConsoleWindowController.h */; };
+		035E969B09FCB83600DDCC7F /* MKConsoleWindowDragBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2086055D92700062E680 /* MKConsoleWindowDragBar.h */; };
+		035E969C09FCB83600DDCC7F /* MKConsoleWindowResizeIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2088055D92700062E680 /* MKConsoleWindowResizeIcon.h */; };
+		035E969D09FCB83600DDCC7F /* MKLogfileReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E208C055D92700062E680 /* MKLogfileReader.h */; };
+		035E969E09FCB83600DDCC7F /* EDApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2078055D92430062E680 /* EDApplication.h */; };
+		035E969F09FCB83600DDCC7F /* NSColor+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E208E055D92700062E680 /* NSColor+Extensions.h */; };
+		035E96A009FCB83600DDCC7F /* ElementController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0393F9A6056FA86D0053EB79 /* ElementController.h */; };
+		035E96A109FCB83600DDCC7F /* WindowManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0393FA42056FB8460053EB79 /* WindowManager.h */; };
+		035E96A409FCB83600DDCC7F /* MkConsole_Prefix.pch in Resources */ = {isa = PBXBuildFile; fileRef = 32CA4F630368D1EE00C91783 /* MkConsole_Prefix.pch */; };
+		035E96A509FCB83600DDCC7F /* MKConsoleWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 033E20A2055D92900062E680 /* MKConsoleWindow.nib */; };
+		035E96A609FCB83600DDCC7F /* mkconsole.icns in Resources */ = {isa = PBXBuildFile; fileRef = 033E207E055D92590062E680 /* mkconsole.icns */; };
+		035E96A709FCB83600DDCC7F /* mkconsole.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 033E2080055D92630062E680 /* mkconsole.tiff */; };
+		035E96A809FCB83600DDCC7F /* FactoryDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 033E207C055D924C0062E680 /* FactoryDefaults.plist */; };
+		035E96A909FCB83600DDCC7F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		035E96AA09FCB83600DDCC7F /* ElementMain.nib in Resources */ = {isa = PBXBuildFile; fileRef = 0393F9CD056FADEA0053EB79 /* ElementMain.nib */; };
+		035E96AC09FCB83600DDCC7F /* MKConsoleWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2083055D92700062E680 /* MKConsoleWindow.m */; };
+		035E96AD09FCB83600DDCC7F /* MKConsoleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2085055D92700062E680 /* MKConsoleWindowController.m */; };
+		035E96AE09FCB83600DDCC7F /* MKConsoleWindowDragBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2087055D92700062E680 /* MKConsoleWindowDragBar.m */; };
+		035E96AF09FCB83600DDCC7F /* MKConsoleWindowResizeIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2089055D92700062E680 /* MKConsoleWindowResizeIcon.m */; };
+		035E96B009FCB83600DDCC7F /* MKLogfileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E208D055D92700062E680 /* MKLogfileReader.m */; };
+		035E96B109FCB83600DDCC7F /* EDApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2079055D92430062E680 /* EDApplication.m */; };
+		035E96B209FCB83600DDCC7F /* NSColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E208F055D92700062E680 /* NSColor+Extensions.m */; };
+		035E96B309FCB83600DDCC7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		035E96B409FCB83600DDCC7F /* ElementController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0393F9A7056FA86D0053EB79 /* ElementController.m */; };
+		035E96B509FCB83600DDCC7F /* WindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0393FA43056FB8460053EB79 /* WindowManager.m */; };
+		035E96B709FCB83600DDCC7F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		035E96B809FCB83600DDCC7F /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038794F305698E1F000C8D5D /* Carbon.framework */; };
+		035E96BA09FCB83600DDCC7F /* Stop MkConsoleElement.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0396FC9C056EB1D600CA3307 /* Stop MkConsoleElement.app */; };
+		035E96BB09FCB83600DDCC7F /* ReadMe.html in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0396FC9E056EB6BB00CA3307 /* ReadMe.html */; };
+		038794F405698E1F000C8D5D /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038794F305698E1F000C8D5D /* Carbon.framework */; };
+		0393FA46056FB8460053EB79 /* WindowManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0393FA42056FB8460053EB79 /* WindowManager.h */; };
+		0393FA47056FB8460053EB79 /* WindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0393FA43056FB8460053EB79 /* WindowManager.m */; };
+		8D1107280486CEB800E47090 /* MkConsole_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32CA4F630368D1EE00C91783 /* MkConsole_Prefix.pch */; };
+		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		4A9504CCFFE6A4B311CA0CBA /* Development */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OPTIMIZATION_CFLAGS = "-O0";
+				ZERO_LINK = YES;
+			};
+			name = Development;
+		};
+		4A9504CDFFE6A4B311CA0CBA /* Deployment */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		035E96B909FCB83600DDCC7F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				035E96BA09FCB83600DDCC7F /* Stop MkConsoleElement.app in CopyFiles */,
+				035E96BB09FCB83600DDCC7F /* ReadMe.html in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0308033D055D9207004DC663 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		0308033E055D9207004DC663 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		033E2078055D92430062E680 /* EDApplication.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = EDApplication.h; sourceTree = "<group>"; };
+		033E2079055D92430062E680 /* EDApplication.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = EDApplication.m; sourceTree = "<group>"; };
+		033E207C055D924C0062E680 /* FactoryDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist; path = FactoryDefaults.plist; sourceTree = "<group>"; };
+		033E207E055D92590062E680 /* mkconsole.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = mkconsole.icns; sourceTree = "<group>"; };
+		033E2080055D92630062E680 /* mkconsole.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = mkconsole.tiff; sourceTree = "<group>"; };
+		033E2082055D92700062E680 /* MKConsoleWindow.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = MKConsoleWindow.h; sourceTree = "<group>"; };
+		033E2083055D92700062E680 /* MKConsoleWindow.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = MKConsoleWindow.m; sourceTree = "<group>"; };
+		033E2084055D92700062E680 /* MKConsoleWindowController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = MKConsoleWindowController.h; sourceTree = "<group>"; };
+		033E2085055D92700062E680 /* MKConsoleWindowController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = MKConsoleWindowController.m; sourceTree = "<group>"; };
+		033E2086055D92700062E680 /* MKConsoleWindowDragBar.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = MKConsoleWindowDragBar.h; sourceTree = "<group>"; };
+		033E2087055D92700062E680 /* MKConsoleWindowDragBar.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = MKConsoleWindowDragBar.m; sourceTree = "<group>"; };
+		033E2088055D92700062E680 /* MKConsoleWindowResizeIcon.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = MKConsoleWindowResizeIcon.h; sourceTree = "<group>"; };
+		033E2089055D92700062E680 /* MKConsoleWindowResizeIcon.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = MKConsoleWindowResizeIcon.m; sourceTree = "<group>"; };
+		033E208A055D92700062E680 /* MKKDDTableView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = MKKDDTableView.h; sourceTree = "<group>"; };
+		033E208B055D92700062E680 /* MKKDDTableView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = MKKDDTableView.m; sourceTree = "<group>"; };
+		033E208C055D92700062E680 /* MKLogfileReader.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = MKLogfileReader.h; sourceTree = "<group>"; };
+		033E208D055D92700062E680 /* MKLogfileReader.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = MKLogfileReader.m; sourceTree = "<group>"; };
+		033E208E055D92700062E680 /* NSColor+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = "NSColor+Extensions.h"; sourceTree = "<group>"; };
+		033E208F055D92700062E680 /* NSColor+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Extensions.m"; sourceTree = "<group>"; };
+		033E2090055D92700062E680 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
+		033E2091055D92700062E680 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
+		033E20A3055D92900062E680 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MKConsoleWindow.nib; sourceTree = "<group>"; };
+		033E20A5055D92900062E680 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/Preferences.nib; sourceTree = "<group>"; };
+		033E20AC055D93500062E680 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		035E96C109FCB83600DDCC7F /* MkConsoleElement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MkConsoleElement.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		038794F305698E1F000C8D5D /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		0393F9A6056FA86D0053EB79 /* ElementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementController.h; sourceTree = "<group>"; };
+		0393F9A7056FA86D0053EB79 /* ElementController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementController.m; sourceTree = "<group>"; };
+		0393F9CE056FADEA0053EB79 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/ElementMain.nib; sourceTree = "<group>"; };
+		0393FA42056FB8460053EB79 /* WindowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowManager.h; sourceTree = "<group>"; };
+		0393FA43056FB8460053EB79 /* WindowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowManager.m; sourceTree = "<group>"; };
+		0396FC9C056EB1D600CA3307 /* Stop MkConsoleElement.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = "Stop MkConsoleElement.app"; sourceTree = "<group>"; };
+		0396FC9E056EB6BB00CA3307 /* ReadMe.html */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; path = ReadMe.html; sourceTree = "<group>"; };
+		039A9516056AEAF800C69A80 /* InfoElement.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = InfoElement.plist; sourceTree = "<group>"; };
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32CA4F630368D1EE00C91783 /* MkConsole_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MkConsole_Prefix.pch; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* MkConsole.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MkConsole.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		035E96B609FCB83600DDCC7F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				035E96B709FCB83600DDCC7F /* Cocoa.framework in Frameworks */,
+				035E96B809FCB83600DDCC7F /* Carbon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				038794F405698E1F000C8D5D /* Carbon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		033E20C3055D943D0062E680 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				0308033D055D9207004DC663 /* AppController.h */,
+				0308033E055D9207004DC663 /* AppController.m */,
+				0393F9A6056FA86D0053EB79 /* ElementController.h */,
+				0393F9A7056FA86D0053EB79 /* ElementController.m */,
+				0393FA42056FB8460053EB79 /* WindowManager.h */,
+				0393FA43056FB8460053EB79 /* WindowManager.m */,
+				033E2090055D92700062E680 /* PreferencesController.h */,
+				033E2091055D92700062E680 /* PreferencesController.m */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		033E20C6055D944B0062E680 /* LogWindow */ = {
+			isa = PBXGroup;
+			children = (
+				033E2082055D92700062E680 /* MKConsoleWindow.h */,
+				033E2083055D92700062E680 /* MKConsoleWindow.m */,
+				033E2084055D92700062E680 /* MKConsoleWindowController.h */,
+				033E2085055D92700062E680 /* MKConsoleWindowController.m */,
+				033E2086055D92700062E680 /* MKConsoleWindowDragBar.h */,
+				033E2087055D92700062E680 /* MKConsoleWindowDragBar.m */,
+				033E2088055D92700062E680 /* MKConsoleWindowResizeIcon.h */,
+				033E2089055D92700062E680 /* MKConsoleWindowResizeIcon.m */,
+				033E208C055D92700062E680 /* MKLogfileReader.h */,
+				033E208D055D92700062E680 /* MKLogfileReader.m */,
+			);
+			name = LogWindow;
+			sourceTree = "<group>";
+		};
+		033E20C9055D94520062E680 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				033E2078055D92430062E680 /* EDApplication.h */,
+				033E2079055D92430062E680 /* EDApplication.m */,
+				033E208A055D92700062E680 /* MKKDDTableView.h */,
+				033E208B055D92700062E680 /* MKKDDTableView.m */,
+				033E208E055D92700062E680 /* NSColor+Extensions.h */,
+				033E208F055D92700062E680 /* NSColor+Extensions.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		0396FC9B056EB19C00CA3307 /* Miscellanous Products */ = {
+			isa = PBXGroup;
+			children = (
+				0396FC9C056EB1D600CA3307 /* Stop MkConsoleElement.app */,
+				0396FC9E056EB6BB00CA3307 /* ReadMe.html */,
+			);
+			name = "Miscellanous Products";
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				038794F305698E1F000C8D5D /* Carbon.framework */,
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* MkConsole.app */,
+				035E96C109FCB83600DDCC7F /* MkConsoleElement.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* MkConsole */ = {
+			isa = PBXGroup;
+			children = (
+				033E20C3055D943D0062E680 /* Application */,
+				033E20C6055D944B0062E680 /* LogWindow */,
+				033E20C9055D94520062E680 /* Other */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				0396FC9B056EB19C00CA3307 /* Miscellanous Products */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = MkConsole;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* MkConsole_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				033E20AC055D93500062E680 /* Info.plist */,
+				039A9516056AEAF800C69A80 /* InfoElement.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				033E207C055D924C0062E680 /* FactoryDefaults.plist */,
+				033E2080055D92630062E680 /* mkconsole.tiff */,
+				033E207E055D92590062E680 /* mkconsole.icns */,
+				033E20A2055D92900062E680 /* MKConsoleWindow.nib */,
+				033E20A4055D92900062E680 /* Preferences.nib */,
+				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
+				0393F9CD056FADEA0053EB79 /* ElementMain.nib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		035E969809FCB83600DDCC7F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				035E969909FCB83600DDCC7F /* MKConsoleWindow.h in Headers */,
+				035E969A09FCB83600DDCC7F /* MKConsoleWindowController.h in Headers */,
+				035E969B09FCB83600DDCC7F /* MKConsoleWindowDragBar.h in Headers */,
+				035E969C09FCB83600DDCC7F /* MKConsoleWindowResizeIcon.h in Headers */,
+				035E969D09FCB83600DDCC7F /* MKLogfileReader.h in Headers */,
+				035E969E09FCB83600DDCC7F /* EDApplication.h in Headers */,
+				035E969F09FCB83600DDCC7F /* NSColor+Extensions.h in Headers */,
+				035E96A009FCB83600DDCC7F /* ElementController.h in Headers */,
+				035E96A109FCB83600DDCC7F /* WindowManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D1107270486CEB800E47090 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D1107280486CEB800E47090 /* MkConsole_Prefix.pch in Headers */,
+				0308033F055D9207004DC663 /* AppController.h in Headers */,
+				033E207A055D92430062E680 /* EDApplication.h in Headers */,
+				033E2092055D92700062E680 /* MKConsoleWindow.h in Headers */,
+				033E2094055D92700062E680 /* MKConsoleWindowController.h in Headers */,
+				033E2096055D92700062E680 /* MKConsoleWindowDragBar.h in Headers */,
+				033E2098055D92700062E680 /* MKConsoleWindowResizeIcon.h in Headers */,
+				033E209A055D92700062E680 /* MKKDDTableView.h in Headers */,
+				033E209C055D92700062E680 /* MKLogfileReader.h in Headers */,
+				033E209E055D92700062E680 /* NSColor+Extensions.h in Headers */,
+				033E20A0055D92700062E680 /* PreferencesController.h in Headers */,
+				0393FA46056FB8460053EB79 /* WindowManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		035E969709FCB83600DDCC7F /* MkConsoleElement */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 035E96BC09FCB83600DDCC7F /* Build configuration list for PBXNativeTarget "MkConsoleElement" */;
+			buildPhases = (
+				035E969809FCB83600DDCC7F /* Headers */,
+				035E96A209FCB83600DDCC7F /* ShellScript */,
+				035E96A309FCB83600DDCC7F /* Resources */,
+				035E96AB09FCB83600DDCC7F /* Sources */,
+				035E96B609FCB83600DDCC7F /* Frameworks */,
+				035E96B909FCB83600DDCC7F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			buildSettings = {
+				INSTALL_PATH = /Products;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = MkConsoleElement;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+			};
+			dependencies = (
+			);
+			name = MkConsoleElement;
+			productInstallPath = /Products;
+			productName = MkConsoleElement;
+			productReference = 035E96C109FCB83600DDCC7F /* MkConsoleElement.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8D1107260486CEB800E47090 /* MkConsole */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03D9532809F82454000B9A35 /* Build configuration list for PBXNativeTarget "MkConsole" */;
+			buildPhases = (
+				8D1107270486CEB800E47090 /* Headers */,
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MkConsole_Prefix.pch;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = /Products;
+				LIBRARY_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.3;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = MkConsole;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+			};
+			dependencies = (
+			);
+			name = MkConsole;
+			productInstallPath = "$(HOME)/Applications";
+			productName = MkConsole;
+			productReference = 8D1107320486CEB800E47090 /* MkConsole.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 03D9533009F82454000B9A35 /* Build configuration list for PBXProject "MkConsole" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				4A9504CCFFE6A4B311CA0CBA /* Development */,
+				4A9504CDFFE6A4B311CA0CBA /* Deployment */,
+			);
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* MkConsole */;
+			projectDirPath = "";
+			targets = (
+				8D1107260486CEB800E47090 /* MkConsole */,
+				035E969709FCB83600DDCC7F /* MkConsoleElement */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		035E96A309FCB83600DDCC7F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				035E96A409FCB83600DDCC7F /* MkConsole_Prefix.pch in Resources */,
+				035E96A509FCB83600DDCC7F /* MKConsoleWindow.nib in Resources */,
+				035E96A609FCB83600DDCC7F /* mkconsole.icns in Resources */,
+				035E96A709FCB83600DDCC7F /* mkconsole.tiff in Resources */,
+				035E96A809FCB83600DDCC7F /* FactoryDefaults.plist in Resources */,
+				035E96A909FCB83600DDCC7F /* InfoPlist.strings in Resources */,
+				035E96AA09FCB83600DDCC7F /* ElementMain.nib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */,
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				033E207D055D924C0062E680 /* FactoryDefaults.plist in Resources */,
+				033E207F055D92590062E680 /* mkconsole.icns in Resources */,
+				033E2081055D92630062E680 /* mkconsole.tiff in Resources */,
+				033E20A6055D92900062E680 /* MKConsoleWindow.nib in Resources */,
+				033E20A7055D92900062E680 /* Preferences.nib in Resources */,
+				033E20AD055D93510062E680 /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		035E96A209FCB83600DDCC7F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#cp InfoElement.plist $BUILD_DIR/MkConsole.build/MkConsoleElement.build/Info.plist\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		035E96AB09FCB83600DDCC7F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				035E96AC09FCB83600DDCC7F /* MKConsoleWindow.m in Sources */,
+				035E96AD09FCB83600DDCC7F /* MKConsoleWindowController.m in Sources */,
+				035E96AE09FCB83600DDCC7F /* MKConsoleWindowDragBar.m in Sources */,
+				035E96AF09FCB83600DDCC7F /* MKConsoleWindowResizeIcon.m in Sources */,
+				035E96B009FCB83600DDCC7F /* MKLogfileReader.m in Sources */,
+				035E96B109FCB83600DDCC7F /* EDApplication.m in Sources */,
+				035E96B209FCB83600DDCC7F /* NSColor+Extensions.m in Sources */,
+				035E96B309FCB83600DDCC7F /* main.m in Sources */,
+				035E96B409FCB83600DDCC7F /* ElementController.m in Sources */,
+				035E96B509FCB83600DDCC7F /* WindowManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				03080340055D9207004DC663 /* AppController.m in Sources */,
+				033E207B055D92430062E680 /* EDApplication.m in Sources */,
+				033E2093055D92700062E680 /* MKConsoleWindow.m in Sources */,
+				033E2095055D92700062E680 /* MKConsoleWindowController.m in Sources */,
+				033E2097055D92700062E680 /* MKConsoleWindowDragBar.m in Sources */,
+				033E2099055D92700062E680 /* MKConsoleWindowResizeIcon.m in Sources */,
+				033E209B055D92700062E680 /* MKKDDTableView.m in Sources */,
+				033E209D055D92700062E680 /* MKLogfileReader.m in Sources */,
+				033E209F055D92700062E680 /* NSColor+Extensions.m in Sources */,
+				033E20A1055D92700062E680 /* PreferencesController.m in Sources */,
+				0393FA47056FB8460053EB79 /* WindowManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		033E20A2055D92900062E680 /* MKConsoleWindow.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				033E20A3055D92900062E680 /* English */,
+			);
+			name = MKConsoleWindow.nib;
+			sourceTree = "<group>";
+		};
+		033E20A4055D92900062E680 /* Preferences.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				033E20A5055D92900062E680 /* English */,
+			);
+			name = Preferences.nib;
+			sourceTree = "<group>";
+		};
+		0393F9CD056FADEA0053EB79 /* ElementMain.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0393F9CE056FADEA0053EB79 /* English */,
+			);
+			name = ElementMain.nib;
+			sourceTree = "<group>";
+		};
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		29B97318FDCFA39411CA2CEA /* MainMenu.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29B97319FDCFA39411CA2CEA /* English */,
+			);
+			name = MainMenu.nib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		035E96BD09FCB83600DDCC7F /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = "Info-MkConsoleElement__Upgraded_.plist";
+				INSTALL_PATH = /Products;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = MkConsoleElement;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Development;
+		};
+		035E96BE09FCB83600DDCC7F /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				INFOPLIST_FILE = InfoElement.plist;
+				INSTALL_PATH = /Products;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = MkConsoleElement;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		035E96BF09FCB83600DDCC7F /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Info-MkConsoleElement__Upgraded_.plist";
+				INSTALL_PATH = /Products;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = MkConsoleElement;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+			};
+			name = Default;
+		};
+		03D9532909F82454000B9A35 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MkConsole_Prefix.pch;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = /Products;
+				LIBRARY_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				OPTIMIZATION_CFLAGS = "-O0";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = MkConsole;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Development;
+		};
+		03D9532A09F82454000B9A35 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MkConsole_Prefix.pch;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = /Products;
+				LIBRARY_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.3;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = MkConsole;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		03D9532B09F82454000B9A35 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MkConsole_Prefix.pch;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = /Products;
+				LIBRARY_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.3;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = MkConsole;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+			};
+			name = Default;
+		};
+		03D9533109F82454000B9A35 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Development;
+		};
+		03D9533209F82454000B9A35 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Deployment;
+		};
+		03D9533309F82454000B9A35 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		035E96BC09FCB83600DDCC7F /* Build configuration list for PBXNativeTarget "MkConsoleElement" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				035E96BD09FCB83600DDCC7F /* Development */,
+				035E96BE09FCB83600DDCC7F /* Deployment */,
+				035E96BF09FCB83600DDCC7F /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		03D9532809F82454000B9A35 /* Build configuration list for PBXNativeTarget "MkConsole" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03D9532909F82454000B9A35 /* Development */,
+				03D9532A09F82454000B9A35 /* Deployment */,
+				03D9532B09F82454000B9A35 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		03D9533009F82454000B9A35 /* Build configuration list for PBXProject "MkConsole" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03D9533109F82454000B9A35 /* Development */,
+				03D9533209F82454000B9A35 /* Deployment */,
+				03D9533309F82454000B9A35 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
