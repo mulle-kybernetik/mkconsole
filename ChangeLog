@@ -1,0 +1,20 @@
+2007-07-25  Marcus Mueller  <znek@mulle-kybernetik.com>
+
+	* v1.10
+
+	* MkConsole.xcodeproj: fixed "Development" and "Deployment" build
+	  settings. "Development" will use default (current) SDK and
+	  target settings, "Deployment" will use 10.4u SDK for i386 and PPC.
+	  Added a new "Deployment 10.3" build setting which will use 10.3.9 SDK
+	  for PPC and link accordingly. Finally, added a new "All" aggregate
+	  target for building MkConsole and MkConsoleElement in one go.
+
+	* MKConsoleWindowController.m: introduced new boolean default
+	  "NoAlertOnOpenFailure" for logging logfile open errors instead of
+	  raising an alert panel. Also, added new method
+	  -setWindowFrameCleverly for setting the window frame on startup and
+	  after waking from sleep. This method uses a simple heuristic to
+	  find out whether the screen the logwindow used to be on has gone
+	  in the meantime and tries to redisplay it in a somewhat clever way.
+	  Please note that this method doesn't alter the saved value, so all
+	  should be good in most cases!

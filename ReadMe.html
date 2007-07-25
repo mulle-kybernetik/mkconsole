@@ -17,11 +17,21 @@
 <p>However, as an alternative you can also run MkConsoleElement which does not display an icon in the dock. If you do this you can launch the MkConsole application to change preferences and the StopElement script to stop the element.</p>
 
 
-<h1>MkConsole 1.9</h1>
+<h1>MkConsole 1.10</h1>
 
-<p>This version of MkConsole requires Mac OS X 10.4 (Tiger) or above. It will not work with earlier versions.</p>
+<p>This version of MkConsole will work with Mac OS X 10.4 (Tiger) or above. It will also work with Mac OS X 10.3 (Panther), but needs to be built from source using the "Deployment 10.3" build style.</p>
 
 <p>Changes in this version</p>
+
+<ul>
+<li>Can be deployed on Mac OS X 10.3 once again.</li>
+<li>Added new boolean NSUserDefault <b>NoAlertOnOpenFailure</b> which will log an error if a logfile couldn't be opened rather than raising an alert panel.</li>
+<li>Logwindows will realize if the screen, they are intended to be displayed on, has gone after a restart or wake from sleep and try to find a place where they are visible once again.</li>
+</ul>
+
+<p>Changes in version 1.9</p>
+
+<p>This version of MkConsole requires Mac OS X 10.4 (Tiger) or above. It will not work with earlier versions.</p>
 
 <ul>
 <li>Application and the element are now universal binaries.</li>
@@ -29,7 +39,7 @@
 
 <p>Changes in version 1.8</p>
 
-<p>This version of MkConsole requires Mac OS X 10.3 (Pather) or above. It will not work with earlier versions.</p>
+<p>This version of MkConsole requires Mac OS X 10.3 (Panther) or above. It will not work with earlier versions.</p>
 
 <ul>
 <li>Logfiles are reopened when the computer wakes up from sleep. This should solve even the most persistent NFS issues.</li>

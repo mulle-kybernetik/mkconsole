@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindow.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindow.m,v 1.7 2004-02-15 18:55:05 erik Exp $
+//  @(#)$Id: MKConsoleWindow.m,v 1.8 2007-07-25 14:34:29 znek Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -24,6 +24,8 @@
 #import "MKConsoleWindowDragBar.h"
 #import "MKConsoleWindowResizeIcon.h"
 
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_3
+
 //---------------------------------------------------------------------------------------
 // Internal CoreGraphics declarations
 //---------------------------------------------------------------------------------------
@@ -37,6 +39,7 @@ extern OSStatus CGSGetWindowTags(const CGSConnection cid, const CGSWindow wid,  
 extern OSStatus CGSSetWindowTags(const CGSConnection cid, const CGSWindow wid,int *tags, int thirtyTwo);
 extern OSStatus CGSClearWindowTags(const CGSConnection cid, const CGSWindow wid, int *tags, int thirtyTwo);
 
+#endif
 
 //---------------------------------------------------------------------------------------
     @implementation MKConsoleWindow
@@ -93,6 +96,8 @@ extern OSStatus CGSClearWindowTags(const CGSConnection cid, const CGSWindow wid,
 
 - (void)setSticky:(BOOL)flag
 {
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_3
+
     CGSConnection cid;
     CGSWindow wid;
     int tags[2];
@@ -108,6 +113,7 @@ extern OSStatus CGSClearWindowTags(const CGSConnection cid, const CGSWindow wid,
         else
             CGSClearWindowTags(cid, wid, tags, 32);
         }
+#endif
 }
 
 

@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindowController.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindowController.m,v 1.11 2006-05-11 22:25:37 erik Exp $
+//  @(#)$Id: MKConsoleWindowController.m,v 1.12 2007-07-25 14:34:29 znek Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -24,7 +24,12 @@
 #import "MKConsoleWindow.h"
 #import "MKConsoleWindowController.h"
 
+@interface NSScreen (MkConsoleConvenience)
++ (NSScreen *)preferredScreen;
+@end
+
 @interface MKConsoleWindowController(PrivateAPI)
+- (void)setWindowFrameCleverly;
 - (void)_tryRead:(NSTimer *)sender;
 - (void)_appendMessages:(NSArray *)messages;
 - (void)_reopenReaders;
@@ -36,6 +41,19 @@
 //---------------------------------------------------------------------------------------
     @implementation MKConsoleWindowController
 //---------------------------------------------------------------------------------------
+
+static BOOL noAlertOnOpenFailure = NO;
+
++ (void)initialize {
+  static BOOL    didInit = NO;
+  NSUserDefaults *ud;
+
+  if (didInit) return;
+  didInit              = YES;
+  ud                   = [NSUserDefaults standardUserDefaults];
+  noAlertOnOpenFailure = [ud boolForKey:@"NoAlertOnOpenFailure"];
+}
+
 
 //---------------------------------------------------------------------------------------
 //	init/dealloc
@@ -81,9 +99,26 @@
 //	window handling
 //---------------------------------------------------------------------------------------
 
+- (void)setWindowFrameCleverly {
+  [window setFrame:windowFrame display:YES];
+  
+  if (![window screen]) {
+    /* previous NSScreen was detached in the meantime
+     * we workaround this situation by resetting the window's origin to some
+     * point that makes more sense.
+     */
+
+    NSRect wf;
+
+    wf        = windowFrame;
+    wf.origin = [[NSScreen preferredScreen] visibleFrame].origin;
+    [window setFrame:wf display:YES];
+  }
+}
+
 - (void)awakeFromNib
 {
-    [window setFrame:windowFrame display:YES];
+    [self setWindowFrameCleverly];
     [[[outputArea superview] superview] setFrame:[[window contentView] frame]];
     [window orderFront:self];
 }
@@ -91,7 +126,7 @@
 
 - (void)_screenParametersChanged:(NSNotification *)n
 {
-    [window setFrame:windowFrame display:YES];
+    [self setWindowFrameCleverly];
     [[[outputArea superview] superview] setFrame:[[window contentView] frame]];
 }
 
@@ -117,9 +152,16 @@
         {
         reader = [[[MKLogfileReader allocWithZone:[self zone]] initWithFilename:filename] autorelease];
         if([reader open])
+            {
             [readerList addObject:reader];
+            }
         else
-            NSRunAlertPanel(nil, @"Failed to open logfile at: %@", @"Cancel", nil, nil, filename);
+            {
+            if (noAlertOnOpenFailure)
+              NSLog(@"Failed to open logfile at: %@", filename);
+            else
+              NSRunAlertPanel(nil, @"Failed to open logfile at: %@", @"Cancel", nil, nil, filename);
+            }
         }
 
     [self _tryRead:nil];
@@ -264,3 +306,16 @@
 //---------------------------------------------------------------------------------------
     @end
 //---------------------------------------------------------------------------------------
+
+@implementation NSScreen (MkConsoleConvenience)
+
++ (NSScreen *)preferredScreen {
+  NSArray *screens;
+  
+  screens = [self screens];
+  if ([screens count])
+    return [screens objectAtIndex:0]; // menuBar screen
+  return nil;
+}
+
+@end
