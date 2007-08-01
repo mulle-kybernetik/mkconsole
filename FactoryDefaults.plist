@@ -9,8 +9,7 @@
             TextColor = "0.44 0.50 0.53 1";
             BackgroundColor = "0 0 0 0";
             Files = (
-                "/private/var/log/daily.out",
-                "/private/var/log/system.log"
+                "/var/log/system.log"
             );
             Sticky = True;
         }

@@ -1,6 +1,6 @@
 2007-08-01  Marcus Mueller  <znek@mulle-kybernetik.com>
 
-	* v1.11
+	* v1.10
 
 	* SCWatchdog.[hm]: added SCWatchdog class which posts notifications in
 	  case the system configuration for IPv4 keys changes.
@@ -12,9 +12,10 @@
 	  registered for SCWatchdogKeysDidChangeNotification and subsequent call
 	  -_computerWokeUp: (which is a bit of a misnomer).
 
-2007-07-25  Marcus Mueller  <znek@mulle-kybernetik.com>
+	* FactoryDefaults.plist: removed daily.log from default logfiles as
+	  this is obsolete in 10.4.
 
-	* v1.10
+2007-07-25  Marcus Mueller  <znek@mulle-kybernetik.com>
 
 	* MkConsole.xcodeproj: fixed "Development" and "Deployment" build
 	  settings. "Development" will use default (current) SDK and
