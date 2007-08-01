@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  AppController.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: AppController.m,v 1.6 2004-01-23 22:12:01 erik Exp $
+//  @(#)$Id: AppController.m,v 1.7 2007-08-01 08:20:02 znek Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -20,6 +20,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "WindowManager.h"
+#import "SCWatchdog.h"
 #import "PreferencesController.h"
 #import "AppController.h"
 
@@ -30,7 +31,7 @@
 
 - (WindowManager *)windowManager
 {
-    return windowManager;
+    return self->windowManager;
 }
 
 
@@ -43,22 +44,24 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
     // We're cheating. The returned object is not a WindowManager; but it "implements" all its methods...
-    windowManager = [[NSConnection rootProxyForConnectionWithRegisteredName:@"MkConsole" host:nil] retain];
-    if(windowManager != nil)
+    self->windowManager = [[NSConnection rootProxyForConnectionWithRegisteredName:@"MkConsole" host:nil] retain];
+    if(self->windowManager != nil)
         {
         [self openPreferences:self];
         }
     else
         {
-        windowManager = [[WindowManager alloc] init];
-        [windowManager rebuildWindowControllers];
+        self->windowManager = [[WindowManager alloc] init];
+        [self->windowManager rebuildWindowControllers];
         }
+    self->sysconfWatchdog = [[SCWatchdog alloc] init];
 }
 
 
 - (void)applicationWillTerminate:(NSNotification *)notification
 {
-    [windowManager release];
+  [self->sysconfWatchdog release];
+  [self->windowManager release];
 }
 
 

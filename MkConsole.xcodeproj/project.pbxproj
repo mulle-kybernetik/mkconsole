@@ -86,6 +86,12 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		AD30F4B50C606E6000A7E169 /* SCWatchdog.h in Headers */ = {isa = PBXBuildFile; fileRef = AD30F4AA0C606E6000A7E169 /* SCWatchdog.h */; };
+		AD30F4B60C606E6000A7E169 /* SCWatchdog.m in Sources */ = {isa = PBXBuildFile; fileRef = AD30F4B40C606E6000A7E169 /* SCWatchdog.m */; };
+		AD30F4B70C606E6000A7E169 /* SCWatchdog.h in Headers */ = {isa = PBXBuildFile; fileRef = AD30F4AA0C606E6000A7E169 /* SCWatchdog.h */; };
+		AD30F4B80C606E6000A7E169 /* SCWatchdog.m in Sources */ = {isa = PBXBuildFile; fileRef = AD30F4B40C606E6000A7E169 /* SCWatchdog.m */; };
+		AD30F5020C6071D200A7E169 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD30F5010C6071D200A7E169 /* SystemConfiguration.framework */; };
+		AD30F5030C6071D200A7E169 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD30F5010C6071D200A7E169 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,14 +99,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8D1107260486CEB800E47090 /* MkConsole */;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
 			remoteInfo = MkConsole;
 		};
 		ADBD4B6E0C5774CB00740990 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 035E969709FCB83600DDCC7F /* MkConsoleElement */;
+			remoteGlobalIDString = 035E969709FCB83600DDCC7F;
 			remoteInfo = MkConsoleElement;
 		};
 /* End PBXContainerItemProxy section */
@@ -164,6 +170,9 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* MkConsole_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MkConsole_Prefix.pch; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* MkConsole.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MkConsole.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD30F4AA0C606E6000A7E169 /* SCWatchdog.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; path = SCWatchdog.h; sourceTree = "<group>"; };
+		AD30F4B40C606E6000A7E169 /* SCWatchdog.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; path = SCWatchdog.m; sourceTree = "<group>"; };
+		AD30F5010C6071D200A7E169 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
 		ADBD4B7C0C57753D00740990 /* ChangeLog */ = {isa = PBXFileReference; fileEncoding = 5; indentWidth = 8; lastKnownFileType = text; path = ChangeLog; sourceTree = "<group>"; tabWidth = 8; usesTabs = 1; };
 /* End PBXFileReference section */
 
@@ -174,6 +183,7 @@
 			files = (
 				035E96B709FCB83600DDCC7F /* Cocoa.framework in Frameworks */,
 				035E96B809FCB83600DDCC7F /* Carbon.framework in Frameworks */,
+				AD30F5030C6071D200A7E169 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +193,7 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				038794F405698E1F000C8D5D /* Carbon.framework in Frameworks */,
+				AD30F5020C6071D200A7E169 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +228,8 @@
 				033E2089055D92700062E680 /* MKConsoleWindowResizeIcon.m */,
 				033E208C055D92700062E680 /* MKLogfileReader.h */,
 				033E208D055D92700062E680 /* MKLogfileReader.m */,
+				AD30F4AA0C606E6000A7E169 /* SCWatchdog.h */,
+				AD30F4B40C606E6000A7E169 /* SCWatchdog.m */,
 			);
 			name = LogWindow;
 			sourceTree = "<group>";
@@ -246,8 +259,9 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				038794F305698E1F000C8D5D /* Carbon.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				038794F305698E1F000C8D5D /* Carbon.framework */,
+				AD30F5010C6071D200A7E169 /* SystemConfiguration.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -337,6 +351,7 @@
 				035E969F09FCB83600DDCC7F /* NSColor+Extensions.h in Headers */,
 				035E96A009FCB83600DDCC7F /* ElementController.h in Headers */,
 				035E96A109FCB83600DDCC7F /* WindowManager.h in Headers */,
+				AD30F4B70C606E6000A7E169 /* SCWatchdog.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +371,7 @@
 				033E209E055D92700062E680 /* NSColor+Extensions.h in Headers */,
 				033E20A0055D92700062E680 /* PreferencesController.h in Headers */,
 				0393FA46056FB8460053EB79 /* WindowManager.h in Headers */,
+				AD30F4B50C606E6000A7E169 /* SCWatchdog.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,16 +488,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				035E96AC09FCB83600DDCC7F /* MKConsoleWindow.m in Sources */,
+				035E96B309FCB83600DDCC7F /* main.m in Sources */,
+				035E96B109FCB83600DDCC7F /* EDApplication.m in Sources */,
+				035E96B409FCB83600DDCC7F /* ElementController.m in Sources */,
+				035E96B509FCB83600DDCC7F /* WindowManager.m in Sources */,
 				035E96AD09FCB83600DDCC7F /* MKConsoleWindowController.m in Sources */,
+				035E96AC09FCB83600DDCC7F /* MKConsoleWindow.m in Sources */,
 				035E96AE09FCB83600DDCC7F /* MKConsoleWindowDragBar.m in Sources */,
 				035E96AF09FCB83600DDCC7F /* MKConsoleWindowResizeIcon.m in Sources */,
 				035E96B009FCB83600DDCC7F /* MKLogfileReader.m in Sources */,
-				035E96B109FCB83600DDCC7F /* EDApplication.m in Sources */,
 				035E96B209FCB83600DDCC7F /* NSColor+Extensions.m in Sources */,
-				035E96B309FCB83600DDCC7F /* main.m in Sources */,
-				035E96B409FCB83600DDCC7F /* ElementController.m in Sources */,
-				035E96B509FCB83600DDCC7F /* WindowManager.m in Sources */,
+				AD30F4B80C606E6000A7E169 /* SCWatchdog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,17 +507,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				03080340055D9207004DC663 /* AppController.m in Sources */,
 				033E207B055D92430062E680 /* EDApplication.m in Sources */,
-				033E2093055D92700062E680 /* MKConsoleWindow.m in Sources */,
+				03080340055D9207004DC663 /* AppController.m in Sources */,
+				0393FA47056FB8460053EB79 /* WindowManager.m in Sources */,
+				033E20A1055D92700062E680 /* PreferencesController.m in Sources */,
 				033E2095055D92700062E680 /* MKConsoleWindowController.m in Sources */,
+				033E2093055D92700062E680 /* MKConsoleWindow.m in Sources */,
 				033E2097055D92700062E680 /* MKConsoleWindowDragBar.m in Sources */,
 				033E2099055D92700062E680 /* MKConsoleWindowResizeIcon.m in Sources */,
 				033E209B055D92700062E680 /* MKKDDTableView.m in Sources */,
 				033E209D055D92700062E680 /* MKLogfileReader.m in Sources */,
 				033E209F055D92700062E680 /* NSColor+Extensions.m in Sources */,
-				033E20A1055D92700062E680 /* PreferencesController.m in Sources */,
-				0393FA47056FB8460053EB79 /* WindowManager.m in Sources */,
+				AD30F4B60C606E6000A7E169 /* SCWatchdog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

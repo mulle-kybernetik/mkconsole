@@ -1,3 +1,17 @@
+2007-08-01  Marcus Mueller  <znek@mulle-kybernetik.com>
+
+	* v1.11
+
+	* SCWatchdog.[hm]: added SCWatchdog class which posts notifications in
+	  case the system configuration for IPv4 keys changes.
+
+	* MKConsoleWindowController.m: changed implementation of
+	  -_computerWokeUp: to call -_reopenReaders method with a delay of 5
+	  seconds, this should give network mounts etc. a chance to be
+	  available on time the readers are finally reopened. Also,
+	  registered for SCWatchdogKeysDidChangeNotification and subsequent call
+	  -_computerWokeUp: (which is a bit of a misnomer).
+
 2007-07-25  Marcus Mueller  <znek@mulle-kybernetik.com>
 
 	* v1.10

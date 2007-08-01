@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  MKConsoleWindowController.m created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindowController.m,v 1.12 2007-07-25 14:34:29 znek Exp $
+//  @(#)$Id: MKConsoleWindowController.m,v 1.13 2007-08-01 08:20:02 znek Exp $
 //
 //  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
 //
@@ -23,6 +23,7 @@
 #import "MKLogfileReader.h"
 #import "MKConsoleWindow.h"
 #import "MKConsoleWindowController.h"
+#import "SCWatchdog.h"
 
 @interface NSScreen (MkConsoleConvenience)
 + (NSScreen *)preferredScreen;
@@ -59,27 +60,41 @@ static BOOL noAlertOnOpenFailure = NO;
 //	init/dealloc
 //---------------------------------------------------------------------------------------
 
-- (id)initWithSettings:(NSDictionary *)settings;
-{
-    [super init];
+- (id)initWithSettings:(NSDictionary *)settings {
+  NSNotificationCenter *nc;
+  
+  [super init];
+  
+  filenames      = [[settings objectForKey:@"Files"] retain];
+  windowFrame    = NSRectFromString([settings objectForKey:@"Frame"]);
+  textAttributes = [[NSDictionary allocWithZone:[self zone]]
+                                  initWithObjectsAndKeys:[NSFont fontWithName:[settings objectForKey:@"FontName"] size:[[settings objectForKey:@"FontSize"] floatValue]], NSFontAttributeName, [NSColor colorWithCalibratedStringRep:[settings objectForKey:@"TextColor"]], NSForegroundColorAttributeName, nil];
+  
+  [NSBundle loadNibNamed:@"MKConsoleWindow" owner:self];
+  NSAssert(window != nil, @"Problem with MKConsoleWindow.nib");
 
-    filenames = [[settings objectForKey:@"Files"] retain];
-    windowFrame = NSRectFromString([settings objectForKey:@"Frame"]);
-    textAttributes = [[NSDictionary allocWithZone:[self zone]] initWithObjectsAndKeys:[NSFont fontWithName:[settings objectForKey:@"FontName"] size:[[settings objectForKey:@"FontSize"] floatValue]], NSFontAttributeName, [NSColor colorWithCalibratedStringRep:[settings objectForKey:@"TextColor"]], NSForegroundColorAttributeName, nil];
-    
-    [NSBundle loadNibNamed:@"MKConsoleWindow" owner:self];
-    NSAssert(window != nil, @"Problem with MKConsoleWindow.nib");
-    [window setBackgroundColor:[NSColor colorWithCalibratedStringRep:[settings objectForKey:@"BackgroundColor"]]];
-    if([[settings objectForKey:@"Float"] isEqualToString:@"Yes"])
-        [window setLevel:CGWindowLevelForKey(kCGDesktopIconWindowLevelKey) + 1];
-    else
-        [window setLevel:CGWindowLevelForKey(kCGDesktopWindowLevelKey)];
-    [window setSticky:[[settings objectForKey:@"Sticky"] isEqualToString:@"Yes"]];
-        
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_screenParametersChanged:) name:NSApplicationDidChangeScreenParametersNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_computerWokeUp:) name:NSWorkspaceDidWakeNotification object:nil];
+  [window setBackgroundColor:[NSColor colorWithCalibratedStringRep:[settings objectForKey:@"BackgroundColor"]]];
+  if([[settings objectForKey:@"Float"] isEqualToString:@"Yes"])
+    [window setLevel:CGWindowLevelForKey(kCGDesktopIconWindowLevelKey) + 1];
+  else
+    [window setLevel:CGWindowLevelForKey(kCGDesktopWindowLevelKey)];
+  [window setSticky:[[settings objectForKey:@"Sticky"] isEqualToString:@"Yes"]];
 
-    return self;
+  nc = [NSNotificationCenter defaultCenter];
+  [nc addObserver:self
+      selector:@selector(_screenParametersChanged:)
+      name:NSApplicationDidChangeScreenParametersNotification
+      object:nil];
+	[nc addObserver:self
+      selector:@selector(_computerWokeUp:)
+      name:NSWorkspaceDidWakeNotification
+      object:nil];
+	[nc addObserver:self
+      selector:@selector(_computerWokeUp:)
+      name:SCWatchdogKeysDidChangeNotification
+      object:nil];
+  
+  return self;
 }
 
 
@@ -193,22 +208,24 @@ static BOOL noAlertOnOpenFailure = NO;
 
 - (void)_reopenReaders
 {
-    NSEnumerator	*readerEnum;
-    MKLogfileReader	*reader;
+  NSEnumerator	  *readerEnum;
+  MKLogfileReader	*reader;
 	
 	readerEnum = [readerList objectEnumerator];
-    while((reader = [readerEnum nextObject]) != nil)
+  while((reader = [readerEnum nextObject]) != nil)
 	{
-	    if([reader reopen] == NO)
-			NSLog(@"%s failed for %@", __PRETTY_FUNCTION__, [reader filename]);
+    if([reader reopen] == NO)
+    NSLog(@"%s failed for %@", __PRETTY_FUNCTION__, [reader filename]);
 	}
 }
 
 
 - (void)_computerWokeUp:(NSNotification *)n
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-	[self _reopenReaders];
+  NSLog(@"%s", __PRETTY_FUNCTION__);
+  [self performSelector:@selector(_reopenReaders)
+        withObject:nil
+        afterDelay:5.0f];
 }
 
 

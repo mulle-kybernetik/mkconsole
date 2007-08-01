@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------------------
-//  AppController.h created by erik on Sat Jun 29 2002
-//  @(#)$Id: AppController.h,v 1.6 2007-08-01 08:20:02 znek Exp $
+//  SCWatchdog.m created by znek on Fri Jul 30 2004
+//  @(#)$Id: SCWatchdog.h,v 1.1 2007-08-01 08:20:02 znek Exp $
 //
-//  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
+//  Copyright (c) 2004 by Mulle Kybernetik. All rights reserved.
 //
 //  Permission to use, copy, modify and distribute this software and its documentation
 //  is hereby granted, provided that both the copyright notice and this permission
@@ -17,21 +17,14 @@
 //  DAMAGES WHATSOEVER RESULTING DIRECTLY OR INDIRECTLY FROM THE USE OF THIS SOFTWARE
 //  OR OF ANY DERIVATIVE WORK.
 //---------------------------------------------------------------------------------------
-					
-#import <AppKit/AppKit.h>
 
-@class WindowManager;
-@class SCWatchdog;
+#import <Foundation/Foundation.h>
 
-@interface AppController : NSObject
+@interface SCWatchdog : NSObject
 {
-  WindowManager  *windowManager;
-  SCWatchdog     *sysconfWatchdog;  
 }
 
-- (WindowManager *)windowManager;
-
-- (IBAction)openPreferences:(id)sender;
-- (IBAction)gotoHomepage:(id)sender;
+extern NSString *SCWatchdogKeysDidChangeNotification;
+extern NSString *SCWatchdogChangedKeysKey;
 
 @end
