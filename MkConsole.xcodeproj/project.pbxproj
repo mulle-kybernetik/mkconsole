@@ -90,6 +90,8 @@
 		0389A18510B15E9B001470C2 /* MKKDDTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E208A055D92700062E680 /* MKKDDTableView.h */; };
 		0389A18610B15E9F001470C2 /* Preferences.nib in Resources */ = {isa = PBXBuildFile; fileRef = 033E20A4055D92900062E680 /* Preferences.nib */; };
 		0389A19E10B161BB001470C2 /* mkconsole_m.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0389A19D10B161BB001470C2 /* mkconsole_m.tiff */; };
+		0389A1CD10B16B61001470C2 /* CCMStatusItemApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 0389A1CB10B16B61001470C2 /* CCMStatusItemApplication.h */; };
+		0389A1CE10B16B61001470C2 /* CCMStatusItemApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 0389A1CC10B16B61001470C2 /* CCMStatusItemApplication.m */; };
 		0393FA46056FB8460053EB79 /* WindowManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0393FA42056FB8460053EB79 /* WindowManager.h */; };
 		0393FA47056FB8460053EB79 /* WindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0393FA43056FB8460053EB79 /* WindowManager.m */; };
 		8D1107280486CEB800E47090 /* MkConsole_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32CA4F630368D1EE00C91783 /* MkConsole_Prefix.pch */; };
@@ -169,6 +171,8 @@
 		0389A0ED10B156F5001470C2 /* StatusItemMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItemMenuController.h; sourceTree = "<group>"; };
 		0389A0EE10B156F5001470C2 /* StatusItemMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusItemMenuController.m; sourceTree = "<group>"; };
 		0389A19D10B161BB001470C2 /* mkconsole_m.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = mkconsole_m.tiff; sourceTree = "<group>"; };
+		0389A1CB10B16B61001470C2 /* CCMStatusItemApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMStatusItemApplication.h; sourceTree = "<group>"; };
+		0389A1CC10B16B61001470C2 /* CCMStatusItemApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMStatusItemApplication.m; sourceTree = "<group>"; };
 		0393F9CE056FADEA0053EB79 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/ElementMain.nib; sourceTree = "<group>"; };
 		0393FA42056FB8460053EB79 /* WindowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowManager.h; sourceTree = "<group>"; };
 		0393FA43056FB8460053EB79 /* WindowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowManager.m; sourceTree = "<group>"; };
@@ -251,6 +255,8 @@
 			children = (
 				033E2078055D92430062E680 /* EDApplication.h */,
 				033E2079055D92430062E680 /* EDApplication.m */,
+				0389A1CB10B16B61001470C2 /* CCMStatusItemApplication.h */,
+				0389A1CC10B16B61001470C2 /* CCMStatusItemApplication.m */,
 				033E208A055D92700062E680 /* MKKDDTableView.h */,
 				033E208B055D92700062E680 /* MKKDDTableView.m */,
 				033E208E055D92700062E680 /* NSColor+Extensions.h */,
@@ -370,6 +376,7 @@
 				0389A18110B15E96001470C2 /* PreferencesController.h in Headers */,
 				0389A18310B15E97001470C2 /* AppController.h in Headers */,
 				0389A18510B15E9B001470C2 /* MKKDDTableView.h in Headers */,
+				0389A1CD10B16B61001470C2 /* CCMStatusItemApplication.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +533,7 @@
 				0389A18010B15E95001470C2 /* PreferencesController.m in Sources */,
 				0389A18210B15E96001470C2 /* AppController.m in Sources */,
 				0389A18410B15E9A001470C2 /* MKKDDTableView.m in Sources */,
+				0389A1CE10B16B61001470C2 /* CCMStatusItemApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

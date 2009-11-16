@@ -26,7 +26,6 @@
 @interface StatusItemMenuController : NSObject 
 {
 	IBOutlet NSMenu			*statusMenu;
-	IBOutlet AppController	*appController;
 	NSStatusItem			*statusItem;
 }
 

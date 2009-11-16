@@ -21,7 +21,7 @@
 	<key>NSMainNibFile</key>
 	<string>ElementMain</string>
 	<key>NSPrincipalClass</key>
-	<string>EDApplication</string>
+	<string>CCMStatusItemApplication</string>
 	<key>LSUIElement</key>
 	<string>1</string>
 </dict>
