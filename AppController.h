@@ -25,8 +25,8 @@
 
 @interface AppController : NSObject
 {
-  WindowManager  *windowManager;
-  SCWatchdog     *sysconfWatchdog;  
+	WindowManager  *windowManager;
+	SCWatchdog     *sysconfWatchdog;  
 }
 
 - (WindowManager *)windowManager;

@@ -31,7 +31,7 @@
 
 - (WindowManager *)windowManager
 {
-    return self->windowManager;
+    return windowManager;
 }
 
 
@@ -44,24 +44,24 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
     // We're cheating. The returned object is not a WindowManager; but it "implements" all its methods...
-    self->windowManager = [[NSConnection rootProxyForConnectionWithRegisteredName:@"MkConsole" host:nil] retain];
-    if(self->windowManager != nil)
+    windowManager = [[NSConnection rootProxyForConnectionWithRegisteredName:@"MkConsole" host:nil] retain];
+    if(windowManager != nil)
         {
         [self openPreferences:self];
         }
     else
         {
-        self->windowManager = [[WindowManager alloc] init];
-        [self->windowManager rebuildWindowControllers];
+        windowManager = [[WindowManager alloc] init];
+        [windowManager rebuildWindowControllers];
         }
-    self->sysconfWatchdog = [[SCWatchdog alloc] init];
+    sysconfWatchdog = [[SCWatchdog alloc] init];
 }
 
 
 - (void)applicationWillTerminate:(NSNotification *)notification
 {
-  [self->sysconfWatchdog release];
-  [self->windowManager release];
+  [sysconfWatchdog release];
+  [windowManager release];
 }
 
 

@@ -20,14 +20,11 @@
 
 #import <Cocoa/Cocoa.h>
 #import "NSColor+Extensions.h"
+#import "NSScreen+Extensions.h"
 #import "MKLogfileReader.h"
 #import "MKConsoleWindow.h"
 #import "MKConsoleWindowController.h"
 #import "SCWatchdog.h"
-
-@interface NSScreen (MkConsoleConvenience)
-+ (NSScreen *)preferredScreen;
-@end
 
 @interface MKConsoleWindowController(PrivateAPI)
 - (void)setWindowFrameCleverly;
@@ -45,14 +42,9 @@
 
 static BOOL noAlertOnOpenFailure = NO;
 
-+ (void)initialize {
-  static BOOL    didInit = NO;
-  NSUserDefaults *ud;
-
-  if (didInit) return;
-  didInit              = YES;
-  ud                   = [NSUserDefaults standardUserDefaults];
-  noAlertOnOpenFailure = [ud boolForKey:@"NoAlertOnOpenFailure"];
++ (void)initialize 
+{
+	noAlertOnOpenFailure = [[NSUserDefaults standardUserDefaults] boolForKey:@"NoAlertOnOpenFailure"];
 }
 
 
@@ -60,7 +52,8 @@ static BOOL noAlertOnOpenFailure = NO;
 //	init/dealloc
 //---------------------------------------------------------------------------------------
 
-- (id)initWithSettings:(NSDictionary *)settings {
+- (id)initWithSettings:(NSDictionary *)settings 
+{
   NSNotificationCenter *nc;
   
   [super init];
@@ -75,9 +68,9 @@ static BOOL noAlertOnOpenFailure = NO;
 
   [window setBackgroundColor:[NSColor colorWithCalibratedStringRep:[settings objectForKey:@"BackgroundColor"]]];
   if([[settings objectForKey:@"Float"] isEqualToString:@"Yes"])
-    [window setLevel:CGWindowLevelForKey(kCGDesktopIconWindowLevelKey) + 1];
+	  [window setLevel:CGWindowLevelForKey(kCGDesktopIconWindowLevelKey) + 1];
   else
-    [window setLevel:CGWindowLevelForKey(kCGDesktopWindowLevelKey)];
+	  [window setLevel:CGWindowLevelForKey(kCGDesktopWindowLevelKey)];
   [window setSticky:[[settings objectForKey:@"Sticky"] isEqualToString:@"Yes"]];
 
   nc = [NSNotificationCenter defaultCenter];
@@ -114,21 +107,21 @@ static BOOL noAlertOnOpenFailure = NO;
 //	window handling
 //---------------------------------------------------------------------------------------
 
-- (void)setWindowFrameCleverly {
-  [window setFrame:windowFrame display:YES];
-  
-  if (![window screen]) {
-    /* previous NSScreen was detached in the meantime
-     * we workaround this situation by resetting the window's origin to some
-     * point that makes more sense.
-     */
+- (void)setWindowFrameCleverly 
+{
+	[window setFrame:windowFrame display:YES];
 
-    NSRect wf;
+	if (![window screen]) 
+	{
+		/* previous NSScreen was detached in the meantime
+		 * we workaround this situation by resetting the window's origin to some
+		 * point that makes more sense.
+		 */
 
-    wf        = windowFrame;
-    wf.origin = [[NSScreen preferredScreen] visibleFrame].origin;
-    [window setFrame:wf display:YES];
-  }
+		NSRect wf = windowFrame;
+		wf.origin = [[NSScreen preferredScreen] visibleFrame].origin;
+		[window setFrame:wf display:YES];
+	}
 }
 
 - (void)awakeFromNib
@@ -208,24 +201,22 @@ static BOOL noAlertOnOpenFailure = NO;
 
 - (void)_reopenReaders
 {
-  NSEnumerator	  *readerEnum;
-  MKLogfileReader	*reader;
+	NSEnumerator	*readerEnum;
+	MKLogfileReader	*reader;
 	
 	readerEnum = [readerList objectEnumerator];
-  while((reader = [readerEnum nextObject]) != nil)
-	{
-    if([reader reopen] == NO)
-    NSLog(@"%s failed for %@", __PRETTY_FUNCTION__, [reader filename]);
-	}
+	while((reader = [readerEnum nextObject]) != nil)
+		{
+		if([reader reopen] == NO)
+			NSLog(@"%s failed for %@", __PRETTY_FUNCTION__, [reader filename]);
+		}
 }
 
 
 - (void)_computerWokeUp:(NSNotification *)n
 {
-  NSLog(@"%s", __PRETTY_FUNCTION__);
-  [self performSelector:@selector(_reopenReaders)
-        withObject:nil
-        afterDelay:5.0f];
+	NSLog(@"%s", __PRETTY_FUNCTION__);
+	[self performSelector:@selector(_reopenReaders) withObject:nil afterDelay:5.0f];
 }
 
 
@@ -324,15 +315,3 @@ static BOOL noAlertOnOpenFailure = NO;
     @end
 //---------------------------------------------------------------------------------------
 
-@implementation NSScreen (MkConsoleConvenience)
-
-+ (NSScreen *)preferredScreen {
-  NSArray *screens;
-  
-  screens = [self screens];
-  if ([screens count])
-    return [screens objectAtIndex:0]; // menuBar screen
-  return nil;
-}
-
-@end
