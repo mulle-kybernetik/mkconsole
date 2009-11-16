@@ -18,13 +18,11 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.11</string>
-	<key>LSBackgroundOnly</key>
-	<string>1</string>
 	<key>NSMainNibFile</key>
 	<string>ElementMain</string>
 	<key>NSPrincipalClass</key>
 	<string>EDApplication</string>
-	<key>NSUIElement</key>
+	<key>LSUIElement</key>
 	<string>1</string>
 </dict>
 </plist>

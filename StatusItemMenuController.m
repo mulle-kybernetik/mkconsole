@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------------------
-//  ElementController.h created by erik on Mon Nov 17 2003
-//  @(#)$Id: ElementController.h,v 1.1 2004-01-23 22:12:01 erik Exp $
+//  StatusItemMenuController.m created by erik on Mon Nov 16 2009
+//  @(#)$Id: PreferencesController.h,v 1.6 2004-02-15 18:55:05 erik Exp $
 //
-//  Copyright (c) 2003 by Mulle Kybernetik. All rights reserved.
+//  Copyright (c) 2009 by Mulle Kybernetik. All rights reserved.
 //
 //  Permission to use, copy, modify and distribute this software and its documentation
 //  is hereby granted, provided that both the copyright notice and this permission
@@ -18,17 +18,17 @@
 //  OR OF ANY DERIVATIVE WORK.
 //---------------------------------------------------------------------------------------
 
-#import <AppKit/AppKit.h>
-
-@class WindowManager;
+#import "StatusItemMenuController.h"
 
 
-@interface ElementController : NSObject 
+@implementation StatusItemMenuController
+
+- (void)awakeFromNib
 {
-    WindowManager   *windowManager;
-    NSConnection    *listenConnection;
+	statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];	
+	[statusItem setImage:[NSImage imageNamed:@"mkconsole_m"]];
+	[statusItem setHighlightMode:YES];
+	[statusItem setMenu:statusMenu];
 }
-
-- (WindowManager *)windowManager;
 
 @end

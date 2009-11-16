@@ -2,7 +2,7 @@
 //  AppController.m created by erik on Sat Jun 29 2002
 //  @(#)$Id: AppController.m,v 1.7 2007-08-01 08:20:02 znek Exp $
 //
-//  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
+//  Copyright (c) 2002,2007,2009 by Mulle Kybernetik. All rights reserved.
 //
 //  Permission to use, copy, modify and distribute this software and its documentation
 //  is hereby granted, provided that both the copyright notice and this permission
@@ -43,25 +43,16 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-    // We're cheating. The returned object is not a WindowManager; but it "implements" all its methods...
-    windowManager = [[NSConnection rootProxyForConnectionWithRegisteredName:@"MkConsole" host:nil] retain];
-    if(windowManager != nil)
-        {
-        [self openPreferences:self];
-        }
-    else
-        {
-        windowManager = [[WindowManager alloc] init];
-        [windowManager rebuildWindowControllers];
-        }
+    windowManager = [[WindowManager alloc] init];
+	[windowManager rebuildWindowControllers];
     sysconfWatchdog = [[SCWatchdog alloc] init];
 }
 
 
 - (void)applicationWillTerminate:(NSNotification *)notification
 {
-  [sysconfWatchdog release];
-  [windowManager release];
+	[sysconfWatchdog release];
+	[windowManager release];
 }
 
 

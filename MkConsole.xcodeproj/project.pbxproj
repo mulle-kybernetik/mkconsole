@@ -55,7 +55,6 @@
 		035E969D09FCB83600DDCC7F /* MKLogfileReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E208C055D92700062E680 /* MKLogfileReader.h */; };
 		035E969E09FCB83600DDCC7F /* EDApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2078055D92430062E680 /* EDApplication.h */; };
 		035E969F09FCB83600DDCC7F /* NSColor+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E208E055D92700062E680 /* NSColor+Extensions.h */; };
-		035E96A009FCB83600DDCC7F /* ElementController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0393F9A6056FA86D0053EB79 /* ElementController.h */; };
 		035E96A109FCB83600DDCC7F /* WindowManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0393FA42056FB8460053EB79 /* WindowManager.h */; };
 		035E96A409FCB83600DDCC7F /* MkConsole_Prefix.pch in Resources */ = {isa = PBXBuildFile; fileRef = 32CA4F630368D1EE00C91783 /* MkConsole_Prefix.pch */; };
 		035E96A509FCB83600DDCC7F /* MKConsoleWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 033E20A2055D92900062E680 /* MKConsoleWindow.nib */; };
@@ -72,17 +71,25 @@
 		035E96B109FCB83600DDCC7F /* EDApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2079055D92430062E680 /* EDApplication.m */; };
 		035E96B209FCB83600DDCC7F /* NSColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E208F055D92700062E680 /* NSColor+Extensions.m */; };
 		035E96B309FCB83600DDCC7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
-		035E96B409FCB83600DDCC7F /* ElementController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0393F9A7056FA86D0053EB79 /* ElementController.m */; };
 		035E96B509FCB83600DDCC7F /* WindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0393FA43056FB8460053EB79 /* WindowManager.m */; };
 		035E96B709FCB83600DDCC7F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		035E96B809FCB83600DDCC7F /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038794F305698E1F000C8D5D /* Carbon.framework */; };
-		035E96BA09FCB83600DDCC7F /* Stop MkConsoleElement.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0396FC9C056EB1D600CA3307 /* Stop MkConsoleElement.app */; };
 		035E96BB09FCB83600DDCC7F /* ReadMe.html in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0396FC9E056EB6BB00CA3307 /* ReadMe.html */; };
 		038794F405698E1F000C8D5D /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038794F305698E1F000C8D5D /* Carbon.framework */; };
 		0389A09810B15158001470C2 /* NSScreen+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0389A09610B15158001470C2 /* NSScreen+Extensions.h */; };
 		0389A09910B15158001470C2 /* NSScreen+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0389A09710B15158001470C2 /* NSScreen+Extensions.m */; };
 		0389A09A10B15158001470C2 /* NSScreen+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0389A09610B15158001470C2 /* NSScreen+Extensions.h */; };
 		0389A09B10B15158001470C2 /* NSScreen+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0389A09710B15158001470C2 /* NSScreen+Extensions.m */; };
+		0389A0EF10B156F5001470C2 /* StatusItemMenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0389A0ED10B156F5001470C2 /* StatusItemMenuController.h */; };
+		0389A0F010B156F5001470C2 /* StatusItemMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0389A0EE10B156F5001470C2 /* StatusItemMenuController.m */; };
+		0389A18010B15E95001470C2 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2091055D92700062E680 /* PreferencesController.m */; };
+		0389A18110B15E96001470C2 /* PreferencesController.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2090055D92700062E680 /* PreferencesController.h */; };
+		0389A18210B15E96001470C2 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0308033E055D9207004DC663 /* AppController.m */; };
+		0389A18310B15E97001470C2 /* AppController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0308033D055D9207004DC663 /* AppController.h */; };
+		0389A18410B15E9A001470C2 /* MKKDDTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E208B055D92700062E680 /* MKKDDTableView.m */; };
+		0389A18510B15E9B001470C2 /* MKKDDTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E208A055D92700062E680 /* MKKDDTableView.h */; };
+		0389A18610B15E9F001470C2 /* Preferences.nib in Resources */ = {isa = PBXBuildFile; fileRef = 033E20A4055D92900062E680 /* Preferences.nib */; };
+		0389A19E10B161BB001470C2 /* mkconsole_m.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0389A19D10B161BB001470C2 /* mkconsole_m.tiff */; };
 		0393FA46056FB8460053EB79 /* WindowManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0393FA42056FB8460053EB79 /* WindowManager.h */; };
 		0393FA47056FB8460053EB79 /* WindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0393FA43056FB8460053EB79 /* WindowManager.m */; };
 		8D1107280486CEB800E47090 /* MkConsole_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32CA4F630368D1EE00C91783 /* MkConsole_Prefix.pch */; };
@@ -122,7 +129,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				035E96BA09FCB83600DDCC7F /* Stop MkConsoleElement.app in CopyFiles */,
 				035E96BB09FCB83600DDCC7F /* ReadMe.html in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,12 +166,12 @@
 		038794F305698E1F000C8D5D /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		0389A09610B15158001470C2 /* NSScreen+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScreen+Extensions.h"; sourceTree = "<group>"; };
 		0389A09710B15158001470C2 /* NSScreen+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSScreen+Extensions.m"; sourceTree = "<group>"; };
-		0393F9A6056FA86D0053EB79 /* ElementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementController.h; sourceTree = "<group>"; };
-		0393F9A7056FA86D0053EB79 /* ElementController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementController.m; sourceTree = "<group>"; };
+		0389A0ED10B156F5001470C2 /* StatusItemMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItemMenuController.h; sourceTree = "<group>"; };
+		0389A0EE10B156F5001470C2 /* StatusItemMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusItemMenuController.m; sourceTree = "<group>"; };
+		0389A19D10B161BB001470C2 /* mkconsole_m.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = mkconsole_m.tiff; sourceTree = "<group>"; };
 		0393F9CE056FADEA0053EB79 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/ElementMain.nib; sourceTree = "<group>"; };
 		0393FA42056FB8460053EB79 /* WindowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowManager.h; sourceTree = "<group>"; };
 		0393FA43056FB8460053EB79 /* WindowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowManager.m; sourceTree = "<group>"; };
-		0396FC9C056EB1D600CA3307 /* Stop MkConsoleElement.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = "Stop MkConsoleElement.app"; sourceTree = "<group>"; };
 		0396FC9E056EB6BB00CA3307 /* ReadMe.html */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; path = ReadMe.html; sourceTree = "<group>"; };
 		039A9516056AEAF800C69A80 /* InfoElement.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = InfoElement.plist; sourceTree = "<group>"; };
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -211,12 +217,12 @@
 			children = (
 				0308033D055D9207004DC663 /* AppController.h */,
 				0308033E055D9207004DC663 /* AppController.m */,
-				0393F9A6056FA86D0053EB79 /* ElementController.h */,
-				0393F9A7056FA86D0053EB79 /* ElementController.m */,
 				0393FA42056FB8460053EB79 /* WindowManager.h */,
 				0393FA43056FB8460053EB79 /* WindowManager.m */,
 				033E2090055D92700062E680 /* PreferencesController.h */,
 				033E2091055D92700062E680 /* PreferencesController.m */,
+				0389A0ED10B156F5001470C2 /* StatusItemMenuController.h */,
+				0389A0EE10B156F5001470C2 /* StatusItemMenuController.m */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -258,7 +264,6 @@
 		0396FC9B056EB19C00CA3307 /* Miscellanous Products */ = {
 			isa = PBXGroup;
 			children = (
-				0396FC9C056EB1D600CA3307 /* Stop MkConsoleElement.app */,
 				0396FC9E056EB6BB00CA3307 /* ReadMe.html */,
 			);
 			name = "Miscellanous Products";
@@ -325,6 +330,7 @@
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				033E207C055D924C0062E680 /* FactoryDefaults.plist */,
 				033E2080055D92630062E680 /* mkconsole.tiff */,
+				0389A19D10B161BB001470C2 /* mkconsole_m.tiff */,
 				033E207E055D92590062E680 /* mkconsole.icns */,
 				033E20A2055D92900062E680 /* MKConsoleWindow.nib */,
 				033E20A4055D92900062E680 /* Preferences.nib */,
@@ -357,10 +363,13 @@
 				035E969D09FCB83600DDCC7F /* MKLogfileReader.h in Headers */,
 				035E969E09FCB83600DDCC7F /* EDApplication.h in Headers */,
 				035E969F09FCB83600DDCC7F /* NSColor+Extensions.h in Headers */,
-				035E96A009FCB83600DDCC7F /* ElementController.h in Headers */,
 				035E96A109FCB83600DDCC7F /* WindowManager.h in Headers */,
 				AD30F4B70C606E6000A7E169 /* SCWatchdog.h in Headers */,
 				0389A09A10B15158001470C2 /* NSScreen+Extensions.h in Headers */,
+				0389A0EF10B156F5001470C2 /* StatusItemMenuController.h in Headers */,
+				0389A18110B15E96001470C2 /* PreferencesController.h in Headers */,
+				0389A18310B15E97001470C2 /* AppController.h in Headers */,
+				0389A18510B15E9B001470C2 /* MKKDDTableView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +468,8 @@
 				035E96A809FCB83600DDCC7F /* FactoryDefaults.plist in Resources */,
 				035E96A909FCB83600DDCC7F /* InfoPlist.strings in Resources */,
 				035E96AA09FCB83600DDCC7F /* ElementMain.nib in Resources */,
+				0389A18610B15E9F001470C2 /* Preferences.nib in Resources */,
+				0389A19E10B161BB001470C2 /* mkconsole_m.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,7 +513,6 @@
 			files = (
 				035E96B309FCB83600DDCC7F /* main.m in Sources */,
 				035E96B109FCB83600DDCC7F /* EDApplication.m in Sources */,
-				035E96B409FCB83600DDCC7F /* ElementController.m in Sources */,
 				035E96B509FCB83600DDCC7F /* WindowManager.m in Sources */,
 				035E96AD09FCB83600DDCC7F /* MKConsoleWindowController.m in Sources */,
 				035E96AC09FCB83600DDCC7F /* MKConsoleWindow.m in Sources */,
@@ -512,6 +522,10 @@
 				035E96B209FCB83600DDCC7F /* NSColor+Extensions.m in Sources */,
 				AD30F4B80C606E6000A7E169 /* SCWatchdog.m in Sources */,
 				0389A09B10B15158001470C2 /* NSScreen+Extensions.m in Sources */,
+				0389A0F010B156F5001470C2 /* StatusItemMenuController.m in Sources */,
+				0389A18010B15E95001470C2 /* PreferencesController.m in Sources */,
+				0389A18210B15E96001470C2 /* AppController.m in Sources */,
+				0389A18410B15E9A001470C2 /* MKKDDTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
