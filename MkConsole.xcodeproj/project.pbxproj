@@ -47,7 +47,6 @@
 		033E20A1055D92700062E680 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2091055D92700062E680 /* PreferencesController.m */; };
 		033E20A6055D92900062E680 /* MKConsoleWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 033E20A2055D92900062E680 /* MKConsoleWindow.nib */; };
 		033E20A7055D92900062E680 /* Preferences.nib in Resources */ = {isa = PBXBuildFile; fileRef = 033E20A4055D92900062E680 /* Preferences.nib */; };
-		033E20AD055D93510062E680 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 033E20AC055D93500062E680 /* Info.plist */; };
 		035E969909FCB83600DDCC7F /* MKConsoleWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2082055D92700062E680 /* MKConsoleWindow.h */; };
 		035E969A09FCB83600DDCC7F /* MKConsoleWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2084055D92700062E680 /* MKConsoleWindowController.h */; };
 		035E969B09FCB83600DDCC7F /* MKConsoleWindowDragBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2086055D92700062E680 /* MKConsoleWindowDragBar.h */; };
@@ -491,7 +490,6 @@
 				033E2081055D92630062E680 /* mkconsole.tiff in Resources */,
 				033E20A6055D92900062E680 /* MKConsoleWindow.nib in Resources */,
 				033E20A7055D92900062E680 /* Preferences.nib in Resources */,
-				033E20AD055D93510062E680 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
