@@ -712,38 +712,38 @@
 		035E96BC09FCB83600DDCC7F /* Build configuration list for PBXNativeTarget "MkConsoleElement" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				035E96BD09FCB83600DDCC7F /* Development */,
 				035E96BE09FCB83600DDCC7F /* Deployment */,
+				035E96BD09FCB83600DDCC7F /* Development */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Development;
+			defaultConfigurationName = Deployment;
 		};
 		03D9532809F82454000B9A35 /* Build configuration list for PBXNativeTarget "MkConsole" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				03D9532909F82454000B9A35 /* Development */,
 				03D9532A09F82454000B9A35 /* Deployment */,
+				03D9532909F82454000B9A35 /* Development */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Development;
+			defaultConfigurationName = Deployment;
 		};
 		03D9533009F82454000B9A35 /* Build configuration list for PBXProject "MkConsole" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				03D9533109F82454000B9A35 /* Development */,
 				03D9533209F82454000B9A35 /* Deployment */,
+				03D9533109F82454000B9A35 /* Development */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Development;
+			defaultConfigurationName = Deployment;
 		};
 		ADBD4B790C57751600740990 /* Build configuration list for PBXAggregateTarget "All" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				ADBD4B7A0C57751600740990 /* Development */,
 				ADBD4B7B0C57751600740990 /* Deployment */,
+				ADBD4B7A0C57751600740990 /* Development */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Development;
+			defaultConfigurationName = Deployment;
 		};
 /* End XCConfigurationList section */
 	};
