@@ -27,6 +27,7 @@
 {
 	statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];	
 	[statusItem setImage:[NSImage imageNamed:@"mkconsole_m"]];
+	[statusItem setAlternateImage:[NSImage imageNamed:@"mkconsole_m_inverted"]];	
 	[statusItem setHighlightMode:YES];
 	[statusItem setMenu:statusMenu];
 }
