@@ -37,6 +37,7 @@
     IBOutlet NSPopUpButton	*fontSizePopup;
     IBOutlet NSButton		*boldCheckBox;
     IBOutlet NSButton		*italicCheckBox;
+    IBOutlet NSButton       *antialiasCheckBox;
     IBOutlet NSTableView	*fileTableView;
 }
 

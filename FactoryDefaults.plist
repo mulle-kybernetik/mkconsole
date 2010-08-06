@@ -1,17 +1,18 @@
 {
-    PollInterval = 2;
-    ReopenFactor = 15;
-    Windows = (
-        { 
-            Frame = "{{0, 40}, {1200, 384}}";
-            FontName = "Lucida Grande";
-            FontSize = "9";
-            TextColor = "0.44 0.50 0.53 1";
-            BackgroundColor = "0 0 0 0";
-            Files = (
-                "/var/log/system.log"
-            );
-            Sticky = True;
-        }
-    );
+	PollInterval = 2;
+	ReopenFactor = 15;
+	Windows = (
+		{
+			Frame = "{{0, 40}, {1200, 384}}";
+			FontName = "Monaco";
+			FontSize = 12;
+			TextColor = "0.44 0.50 0.53 1";
+			BackgroundColor = "0 0 0 0";
+			Files = (
+				"/var/log/system.log",
+			);
+			Sticky = Yes;
+			AntiAlias = Yes;
+		},
+	);
 }

@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------------------
-//  MKConsoleWindowController.h created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindowController.h,v 1.4 2003-03-16 20:18:50 erik Exp $
+//  MKConsoleTextView.h created by erik on Thu Aug 05 2010
+//  @(#)$Id: MKConsoleWindow.h,v 1.4 2004-02-15 18:55:05 erik Exp $
 //
-//  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
+//  Copyright (c) 2010 by Mulle Kybernetik. All rights reserved.
 //
 //  Permission to use, copy, modify and distribute this software and its documentation
 //  is hereby granted, provided that both the copyright notice and this permission
@@ -18,33 +18,15 @@
 //  OR OF ANY DERIVATIVE WORK.
 //---------------------------------------------------------------------------------------
 
-#import <AppKit/AppKit.h>
-
-@class MKConsoleWindow;
-@class MKConsoleTextView;
+#import <Cocoa/Cocoa.h>
 
 
-@interface MKConsoleWindowController : NSObject
+@interface MKConsoleTextView : NSTextView 
 {
-    int							cycle;
-    NSRect						windowFrame;
-    NSArray						*filenames;
-    NSDictionary				*textAttributes;
-    NSTimer						*timer;
-    NSMutableArray				*readerList;
-    IBOutlet MKConsoleWindow	*window;
-    IBOutlet MKConsoleTextView	*outputArea;
-    id							setupListener;
+    BOOL textIsAntiAliased;
 }
 
-- (id)initWithSettings:(NSDictionary *)settings;
-
-- (void)enterSetUpModeWithListener:(id)anObject;
-- (void)leaveSetUpMode;
-
-- (void)start;
-- (void)stop;
-
-- (IBAction)clear:(id)sender;
+- (void)setTextIsAntialiased:(BOOL)flag;
+- (BOOL)textIsAntiAliased;
 
 @end

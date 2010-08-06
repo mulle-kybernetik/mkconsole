@@ -92,6 +92,10 @@
 		0389A19E10B161BB001470C2 /* mkconsole_m.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0389A19D10B161BB001470C2 /* mkconsole_m.tiff */; };
 		0389A1CD10B16B61001470C2 /* CCMStatusItemApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 0389A1CB10B16B61001470C2 /* CCMStatusItemApplication.h */; };
 		0389A1CE10B16B61001470C2 /* CCMStatusItemApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 0389A1CC10B16B61001470C2 /* CCMStatusItemApplication.m */; };
+		03937A01120AEC6B0060D2E0 /* MKConsoleTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 039379FF120AEC6B0060D2E0 /* MKConsoleTextView.h */; };
+		03937A02120AEC6B0060D2E0 /* MKConsoleTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 039379FF120AEC6B0060D2E0 /* MKConsoleTextView.h */; };
+		03937A03120AEC6B0060D2E0 /* MKConsoleTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03937A00120AEC6B0060D2E0 /* MKConsoleTextView.m */; };
+		03937A04120AEC6B0060D2E0 /* MKConsoleTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03937A00120AEC6B0060D2E0 /* MKConsoleTextView.m */; };
 		0393FA46056FB8460053EB79 /* WindowManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0393FA42056FB8460053EB79 /* WindowManager.h */; };
 		0393FA47056FB8460053EB79 /* WindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0393FA43056FB8460053EB79 /* WindowManager.m */; };
 		8D1107280486CEB800E47090 /* MkConsole_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32CA4F630368D1EE00C91783 /* MkConsole_Prefix.pch */; };
@@ -174,6 +178,8 @@
 		0389A19D10B161BB001470C2 /* mkconsole_m.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = mkconsole_m.tiff; sourceTree = "<group>"; };
 		0389A1CB10B16B61001470C2 /* CCMStatusItemApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMStatusItemApplication.h; sourceTree = "<group>"; };
 		0389A1CC10B16B61001470C2 /* CCMStatusItemApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMStatusItemApplication.m; sourceTree = "<group>"; };
+		039379FF120AEC6B0060D2E0 /* MKConsoleTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKConsoleTextView.h; sourceTree = "<group>"; };
+		03937A00120AEC6B0060D2E0 /* MKConsoleTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKConsoleTextView.m; sourceTree = "<group>"; };
 		0393F9CE056FADEA0053EB79 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/ElementMain.nib; sourceTree = "<group>"; };
 		0393FA42056FB8460053EB79 /* WindowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowManager.h; sourceTree = "<group>"; };
 		0393FA43056FB8460053EB79 /* WindowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowManager.m; sourceTree = "<group>"; };
@@ -239,6 +245,8 @@
 				033E2083055D92700062E680 /* MKConsoleWindow.m */,
 				033E2084055D92700062E680 /* MKConsoleWindowController.h */,
 				033E2085055D92700062E680 /* MKConsoleWindowController.m */,
+				039379FF120AEC6B0060D2E0 /* MKConsoleTextView.h */,
+				03937A00120AEC6B0060D2E0 /* MKConsoleTextView.m */,
 				033E2086055D92700062E680 /* MKConsoleWindowDragBar.h */,
 				033E2087055D92700062E680 /* MKConsoleWindowDragBar.m */,
 				033E2088055D92700062E680 /* MKConsoleWindowResizeIcon.h */,
@@ -379,6 +387,7 @@
 				0389A18310B15E97001470C2 /* AppController.h in Headers */,
 				0389A18510B15E9B001470C2 /* MKKDDTableView.h in Headers */,
 				0389A1CD10B16B61001470C2 /* CCMStatusItemApplication.h in Headers */,
+				03937A02120AEC6B0060D2E0 /* MKConsoleTextView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +409,7 @@
 				0393FA46056FB8460053EB79 /* WindowManager.h in Headers */,
 				AD30F4B50C606E6000A7E169 /* SCWatchdog.h in Headers */,
 				0389A09810B15158001470C2 /* NSScreen+Extensions.h in Headers */,
+				03937A01120AEC6B0060D2E0 /* MKConsoleTextView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +464,9 @@
 			buildConfigurationList = 03D9533009F82454000B9A35 /* Build configuration list for PBXProject "MkConsole" */;
 			compatibilityVersion = "Xcode 3.0";
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* MkConsole */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -536,6 +549,7 @@
 				0389A18210B15E96001470C2 /* AppController.m in Sources */,
 				0389A18410B15E9A001470C2 /* MKKDDTableView.m in Sources */,
 				0389A1CE10B16B61001470C2 /* CCMStatusItemApplication.m in Sources */,
+				03937A04120AEC6B0060D2E0 /* MKConsoleTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +571,7 @@
 				033E209F055D92700062E680 /* NSColor+Extensions.m in Sources */,
 				AD30F4B60C606E6000A7E169 /* SCWatchdog.m in Sources */,
 				0389A09910B15158001470C2 /* NSScreen+Extensions.m in Sources */,
+				03937A03120AEC6B0060D2E0 /* MKConsoleTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,8 +637,10 @@
 		035E96BD09FCB83600DDCC7F /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_VERSION = "";
 				INFOPLIST_FILE = InfoElement.plist;
 				PRODUCT_NAME = MkConsoleElement;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Development;
@@ -631,8 +648,10 @@
 		035E96BE09FCB83600DDCC7F /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_VERSION = "";
 				INFOPLIST_FILE = InfoElement.plist;
 				PRODUCT_NAME = MkConsoleElement;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Deployment;
@@ -642,8 +661,10 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MkConsole_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = MkConsole;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Development;
@@ -653,8 +674,10 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MkConsole_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = MkConsole;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Deployment;
@@ -662,11 +685,13 @@
 		03D9533109F82454000B9A35 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				COPY_PHASE_STRIP = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_VERSION = 4.0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INSTALL_PATH = /Products;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
@@ -676,13 +701,12 @@
 		03D9533209F82454000B9A35 /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					i386,
-					ppc,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				COPY_PHASE_STRIP = YES;
-				GCC_VERSION = 4.0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INSTALL_PATH = /Products;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
 				ZERO_LINK = NO;
 			};

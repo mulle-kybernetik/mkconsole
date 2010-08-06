@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------------------
-//  MKConsoleWindowController.h created by erik on Sat Jun 29 2002
-//  @(#)$Id: MKConsoleWindowController.h,v 1.4 2003-03-16 20:18:50 erik Exp $
+//  MKConsoleTextView.m created by erik on Thu Aug 05 2010
+//  @(#)$Id: MKConsoleWindow.h,v 1.4 2004-02-15 18:55:05 erik Exp $
 //
-//  Copyright (c) 2002 by Mulle Kybernetik. All rights reserved.
+//  Copyright (c) 2010 by Mulle Kybernetik. All rights reserved.
 //
 //  Permission to use, copy, modify and distribute this software and its documentation
 //  is hereby granted, provided that both the copyright notice and this permission
@@ -18,33 +18,27 @@
 //  OR OF ANY DERIVATIVE WORK.
 //---------------------------------------------------------------------------------------
 
-#import <AppKit/AppKit.h>
-
-@class MKConsoleWindow;
-@class MKConsoleTextView;
+#import "MKConsoleTextView.h"
 
 
-@interface MKConsoleWindowController : NSObject
+@implementation MKConsoleTextView
+
+- (void)setTextIsAntialiased:(BOOL)flag
 {
-    int							cycle;
-    NSRect						windowFrame;
-    NSArray						*filenames;
-    NSDictionary				*textAttributes;
-    NSTimer						*timer;
-    NSMutableArray				*readerList;
-    IBOutlet MKConsoleWindow	*window;
-    IBOutlet MKConsoleTextView	*outputArea;
-    id							setupListener;
+    textIsAntiAliased = flag;
+    [self setNeedsDisplay:YES];
 }
 
-- (id)initWithSettings:(NSDictionary *)settings;
+- (BOOL)textIsAntiAliased;
+{
+    return textIsAntiAliased;
+}
 
-- (void)enterSetUpModeWithListener:(id)anObject;
-- (void)leaveSetUpMode;
+- (void)drawRect:(NSRect)rect
+{
+    [[NSGraphicsContext currentContext] setShouldAntialias:textIsAntiAliased];
+    [super drawRect:rect];
+}
 
-- (void)start;
-- (void)stop;
-
-- (IBAction)clear:(id)sender;
 
 @end

@@ -144,6 +144,7 @@ static PreferencesController *sharedInstance = nil;
     [fontSizePopup selectItemWithTitle:[settings objectForKey:@"FontSize"]];
     [boldCheckBox setState:[[NSFontManager sharedFontManager] fontNamed:fontname hasTraits:NSBoldFontMask]];
     [italicCheckBox setState:[[NSFontManager sharedFontManager] fontNamed:fontname hasTraits:NSItalicFontMask]];
+    [antialiasCheckBox setState:[[settings objectForKey:@"AntiAlias"] isEqualToString:@"No"] == NO];
 }
 
 
@@ -172,6 +173,7 @@ static PreferencesController *sharedInstance = nil;
     NSLog(@"%s font = %@", __PRETTY_FUNCTION__, font);
     [settings setObject:[font fontName] forKey:@"FontName"];
     [settings setObject:[[NSNumber numberWithFloat:[font pointSize]] stringValue] forKey:@"FontSize"] ;
+    [settings setObject:([antialiasCheckBox state] == NSOnState) ? @"Yes" : @"No" forKey:@"AntiAlias"];
 
     return settings;
 }
@@ -319,7 +321,7 @@ static PreferencesController *sharedInstance = nil;
     NSMutableArray		*windowListDefault;
     NSMutableDictionary	*windowSettings;
 
-    windowListDefault = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Windows"] mutableCopy];
+    windowListDefault = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"Windows"] mutableCopy] autorelease];
     windowSettings = [[windowListDefault objectAtIndex:0] mutableCopy];
     [windowSettings addEntriesFromDictionary:[self _getSettings]];
     [windowListDefault replaceObjectAtIndex:0 withObject:windowSettings];

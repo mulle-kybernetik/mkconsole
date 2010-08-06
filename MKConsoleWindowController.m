@@ -23,6 +23,7 @@
 #import "NSScreen+Extensions.h"
 #import "MKLogfileReader.h"
 #import "MKConsoleWindow.h"
+#import "MKConsoleTextView.h"
 #import "MKConsoleWindowController.h"
 #import "SCWatchdog.h"
 
@@ -54,40 +55,41 @@ static BOOL noAlertOnOpenFailure = NO;
 
 - (id)initWithSettings:(NSDictionary *)settings 
 {
-  NSNotificationCenter *nc;
-  
-  [super init];
-  
-  filenames      = [[settings objectForKey:@"Files"] retain];
-  windowFrame    = NSRectFromString([settings objectForKey:@"Frame"]);
-  textAttributes = [[NSDictionary allocWithZone:[self zone]]
-                                  initWithObjectsAndKeys:[NSFont fontWithName:[settings objectForKey:@"FontName"] size:[[settings objectForKey:@"FontSize"] floatValue]], NSFontAttributeName, [NSColor colorWithCalibratedStringRep:[settings objectForKey:@"TextColor"]], NSForegroundColorAttributeName, nil];
-  
-  [NSBundle loadNibNamed:@"MKConsoleWindow" owner:self];
-  NSAssert(window != nil, @"Problem with MKConsoleWindow.nib");
-
-  [window setBackgroundColor:[NSColor colorWithCalibratedStringRep:[settings objectForKey:@"BackgroundColor"]]];
-  if([[settings objectForKey:@"Float"] isEqualToString:@"Yes"])
-	  [window setLevel:CGWindowLevelForKey(kCGDesktopIconWindowLevelKey) + 1];
-  else
-	  [window setLevel:CGWindowLevelForKey(kCGDesktopWindowLevelKey)];
-  [window setSticky:[[settings objectForKey:@"Sticky"] isEqualToString:@"Yes"]];
-
-  nc = [NSNotificationCenter defaultCenter];
-  [nc addObserver:self
-      selector:@selector(_screenParametersChanged:)
-      name:NSApplicationDidChangeScreenParametersNotification
-      object:nil];
-	[nc addObserver:self
-      selector:@selector(_computerWokeUp:)
-      name:NSWorkspaceDidWakeNotification
-      object:nil];
-	[nc addObserver:self
-      selector:@selector(_computerWokeUp:)
-      name:SCWatchdogKeysDidChangeNotification
-      object:nil];
-  
-  return self;
+    NSNotificationCenter *nc;
+    
+    [super init];
+    
+    filenames      = [[settings objectForKey:@"Files"] retain];
+    windowFrame    = NSRectFromString([settings objectForKey:@"Frame"]);
+    textAttributes = [[NSDictionary allocWithZone:[self zone]]
+                      initWithObjectsAndKeys:[NSFont fontWithName:[settings objectForKey:@"FontName"] size:[[settings objectForKey:@"FontSize"] floatValue]], NSFontAttributeName, [NSColor colorWithCalibratedStringRep:[settings objectForKey:@"TextColor"]], NSForegroundColorAttributeName, nil];
+    
+    [NSBundle loadNibNamed:@"MKConsoleWindow" owner:self];
+    NSAssert(window != nil, @"Problem with MKConsoleWindow.nib");
+    
+    [window setBackgroundColor:[NSColor colorWithCalibratedStringRep:[settings objectForKey:@"BackgroundColor"]]];
+    if([[settings objectForKey:@"Float"] isEqualToString:@"Yes"])
+        [window setLevel:CGWindowLevelForKey(kCGDesktopIconWindowLevelKey) + 1];
+    else
+        [window setLevel:CGWindowLevelForKey(kCGDesktopWindowLevelKey)];
+    [window setSticky:[[settings objectForKey:@"Sticky"] isEqualToString:@"Yes"]];
+    [outputArea setTextIsAntialiased:[[settings objectForKey:@"AntiAlias"] isEqualToString:@"No"] == NO];
+     
+     nc = [NSNotificationCenter defaultCenter];
+     [nc addObserver:self
+            selector:@selector(_screenParametersChanged:)
+                name:NSApplicationDidChangeScreenParametersNotification
+              object:nil];
+     [nc addObserver:self
+            selector:@selector(_computerWokeUp:)
+                name:NSWorkspaceDidWakeNotification
+              object:nil];
+     [nc addObserver:self
+            selector:@selector(_computerWokeUp:)
+                name:SCWatchdogKeysDidChangeNotification
+              object:nil];
+     
+     return self;
 }
 
 
