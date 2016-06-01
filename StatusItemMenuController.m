@@ -25,10 +25,10 @@
 
 - (void)awakeFromNib
 {
-	statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];	
-	[statusItem setImage:[NSImage imageNamed:@"mkconsole_m"]];
-	[statusItem setAlternateImage:[NSImage imageNamed:@"mkconsole_m_inverted"]];	
-	[statusItem setHighlightMode:YES];
+	statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
+	NSImage *img  = [NSImage imageNamed:@"mkconsole_m"];
+	[img setTemplate:YES]; // necessary for "dark mode" compat
+	[statusItem setImage:img];
 	[statusItem setMenu:statusMenu];
 }
 

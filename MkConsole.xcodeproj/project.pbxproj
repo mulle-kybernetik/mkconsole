@@ -47,7 +47,6 @@
 		033E20A1055D92700062E680 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2091055D92700062E680 /* PreferencesController.m */; };
 		033E20A6055D92900062E680 /* MKConsoleWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 033E20A2055D92900062E680 /* MKConsoleWindow.nib */; };
 		033E20A7055D92900062E680 /* Preferences.nib in Resources */ = {isa = PBXBuildFile; fileRef = 033E20A4055D92900062E680 /* Preferences.nib */; };
-		033FA16110CDD52600162406 /* mkconsole_m_inverted.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 033FA16010CDD52600162406 /* mkconsole_m_inverted.tiff */; };
 		035E969909FCB83600DDCC7F /* MKConsoleWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2082055D92700062E680 /* MKConsoleWindow.h */; };
 		035E969A09FCB83600DDCC7F /* MKConsoleWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2084055D92700062E680 /* MKConsoleWindowController.h */; };
 		035E969B09FCB83600DDCC7F /* MKConsoleWindowDragBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2086055D92700062E680 /* MKConsoleWindowDragBar.h */; };
@@ -168,7 +167,6 @@
 		033E20A3055D92900062E680 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MKConsoleWindow.nib; sourceTree = "<group>"; };
 		033E20A5055D92900062E680 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/Preferences.nib; sourceTree = "<group>"; };
 		033E20AC055D93500062E680 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		033FA16010CDD52600162406 /* mkconsole_m_inverted.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = mkconsole_m_inverted.tiff; sourceTree = "<group>"; };
 		035E96C109FCB83600DDCC7F /* MkConsoleElement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MkConsoleElement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		038794F305698E1F000C8D5D /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		0389A09610B15158001470C2 /* NSScreen+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScreen+Extensions.h"; sourceTree = "<group>"; };
@@ -346,7 +344,6 @@
 				033E207C055D924C0062E680 /* FactoryDefaults.plist */,
 				033E2080055D92630062E680 /* mkconsole.tiff */,
 				0389A19D10B161BB001470C2 /* mkconsole_m.tiff */,
-				033FA16010CDD52600162406 /* mkconsole_m_inverted.tiff */,
 				033E207E055D92590062E680 /* mkconsole.icns */,
 				033E20A2055D92900062E680 /* MKConsoleWindow.nib */,
 				033E20A4055D92900062E680 /* Preferences.nib */,
@@ -461,8 +458,11 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = 03D9533009F82454000B9A35 /* Build configuration list for PBXProject "MkConsole" */;
 			compatibilityVersion = "Xcode 3.0";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				en,
@@ -492,7 +492,6 @@
 				035E96AA09FCB83600DDCC7F /* ElementMain.nib in Resources */,
 				0389A18610B15E9F001470C2 /* Preferences.nib in Resources */,
 				0389A19E10B161BB001470C2 /* mkconsole_m.tiff in Resources */,
-				033FA16110CDD52600162406 /* mkconsole_m_inverted.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,8 +684,7 @@
 		03D9533109F82454000B9A35 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -701,8 +699,7 @@
 		03D9533209F82454000B9A35 /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INSTALL_PATH = /Products;
