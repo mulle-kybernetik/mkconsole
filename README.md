@@ -1,14 +1,18 @@
 # MkConsole
 
-Normally you only need the MkConsole application and can safely ignore/delete the other files.
+### Changes in version 1.13
 
-However, as an alternative you can also run MkConsoleElement which does not display an icon in the dock; instead, it adds an entry to the status item area in the menu bar.
+This version of MkConsole requires Mac OS X 10.6 (Snow Leopard) or above.
 
-## MkConsole 1.12
+* MkConsole is now built only as an application that runs as a menu bar item.
+
+
+### Changes in version 1.12
 
 This version of MkConsole requires Mac OS X 10.5 (Leopard) or above.
 
 * Text can be displayed without anti-aliasing.
+
 
 ### Changes in version 1.11
 
