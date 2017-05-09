@@ -636,10 +636,8 @@
 		035E96BD09FCB83600DDCC7F /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_VERSION = "";
 				INFOPLIST_FILE = InfoElement.plist;
 				PRODUCT_NAME = MkConsoleElement;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Development;
@@ -647,10 +645,8 @@
 		035E96BE09FCB83600DDCC7F /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_VERSION = "";
 				INFOPLIST_FILE = InfoElement.plist;
 				PRODUCT_NAME = MkConsoleElement;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Deployment;
@@ -658,76 +654,51 @@
 		03D9532909F82454000B9A35 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = MkConsole_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = MkConsole;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
-				WRAPPER_EXTENSION = app;
+				SDKROOT = macosx;
 			};
 			name = Development;
 		};
 		03D9532A09F82454000B9A35 /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = MkConsole_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = MkConsole;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
-				WRAPPER_EXTENSION = app;
+				SDKROOT = macosx;
 			};
 			name = Deployment;
 		};
 		03D9533109F82454000B9A35 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INSTALL_PATH = /Products;
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 			};
 			name = Development;
 		};
 		03D9533209F82454000B9A35 /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INSTALL_PATH = /Products;
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
-				ZERO_LINK = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 			};
 			name = Deployment;
 		};
 		ADBD4B7A0C57751600740990 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				PRODUCT_NAME = All;
 			};
 			name = Development;
 		};
 		ADBD4B7B0C57751600740990 /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				PRODUCT_NAME = All;
-				ZERO_LINK = NO;
 			};
 			name = Deployment;
 		};
