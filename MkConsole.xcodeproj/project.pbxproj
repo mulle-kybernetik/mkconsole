@@ -6,47 +6,7 @@
 	objectVersion = 44;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		ADBD4B690C5774B800740990 /* All */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = ADBD4B790C57751600740990 /* Build configuration list for PBXAggregateTarget "All" */;
-			buildPhases = (
-			);
-			dependencies = (
-				ADBD4B6D0C5774CB00740990 /* PBXTargetDependency */,
-				ADBD4B6F0C5774CB00740990 /* PBXTargetDependency */,
-			);
-			name = All;
-			productName = All;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
-		0308033F055D9207004DC663 /* AppController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0308033D055D9207004DC663 /* AppController.h */; };
-		03080340055D9207004DC663 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0308033E055D9207004DC663 /* AppController.m */; };
-		033E207A055D92430062E680 /* EDApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2078055D92430062E680 /* EDApplication.h */; };
-		033E207B055D92430062E680 /* EDApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2079055D92430062E680 /* EDApplication.m */; };
-		033E207D055D924C0062E680 /* FactoryDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 033E207C055D924C0062E680 /* FactoryDefaults.plist */; };
-		033E207F055D92590062E680 /* mkconsole.icns in Resources */ = {isa = PBXBuildFile; fileRef = 033E207E055D92590062E680 /* mkconsole.icns */; };
-		033E2081055D92630062E680 /* mkconsole.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 033E2080055D92630062E680 /* mkconsole.tiff */; };
-		033E2092055D92700062E680 /* MKConsoleWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2082055D92700062E680 /* MKConsoleWindow.h */; };
-		033E2093055D92700062E680 /* MKConsoleWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2083055D92700062E680 /* MKConsoleWindow.m */; };
-		033E2094055D92700062E680 /* MKConsoleWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2084055D92700062E680 /* MKConsoleWindowController.h */; };
-		033E2095055D92700062E680 /* MKConsoleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2085055D92700062E680 /* MKConsoleWindowController.m */; };
-		033E2096055D92700062E680 /* MKConsoleWindowDragBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2086055D92700062E680 /* MKConsoleWindowDragBar.h */; };
-		033E2097055D92700062E680 /* MKConsoleWindowDragBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2087055D92700062E680 /* MKConsoleWindowDragBar.m */; };
-		033E2098055D92700062E680 /* MKConsoleWindowResizeIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2088055D92700062E680 /* MKConsoleWindowResizeIcon.h */; };
-		033E2099055D92700062E680 /* MKConsoleWindowResizeIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2089055D92700062E680 /* MKConsoleWindowResizeIcon.m */; };
-		033E209A055D92700062E680 /* MKKDDTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E208A055D92700062E680 /* MKKDDTableView.h */; };
-		033E209B055D92700062E680 /* MKKDDTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E208B055D92700062E680 /* MKKDDTableView.m */; };
-		033E209C055D92700062E680 /* MKLogfileReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E208C055D92700062E680 /* MKLogfileReader.h */; };
-		033E209D055D92700062E680 /* MKLogfileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E208D055D92700062E680 /* MKLogfileReader.m */; };
-		033E209E055D92700062E680 /* NSColor+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E208E055D92700062E680 /* NSColor+Extensions.h */; };
-		033E209F055D92700062E680 /* NSColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E208F055D92700062E680 /* NSColor+Extensions.m */; };
-		033E20A0055D92700062E680 /* PreferencesController.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2090055D92700062E680 /* PreferencesController.h */; };
-		033E20A1055D92700062E680 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E2091055D92700062E680 /* PreferencesController.m */; };
-		033E20A6055D92900062E680 /* MKConsoleWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 033E20A2055D92900062E680 /* MKConsoleWindow.nib */; };
-		033E20A7055D92900062E680 /* Preferences.nib in Resources */ = {isa = PBXBuildFile; fileRef = 033E20A4055D92900062E680 /* Preferences.nib */; };
 		035E969909FCB83600DDCC7F /* MKConsoleWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2082055D92700062E680 /* MKConsoleWindow.h */; };
 		035E969A09FCB83600DDCC7F /* MKConsoleWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2084055D92700062E680 /* MKConsoleWindowController.h */; };
 		035E969B09FCB83600DDCC7F /* MKConsoleWindowDragBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 033E2086055D92700062E680 /* MKConsoleWindowDragBar.h */; };
@@ -74,9 +34,6 @@
 		035E96B709FCB83600DDCC7F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		035E96B809FCB83600DDCC7F /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038794F305698E1F000C8D5D /* Carbon.framework */; };
 		035E96BB09FCB83600DDCC7F /* ReadMe.html in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0396FC9E056EB6BB00CA3307 /* ReadMe.html */; };
-		038794F405698E1F000C8D5D /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038794F305698E1F000C8D5D /* Carbon.framework */; };
-		0389A09810B15158001470C2 /* NSScreen+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0389A09610B15158001470C2 /* NSScreen+Extensions.h */; };
-		0389A09910B15158001470C2 /* NSScreen+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0389A09710B15158001470C2 /* NSScreen+Extensions.m */; };
 		0389A09A10B15158001470C2 /* NSScreen+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0389A09610B15158001470C2 /* NSScreen+Extensions.h */; };
 		0389A09B10B15158001470C2 /* NSScreen+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0389A09710B15158001470C2 /* NSScreen+Extensions.m */; };
 		0389A0EF10B156F5001470C2 /* StatusItemMenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0389A0ED10B156F5001470C2 /* StatusItemMenuController.h */; };
@@ -91,41 +48,13 @@
 		0389A19E10B161BB001470C2 /* mkconsole_m.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0389A19D10B161BB001470C2 /* mkconsole_m.tiff */; };
 		0389A1CD10B16B61001470C2 /* CCMStatusItemApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 0389A1CB10B16B61001470C2 /* CCMStatusItemApplication.h */; };
 		0389A1CE10B16B61001470C2 /* CCMStatusItemApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 0389A1CC10B16B61001470C2 /* CCMStatusItemApplication.m */; };
-		03937A01120AEC6B0060D2E0 /* MKConsoleTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 039379FF120AEC6B0060D2E0 /* MKConsoleTextView.h */; };
 		03937A02120AEC6B0060D2E0 /* MKConsoleTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 039379FF120AEC6B0060D2E0 /* MKConsoleTextView.h */; };
-		03937A03120AEC6B0060D2E0 /* MKConsoleTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03937A00120AEC6B0060D2E0 /* MKConsoleTextView.m */; };
 		03937A04120AEC6B0060D2E0 /* MKConsoleTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03937A00120AEC6B0060D2E0 /* MKConsoleTextView.m */; };
-		0393FA46056FB8460053EB79 /* WindowManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0393FA42056FB8460053EB79 /* WindowManager.h */; };
-		0393FA47056FB8460053EB79 /* WindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0393FA43056FB8460053EB79 /* WindowManager.m */; };
-		8D1107280486CEB800E47090 /* MkConsole_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32CA4F630368D1EE00C91783 /* MkConsole_Prefix.pch */; };
-		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
-		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
-		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
-		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		AD30F4B50C606E6000A7E169 /* SCWatchdog.h in Headers */ = {isa = PBXBuildFile; fileRef = AD30F4AA0C606E6000A7E169 /* SCWatchdog.h */; };
-		AD30F4B60C606E6000A7E169 /* SCWatchdog.m in Sources */ = {isa = PBXBuildFile; fileRef = AD30F4B40C606E6000A7E169 /* SCWatchdog.m */; };
+		03D500FE1EC2599D000C31E5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 039A9516056AEAF800C69A80 /* Info.plist */; };
 		AD30F4B70C606E6000A7E169 /* SCWatchdog.h in Headers */ = {isa = PBXBuildFile; fileRef = AD30F4AA0C606E6000A7E169 /* SCWatchdog.h */; };
 		AD30F4B80C606E6000A7E169 /* SCWatchdog.m in Sources */ = {isa = PBXBuildFile; fileRef = AD30F4B40C606E6000A7E169 /* SCWatchdog.m */; };
-		AD30F5020C6071D200A7E169 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD30F5010C6071D200A7E169 /* SystemConfiguration.framework */; };
 		AD30F5030C6071D200A7E169 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD30F5010C6071D200A7E169 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		ADBD4B6C0C5774CB00740990 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8D1107260486CEB800E47090;
-			remoteInfo = MkConsole;
-		};
-		ADBD4B6E0C5774CB00740990 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 035E969709FCB83600DDCC7F;
-			remoteInfo = MkConsoleElement;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		035E96B909FCB83600DDCC7F /* CopyFiles */ = {
@@ -166,8 +95,7 @@
 		033E2091055D92700062E680 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
 		033E20A3055D92900062E680 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MKConsoleWindow.nib; sourceTree = "<group>"; };
 		033E20A5055D92900062E680 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/Preferences.nib; sourceTree = "<group>"; };
-		033E20AC055D93500062E680 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		035E96C109FCB83600DDCC7F /* MkConsoleElement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MkConsoleElement.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		035E96C109FCB83600DDCC7F /* MkConsole.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MkConsole.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		038794F305698E1F000C8D5D /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		0389A09610B15158001470C2 /* NSScreen+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScreen+Extensions.h"; sourceTree = "<group>"; };
 		0389A09710B15158001470C2 /* NSScreen+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSScreen+Extensions.m"; sourceTree = "<group>"; };
@@ -182,7 +110,7 @@
 		0393FA42056FB8460053EB79 /* WindowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowManager.h; sourceTree = "<group>"; };
 		0393FA43056FB8460053EB79 /* WindowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowManager.m; sourceTree = "<group>"; };
 		0396FC9E056EB6BB00CA3307 /* ReadMe.html */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; path = ReadMe.html; sourceTree = "<group>"; };
-		039A9516056AEAF800C69A80 /* InfoElement.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = InfoElement.plist; sourceTree = "<group>"; };
+		039A9516056AEAF800C69A80 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -190,7 +118,6 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* MkConsole_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MkConsole_Prefix.pch; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* MkConsole.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MkConsole.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD30F4AA0C606E6000A7E169 /* SCWatchdog.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; path = SCWatchdog.h; sourceTree = "<group>"; };
 		AD30F4B40C606E6000A7E169 /* SCWatchdog.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; path = SCWatchdog.m; sourceTree = "<group>"; };
 		AD30F5010C6071D200A7E169 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
@@ -205,16 +132,6 @@
 				035E96B709FCB83600DDCC7F /* Cocoa.framework in Frameworks */,
 				035E96B809FCB83600DDCC7F /* Carbon.framework in Frameworks */,
 				AD30F5030C6071D200A7E169 /* SystemConfiguration.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8D11072E0486CEB800E47090 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				038794F405698E1F000C8D5D /* Carbon.framework in Frameworks */,
-				AD30F5020C6071D200A7E169 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,8 +221,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* MkConsole.app */,
-				035E96C109FCB83600DDCC7F /* MkConsoleElement.app */,
+				035E96C109FCB83600DDCC7F /* MkConsole.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -338,8 +254,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				033E20AC055D93500062E680 /* Info.plist */,
-				039A9516056AEAF800C69A80 /* InfoElement.plist */,
+				039A9516056AEAF800C69A80 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				033E207C055D924C0062E680 /* FactoryDefaults.plist */,
 				033E2080055D92630062E680 /* mkconsole.tiff */,
@@ -388,34 +303,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8D1107270486CEB800E47090 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8D1107280486CEB800E47090 /* MkConsole_Prefix.pch in Headers */,
-				0308033F055D9207004DC663 /* AppController.h in Headers */,
-				033E207A055D92430062E680 /* EDApplication.h in Headers */,
-				033E2092055D92700062E680 /* MKConsoleWindow.h in Headers */,
-				033E2094055D92700062E680 /* MKConsoleWindowController.h in Headers */,
-				033E2096055D92700062E680 /* MKConsoleWindowDragBar.h in Headers */,
-				033E2098055D92700062E680 /* MKConsoleWindowResizeIcon.h in Headers */,
-				033E209A055D92700062E680 /* MKKDDTableView.h in Headers */,
-				033E209C055D92700062E680 /* MKLogfileReader.h in Headers */,
-				033E209E055D92700062E680 /* NSColor+Extensions.h in Headers */,
-				033E20A0055D92700062E680 /* PreferencesController.h in Headers */,
-				0393FA46056FB8460053EB79 /* WindowManager.h in Headers */,
-				AD30F4B50C606E6000A7E169 /* SCWatchdog.h in Headers */,
-				0389A09810B15158001470C2 /* NSScreen+Extensions.h in Headers */,
-				03937A01120AEC6B0060D2E0 /* MKConsoleTextView.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		035E969709FCB83600DDCC7F /* MkConsoleElement */ = {
+		035E969709FCB83600DDCC7F /* MkConsole */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 035E96BC09FCB83600DDCC7F /* Build configuration list for PBXNativeTarget "MkConsoleElement" */;
+			buildConfigurationList = 035E96BC09FCB83600DDCC7F /* Build configuration list for PBXNativeTarget "MkConsole" */;
 			buildPhases = (
 				035E969809FCB83600DDCC7F /* Headers */,
 				035E96A209FCB83600DDCC7F /* ShellScript */,
@@ -428,29 +321,10 @@
 			);
 			dependencies = (
 			);
-			name = MkConsoleElement;
+			name = MkConsole;
 			productInstallPath = /Products;
 			productName = MkConsoleElement;
-			productReference = 035E96C109FCB83600DDCC7F /* MkConsoleElement.app */;
-			productType = "com.apple.product-type.application";
-		};
-		8D1107260486CEB800E47090 /* MkConsole */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 03D9532809F82454000B9A35 /* Build configuration list for PBXNativeTarget "MkConsole" */;
-			buildPhases = (
-				8D1107270486CEB800E47090 /* Headers */,
-				8D1107290486CEB800E47090 /* Resources */,
-				8D11072C0486CEB800E47090 /* Sources */,
-				8D11072E0486CEB800E47090 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MkConsole;
-			productInstallPath = "$(HOME)/Applications";
-			productName = MkConsole;
-			productReference = 8D1107320486CEB800E47090 /* MkConsole.app */;
+			productReference = 035E96C109FCB83600DDCC7F /* MkConsole.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -471,9 +345,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ADBD4B690C5774B800740990 /* All */,
-				8D1107260486CEB800E47090 /* MkConsole */,
-				035E969709FCB83600DDCC7F /* MkConsoleElement */,
+				035E969709FCB83600DDCC7F /* MkConsole */,
 			);
 		};
 /* End PBXProject section */
@@ -491,21 +363,8 @@
 				035E96A909FCB83600DDCC7F /* InfoPlist.strings in Resources */,
 				035E96AA09FCB83600DDCC7F /* ElementMain.nib in Resources */,
 				0389A18610B15E9F001470C2 /* Preferences.nib in Resources */,
+				03D500FE1EC2599D000C31E5 /* Info.plist in Resources */,
 				0389A19E10B161BB001470C2 /* mkconsole_m.tiff in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8D1107290486CEB800E47090 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */,
-				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
-				033E207D055D924C0062E680 /* FactoryDefaults.plist in Resources */,
-				033E207F055D92590062E680 /* mkconsole.icns in Resources */,
-				033E2081055D92630062E680 /* mkconsole.tiff in Resources */,
-				033E20A6055D92900062E680 /* MKConsoleWindow.nib in Resources */,
-				033E20A7055D92900062E680 /* Preferences.nib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,42 +411,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8D11072C0486CEB800E47090 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				033E207B055D92430062E680 /* EDApplication.m in Sources */,
-				03080340055D9207004DC663 /* AppController.m in Sources */,
-				0393FA47056FB8460053EB79 /* WindowManager.m in Sources */,
-				033E20A1055D92700062E680 /* PreferencesController.m in Sources */,
-				033E2095055D92700062E680 /* MKConsoleWindowController.m in Sources */,
-				033E2093055D92700062E680 /* MKConsoleWindow.m in Sources */,
-				033E2097055D92700062E680 /* MKConsoleWindowDragBar.m in Sources */,
-				033E2099055D92700062E680 /* MKConsoleWindowResizeIcon.m in Sources */,
-				033E209B055D92700062E680 /* MKKDDTableView.m in Sources */,
-				033E209D055D92700062E680 /* MKLogfileReader.m in Sources */,
-				033E209F055D92700062E680 /* NSColor+Extensions.m in Sources */,
-				AD30F4B60C606E6000A7E169 /* SCWatchdog.m in Sources */,
-				0389A09910B15158001470C2 /* NSScreen+Extensions.m in Sources */,
-				03937A03120AEC6B0060D2E0 /* MKConsoleTextView.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		ADBD4B6D0C5774CB00740990 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8D1107260486CEB800E47090 /* MkConsole */;
-			targetProxy = ADBD4B6C0C5774CB00740990 /* PBXContainerItemProxy */;
-		};
-		ADBD4B6F0C5774CB00740990 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 035E969709FCB83600DDCC7F /* MkConsoleElement */;
-			targetProxy = ADBD4B6E0C5774CB00740990 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		033E20A2055D92900062E680 /* MKConsoleWindow.nib */ = {
@@ -636,8 +460,8 @@
 		035E96BD09FCB83600DDCC7F /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = InfoElement.plist;
-				PRODUCT_NAME = MkConsoleElement;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = MkConsole;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Development;
@@ -645,27 +469,9 @@
 		035E96BE09FCB83600DDCC7F /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = InfoElement.plist;
-				PRODUCT_NAME = MkConsoleElement;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = MkConsole;
 				WRAPPER_EXTENSION = app;
-			};
-			name = Deployment;
-		};
-		03D9532909F82454000B9A35 /* Development */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = Info.plist;
-				PRODUCT_NAME = MkConsole;
-				SDKROOT = macosx;
-			};
-			name = Development;
-		};
-		03D9532A09F82454000B9A35 /* Deployment */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = Info.plist;
-				PRODUCT_NAME = MkConsole;
-				SDKROOT = macosx;
 			};
 			name = Deployment;
 		};
@@ -689,36 +495,14 @@
 			};
 			name = Deployment;
 		};
-		ADBD4B7A0C57751600740990 /* Development */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Development;
-		};
-		ADBD4B7B0C57751600740990 /* Deployment */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-			};
-			name = Deployment;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		035E96BC09FCB83600DDCC7F /* Build configuration list for PBXNativeTarget "MkConsoleElement" */ = {
+		035E96BC09FCB83600DDCC7F /* Build configuration list for PBXNativeTarget "MkConsole" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				035E96BE09FCB83600DDCC7F /* Deployment */,
 				035E96BD09FCB83600DDCC7F /* Development */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Deployment;
-		};
-		03D9532809F82454000B9A35 /* Build configuration list for PBXNativeTarget "MkConsole" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				03D9532A09F82454000B9A35 /* Deployment */,
-				03D9532909F82454000B9A35 /* Development */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Deployment;
@@ -728,15 +512,6 @@
 			buildConfigurations = (
 				03D9533209F82454000B9A35 /* Deployment */,
 				03D9533109F82454000B9A35 /* Development */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Deployment;
-		};
-		ADBD4B790C57751600740990 /* Build configuration list for PBXAggregateTarget "All" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ADBD4B7B0C57751600740990 /* Deployment */,
-				ADBD4B7A0C57751600740990 /* Development */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Deployment;
