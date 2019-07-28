@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 44;
+	objectVersion = 45;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,7 +33,6 @@
 		035E96B509FCB83600DDCC7F /* WindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0393FA43056FB8460053EB79 /* WindowManager.m */; };
 		035E96B709FCB83600DDCC7F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		035E96B809FCB83600DDCC7F /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038794F305698E1F000C8D5D /* Carbon.framework */; };
-		035E96BB09FCB83600DDCC7F /* ReadMe.html in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0396FC9E056EB6BB00CA3307 /* ReadMe.html */; };
 		0389A09A10B15158001470C2 /* NSScreen+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0389A09610B15158001470C2 /* NSScreen+Extensions.h */; };
 		0389A09B10B15158001470C2 /* NSScreen+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0389A09710B15158001470C2 /* NSScreen+Extensions.m */; };
 		0389A0EF10B156F5001470C2 /* StatusItemMenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0389A0ED10B156F5001470C2 /* StatusItemMenuController.h */; };
@@ -63,7 +62,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				035E96BB09FCB83600DDCC7F /* ReadMe.html in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,8 +107,8 @@
 		0393F9CE056FADEA0053EB79 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/ElementMain.nib; sourceTree = "<group>"; };
 		0393FA42056FB8460053EB79 /* WindowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowManager.h; sourceTree = "<group>"; };
 		0393FA43056FB8460053EB79 /* WindowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowManager.m; sourceTree = "<group>"; };
-		0396FC9E056EB6BB00CA3307 /* ReadMe.html */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; path = ReadMe.html; sourceTree = "<group>"; };
 		039A9516056AEAF800C69A80 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03C69AE022EE00F6000E4F10 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -191,14 +189,6 @@
 			name = Other;
 			sourceTree = "<group>";
 		};
-		0396FC9B056EB19C00CA3307 /* Miscellanous Products */ = {
-			isa = PBXGroup;
-			children = (
-				0396FC9E056EB6BB00CA3307 /* ReadMe.html */,
-			);
-			name = "Miscellanous Products";
-			sourceTree = "<group>";
-		};
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,9 +225,9 @@
 				033E20C9055D94520062E680 /* Other */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
-				0396FC9B056EB19C00CA3307 /* Miscellanous Products */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				03C69AE022EE00F6000E4F10 /* README.md */,
 			);
 			name = MkConsole;
 			sourceTree = "<group>";
@@ -333,6 +323,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 1010;
 			};
 			buildConfigurationList = 03D9533009F82454000B9A35 /* Build configuration list for PBXProject "MkConsole" */;
 			compatibilityVersion = "Xcode 3.0";
@@ -461,6 +452,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mulle-kybernetik.MkConsole";
 				PRODUCT_NAME = MkConsole;
 				WRAPPER_EXTENSION = app;
 			};
@@ -469,7 +461,10 @@
 		035E96BE09FCB83600DDCC7F /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 28U2VZ7DF8;
 				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mulle-kybernetik.MkConsole";
 				PRODUCT_NAME = MkConsole;
 				WRAPPER_EXTENSION = app;
 			};
@@ -479,10 +474,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				INSTALL_PATH = /Products;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Development;
 		};
