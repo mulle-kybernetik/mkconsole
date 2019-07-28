@@ -66,7 +66,7 @@ static BOOL noAlertOnOpenFailure = NO;
     
     [NSBundle loadNibNamed:@"MKConsoleWindow" owner:self];
     NSAssert(window != nil, @"Problem with MKConsoleWindow.nib");
-    
+
     [window setBackgroundColor:[NSColor colorWithCalibratedStringRep:[settings objectForKey:@"BackgroundColor"]]];
     if([[settings objectForKey:@"Float"] isEqualToString:@"Yes"])
         [window setLevel:CGWindowLevelForKey(kCGDesktopIconWindowLevelKey) + 1];
@@ -100,6 +100,7 @@ static BOOL noAlertOnOpenFailure = NO;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [filenames release];
     [textAttributes release];
+    [window close];
     [window release];
     [super dealloc];
 }
