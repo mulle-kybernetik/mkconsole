@@ -38,6 +38,7 @@ extern CGSConnection _CGSDefaultConnection(void);
 extern OSStatus CGSGetWindowTags(const CGSConnection cid, const CGSWindow wid,  int *tags, int thirtyTwo);
 extern OSStatus CGSSetWindowTags(const CGSConnection cid, const CGSWindow wid,int *tags, int thirtyTwo);
 extern OSStatus CGSClearWindowTags(const CGSConnection cid, const CGSWindow wid, int *tags, int thirtyTwo);
+extern OSStatus ChangeWindowAttributes(WindowRef window, WindowAttributes setTheseAttributes, WindowAttributes clearTheseAttributes);
 
 #endif
 
@@ -45,7 +46,7 @@ extern OSStatus CGSClearWindowTags(const CGSConnection cid, const CGSWindow wid,
     @implementation MKConsoleWindow
 //---------------------------------------------------------------------------------------
 
-- (id)initWithContentRect:(NSRect)contentRect styleMask:(unsigned int)styleMask backing:(NSBackingStoreType)backingType defer:(BOOL)flag
+- (id)initWithContentRect:(NSRect)contentRect styleMask:(NSWindowStyleMask)styleMask backing:(NSBackingStoreType)backingType defer:(BOOL)flag
 {
     self = [super initWithContentRect:contentRect styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO];
     NSAssert1(self != nil, @"%s Failed to create window instance", __PRETTY_FUNCTION__);

@@ -88,7 +88,7 @@ Setting of the factory defaults uses the #registerFactoryDefaults method and hap
     resourcePath = [[NSBundle mainBundle] pathForResource:@"FactoryDefaults" ofType:@"plist"];
     NSAssert(resourcePath != nil, @"missing resource; cannot find FactoryDefaults");
     NS_DURING
-        factorySettings = [[NSString stringWithContentsOfFile:resourcePath] propertyList];
+        factorySettings = [[NSString stringWithContentsOfFile:resourcePath encoding:NSUTF8StringEncoding error:NULL] propertyList];
     NS_HANDLER
         NSLog(@"error reading factory settings from %@:\n%@", resourcePath, localException);
         factorySettings = nil;

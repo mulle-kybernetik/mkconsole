@@ -105,7 +105,7 @@ static PreferencesController *sharedInstance = nil;
 
 - (WindowManager *)_getWindowManager
 {
-    return [[[NSApplication sharedApplication] delegate] windowManager];
+    return [(AppController *)[[NSApplication sharedApplication] delegate] windowManager];
 }
 
 
