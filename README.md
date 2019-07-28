@@ -1,5 +1,13 @@
 # MkConsole
 
+### Changes in version 1.14
+
+This version of MkConsole requires Mac OS X 10.6 (Snow Leopard) or above.
+
+* MkConsole is now built as a 64-bit application.
+* Bug fixes
+
+
 ### Changes in version 1.13
 
 This version of MkConsole requires Mac OS X 10.6 (Snow Leopard) or above.
