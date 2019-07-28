@@ -16,7 +16,7 @@
 	<string>APPL</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-	<key>CFBundleVersion</key>
+	<key>CFBundleShortVersionString</key>
 	<string>1.14</string>
 	<key>LSUIElement</key>
 	<string>1</string>
