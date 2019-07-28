@@ -58,6 +58,7 @@
 
 - (void)openPreferences:(id)sender
 {
+    [NSApp activateIgnoringOtherApps:YES];
     [[PreferencesController sharedInstance] showWindow:sender];
 }
 
