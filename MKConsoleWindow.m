@@ -46,9 +46,17 @@ extern OSStatus ChangeWindowAttributes(WindowRef window, WindowAttributes setThe
     @implementation MKConsoleWindow
 //---------------------------------------------------------------------------------------
 
+// NOTE: can't use version macro(s) `MAC_OS_VERSION_12_0`/`__MAC_10_12` when
+// compiling on older platforms as it's undefined there - using its value
+// instead!
+#if (MAC_OS_X_VERSION_MAX_ALLOWED < 101200)
+#define NSWindowStyleMaskBorderless NSBorderlessWindowMask
+#define NSWindowStyleMask NSUInteger
+#endif
+
 - (id)initWithContentRect:(NSRect)contentRect styleMask:(NSWindowStyleMask)styleMask backing:(NSBackingStoreType)backingType defer:(BOOL)flag
 {
-    self = [super initWithContentRect:contentRect styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO];
+    self = [super initWithContentRect:contentRect styleMask:NSWindowStyleMaskBorderless backing:NSBackingStoreBuffered defer:NO];
     NSAssert1(self != nil, @"%s Failed to create window instance", __PRETTY_FUNCTION__);
     return self;
 }
